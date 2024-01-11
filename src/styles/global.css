@@ -28,12 +28,11 @@ html {
   
   .hamburger .line {
     display: block;
-    width: 40px;
-    height: 5px;
-    margin-bottom: 10px;
-    background-color: #ff9776;
+    width: 30px;
+    height: 2px;
+    margin-bottom: 3px;
+    background-color: #ED1C24;
   }
-
   .nav-links {
     width: 100%;
     top: 5rem;
