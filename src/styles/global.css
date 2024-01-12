@@ -10,15 +10,16 @@
 html {
     font-family: Roboto;
     font-size: 16px;
+    letter-spacing: 0.05em;
   }
   
   body {
     margin: 0 auto;
     width: 100%;
+    margin: 0 auto;
+    line-height: 1.5;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
-    line-height: 1.5;
   }
   
   * {
@@ -30,7 +31,14 @@ html {
     font-size: 2.5rem;
     color: var(--b);
   }
-  p, h2 {
+  h6 {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: var(--w);
+    font-weight:500;
+  }
+  p {
+    padding-bottom: 10px;
     color: var(--b);
   }
   .content-wrapper {
@@ -129,6 +137,32 @@ html {
     height: 20px; 
     padding-bottom: 5px;
   }
+.v-copy {
+  display:inline;
+  font-size:0.8rem;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  vertical-align: baseline;
+  writing-mode: vertical-lr;
+  letter-spacing: 0.1em;
+}
+.container {
+  grid-template-columns: 50px repeat(4, 1fr) 50px;
+}
+footer p {
+  font-size: 1em;
+  color: var( --w)
+}
+.prefooterwrapper{
+  height:1200px;
+  padding-top: 120px;
+  padding-left: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+footer {
+
+}
 /* Fonts */
 @font-face {
   font-family: 'Roboto';

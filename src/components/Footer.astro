@@ -1,17 +1,44 @@
-
 ---
-import Social from './Social.astro';
+import PreFooter from "./PreFooter.astro";
+const currentYear = new Date().getFullYear();
 ---
-<style>
-    footer {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
-<footer>
-    <Social platform="twitter" username="quadtechnology" />
-    <Social platform="facebook" username="quadwebdesign" />
-    <Social platform="linkedin" username="shakeelquadri" />
+<PreFooter></PreFooter>
+<footer class="w-full bg-gradient-to-b from-zinc-400 to-zinc-900">
+  <div class="container mx-auto px-4 py-10 flex items-center">
+    <img class="mx-auto w-20" src="ashford-tarmac-symbol-red.svg" alt="Ashford Tarmac Symbol"/>
+  </div>
+  <div class="container px-0 grid grid-cols-6 gap-0">
+    <div class=""></div>
+    <div class="text-xs">
+      <h6>More Links</h6>
+      <p>About Us</p>
+      <p>Case Studies</p>
+      <p>Gallery</p>
+      <p>Reviews</p>
+      <p>Blog</p>
+      <p>Contact</p>
+    </div>
+    <div class="text-xs">
+      <h6>Tarmac Articles</h6>
+      <p>Driveway Costs</p>
+      <p>Gates for driveways</p>
+      <p>Maintaining your driveway</p>
+    </div>
+    <div class="text-xs">
+      <h6>Contact Details</h6>
+      <p>Mon-Fri 8am to 5pm</p>
+      <p>Phone: 01233 733735<br />Fax: 01233 732319</p>
+      <p>Ashford Tarmacadam <br />Contractors Ltd<br />Goodwin Capel Road<br />Ruckinge Near Ashford<br />Kent TN26 2EJ</p>
+    </div>
+    <div class="py-4">
+      <img class="mx-auto" src="button-red.svg" alt="Get a tarmac quote today"/>
+    </div>
+    <div class="">
+      <p class="v-copy text-black">Back to top <span>---></span></p>
+    </div>
+  </div>
+  <div class="w-full flex items-center justify-between py-4 border-t border-red-500 px-10 mt-40 mb-4">
+    <span class="text-xs text-white">Copyright © {currentYear}</span>
+    <a href="https://quadweb.uk" class="text-xs text-white hover:text-red-500">Website by QUAD WEB</a>
+  </div>
 </footer>
-

@@ -1,0 +1,48 @@
+    <div class="py-10 prefooterwrapper bg-white bg-[url('prefooterbackground.svg')] bg-no-repeat bg-bottom">
+        <div class="box1 text-black">
+            <div class="title1">Customer satisfaction is out highest priority</div>
+            <div class="title2 text-black">Get In touch today and speak with our experts.</div>
+            <div class="info info1"><span>100%</span> <span class="text-sm">Client Satisfaction</span></div>
+            <div class="info info2"><span>30<sup>Years</sup></span> <span class="text-sm">Experienced Team</span></div>
+            <div class="info info3"><span>45<sup>Years</sup></span> <span class="text-sm">Family run business</span></div>
+        </div>
+</div>
+<style>
+    html, body, div, p, h1, h2, h3 {font-family: Roboto;}
+    body {font-size: 12pt}
+    h1 {font-size: 40pt}
+    h2 {font-size: 14pt}
+    .box1 {
+      width:50%;
+      height:30em;
+      max-width:33em;
+      display: grid;
+      grid-template-rows: min-content min-content auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "a a a"
+                           "b b b"
+                           "c d e"
+    }
+    .box1 > .title1 {grid-area: a; color: var(--r); text-transform: uppercase; font-size:10pt; font-weight:bold;}
+    .box1 > .title2 {grid-area: b; margin-bottom: 0.5em; font-size:48pt; font-weight: 3400; line-height:1em; }
+    .box1 > .info1 {grid-area: c; border-right:thin solid var(--r);}
+    .box1 > .info2 {grid-area: d; border-right:thin solid var(--r);}
+    .box1 > .info3 {grid-area: e}
+    .box1 > .info {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .box1 > .info > span:first-child {display:block; font-size: 3em; font-weight:bold;}
+    .box1 > .info > span:first-child > sup {
+      display:inline;
+      font-size:0.225em;
+      text-transform: uppercase;
+      transform: rotate(180deg);
+      vertical-align: baseline;
+      writing-mode: vertical-lr;
+    }
+  </style>
