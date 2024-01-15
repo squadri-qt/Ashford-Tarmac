@@ -1,142 +1,28 @@
-/* Global colour set */
-:root {
-  --r: #ED1C24; /* Red */
-  --b: black; /* Black */
-  --w: white; /* White */
-  --lg: #8E8E8E; /* Light Grey */
-  --dg: #2B2B2B; /* Dark Grey */
-}
-
-html {
-    font-family: Roboto;
-    font-size: 16px;
-    letter-spacing: 0.05em;
-  }
-  
+  /* more global */
   body {
     margin: 0 auto;
     width: 100%;
-    margin: 0 auto;
-    line-height: 1.5;
     max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-    color: var(--b);
-  }
-  h6 {
-    margin: 1rem 0;
-    font-size: 1.2rem;
-    color: var(--w);
-    font-weight:500;
-  }
-  p {
-    padding-bottom: 10px;
-    color: var(--b);
-  }
-  .content-wrapper {
-    background-color: var( --w);
-  }
-  /* nav styles */
-  nav {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent elements from wrapping to multiple lines */
-    justify-content: space-between; /* Evenly distribute elements with spacing */
-    /* Optional: align-items: center; /* Vertically center elements within the row */
-    align-items: flex-end; /* Align items to the bottom */
-  }
-  .hamburger {
-    padding-right: 20px;
-    cursor: pointer;
-  }
-  
-  .hamburger .line {
-    display: block;
-    width: 30px;
-    height: 2px;
-    margin-bottom: 3px;
-    background-color: var(--r);
-  }
-  
-  .nav-links a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: text-decoration 0.2s ease-in-out;
-    border-bottom: 1px solid  var(--b); /* Add red underline */
-  }
-  
-  .nav-links a:hover,
-  .nav-links a:focus {
-    text-decoration: none; /* Remove default underline */
-    line-height: 1.5; /* Increase line-height to create space */
-    border-bottom: 1px solid  var(--r); /* Add red underline */
-  }
-  
-  .nav-links a:active {
-    color: var(--r); /* Set text color to red */
-    font-weight: bold; /* Make text bold */
-    text-decoration: none; /* Remove default underline */
-    border-bottom: 1px solid var(--r); /* Add red underline */
-  }
-  
-  .expanded {
-    display: unset;
-  }
-  
-  @media screen and (min-width: 636px) {
-    .nav-links {
-      margin-left: 5em;
-      display: block;
-      position: static;
-      width: auto;
-      background: none;
-    }
-  
-    .nav-links a {
-      display: inline-block;
-      padding: 0px 20px;
-    }
-  
-    .hamburger {
-        display: none;
-      }
-  }
-  html.dark {
     background-color: var(--b);
-    color: var(--w);
   }
-  
-  .dark .nav-links a {
-    color: var(--w);
+  /* Colour set */
+  :root {
+    --r: #ED1C24; /* Red */
+    --b: black; /* Black */
+    --w: white; /* White */
+    --lg: #8E8E8E; /* Light Grey */
+    --dg: #2B2B2B; /* Dark Grey */
   }
-  .dark .nav-links a:active {
-    color: var(--r); /* Set text color to red */
-    font-weight: bold; /* Make text bold */
-    text-decoration: none; /* Remove default underline */
-    border-bottom: 1px solid var(--r); /* Add red underline */
-  }
+    /* AT styles */
 
-    /* AT nav styles */
-.logo {
-    width: 250px;
-    height: 59px;
-  }
-  .burger {
-    width: 30px;
-    height: 20px; 
-    padding-bottom: 5px;
-  }
+.content-wrapper {
+  background-color: var( --w);
+}
+
+.container {
+  grid-template-columns: 50px repeat(4, 1fr) 50px;
+}
+
 .v-copy {
   display:inline;
   font-size:0.8rem;
@@ -146,23 +32,30 @@ html {
   writing-mode: vertical-lr;
   letter-spacing: 0.1em;
 }
-.container {
-  grid-template-columns: 50px repeat(4, 1fr) 50px;
+
+.prefooterwrapper{
+    height:1200px;
+    padding-top: 120px;
+    padding-left: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+footer h6 {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: var(--w);
+  font-weight:500;
 }
+
 footer p {
+  padding-bottom: 10px;
+  color: var(--b);
   font-size: 1em;
   color: var( --w)
 }
-.prefooterwrapper{
-  height:1200px;
-  padding-top: 120px;
-  padding-left: 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-footer {
 
-}
+
 /* Fonts */
 @font-face {
   font-family: 'Roboto';
@@ -212,3 +105,77 @@ footer {
 }
 
 /* ... style your elements with the appropriate font variants ... */
+
+  /* nav styles */
+  nav {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent elements from wrapping to multiple lines */
+    justify-content: space-between; /* Evenly distribute elements with spacing */
+    /* Optional: align-items: center; /* Vertically center elements within the row */
+    align-items: flex-end; /* Align items to the bottom */
+  }
+  .hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin-bottom: 3px;
+    background-color:var(--r);
+  }
+  .nav-links {
+    width: 100%;
+    background-color: var(--lg);
+    display: none;
+    line-height: 0.1; /* Increase line-height to create space */
+  }
+  .nav-links a {
+    display: block;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: text-decoration 0.2s ease-in-out;
+    border-bottom: 1px solid  var(--b); /* Add red underline */
+    color:var(--w);
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    text-decoration: none; /* Remove default underline */
+    line-height: 0; /* Increase line-height to create space */
+    border-bottom: 1px solid  var(--r); /* Add red underline */
+  }
+  
+  .nav-links a:active {
+    color: var(--r); /* Set text color to red */
+    font-weight: bold; /* Make text bold */
+    text-decoration: none; /* Remove default underline */
+    border-bottom: 1px solid var(--r); /* Add red underline */
+  }
+  
+  .expanded {
+    display: unset;
+  }
+  
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      margin-left: 5em;
+      display: block;
+      position: static;
+      width: auto;
+      background: none;
+    }
+  
+    .nav-links a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  
+    .hamburger {
+      display: none;
+    }
+  }
