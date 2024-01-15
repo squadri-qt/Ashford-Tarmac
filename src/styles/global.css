@@ -4,6 +4,7 @@
     width: 100%;
     max-width: 1200px;
     background-color: var(--b);
+    font-family: 'Roboto', sans-serif;
   }
   /* Colour set */
   :root {
@@ -14,6 +15,79 @@
     --dg: #2B2B2B; /* Dark Grey */
   }
     /* AT styles */
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  line-height: 1.2rem;
+}
+h1, v2 {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.02rem;
+}
+.v2 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  color: var(--r);
+  text-transform: uppercase; 
+}
+h2 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase; 
+}
+h3 {
+  font-size: 2rem;
+  font-weight: bolder;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase; 
+}
+h4 {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 4.5rem;
+}
+h5 {
+  font-size: 7.5rem;
+  font-weight: bolder;
+  letter-spacing: -0.1rem;
+  text-transform: uppercase; 
+  color: var(--dg);
+}
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+.thin-text {
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+}
+.next-page {
+  display:inline;
+  font-size:0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transform: rotate(90deg);
+  vertical-align: baseline;
+  letter-spacing: 0.2rem;
+  color: var(--r);
+  transform-origin: left center; /* or 50% 50% */
+  line-height: 1.2; /* Adjust as needed */
+}
+.p_btn .s_btn {
+
+}
+.tile {
+
+}
+.tile2 {
+
+}
 
 .content-wrapper {
   background-color: var( --w);
