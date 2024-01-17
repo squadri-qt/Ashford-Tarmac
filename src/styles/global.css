@@ -110,6 +110,15 @@ vertical-align: baseline;
 writing-mode: vertical-lr;
 letter-spacing: 0.1em;
 }
+.v-copy2 {
+  display: inline;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  writing-mode: vertical-lr; /* Update the writing-mode property */
+  letter-spacing: 0.1em;
+  color: var(--r);
+}
+
 .v-copy-sup{
 display:inline;
 font-size:0.9rem;
