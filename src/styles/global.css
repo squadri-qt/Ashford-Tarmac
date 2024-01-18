@@ -10,6 +10,9 @@ max-width: 1200px;
 background-color: var(--b);
 font-family: 'Roboto', sans-serif;
 }
+* {
+  box-sizing: border-box;
+}
 /* Colour set */
 :root {
 --r: #ED1C24; /* Red */
@@ -21,14 +24,16 @@ font-family: 'Roboto', sans-serif;
   /* AT styles */
 p {
 font-size: 1rem;
-font-weight: 400;
+font-weight: 500;
 letter-spacing: 0.05rem;
-line-height: 1.2rem;
+line-height: 1.5rem;
+color: var(--dg);
 }
 h1, v2 {
 font-size: 2rem;
 font-weight: bold;
 letter-spacing: 0.02rem;
+color: var(--dg);
 }
 .v2 {
 font-size: 0.875rem;
@@ -42,17 +47,20 @@ font-size: 0.875rem;
 font-weight: bold;
 letter-spacing: 0.05rem;
 text-transform: uppercase; 
+color: var(--dg);
 }
 h3 {
 font-size: 2rem;
 font-weight: bolder;
 letter-spacing: -0.05rem;
 text-transform: uppercase; 
+color: var(--dg);
 }
 h4 {
-font-size: 4.5rem;
+font-size: 4rem;
 font-weight: 300;
 line-height: 4.5rem;
+color: var(--dg);
 }
 h5 {
 font-size: 7.5rem;
@@ -70,6 +78,7 @@ letter-spacing: 0.05rem;
 font-size: 2rem;
 font-weight: 100;
 letter-spacing: 0.1rem;
+color: var(--dg);
 }
 .next-page {
 display:inline;
@@ -118,6 +127,23 @@ letter-spacing: 0.1em;
   letter-spacing: 0.1em;
   color: var(--r);
 }
+.v-copy3 {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--w);
+  transform: rotate(90deg);
+}
+.v-copy4 {
+  display: inline;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  writing-mode: vertical-lr; /* Update the writing-mode property */
+  letter-spacing: 0.2em;
+  color: var(--w);
+}
 
 .v-copy-sup{
 display:inline;
@@ -143,6 +169,30 @@ padding-bottom: 10px;
 color: var(--b);
 font-size: 1em;
 color: var( --w)
+}
+
+/* styles.css or within your <style> tag */
+
+/* styles.css or within your <style> tag */
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-20px) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(-20px) rotate(-10deg);
+  }
+}
+
+.my-element {
+  transition: transform 0.5s ease; /* Add a transition for a smoother effect */
+}
+
+.my-element:hover {
+  animation: moveLeft 1s infinite;
 }
 
 /* Fonts */

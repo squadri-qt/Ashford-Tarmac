@@ -1,9 +1,11 @@
 ---
 import PreFooter from "./PreFooter.astro";
+import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 const currentYear = new Date().getFullYear();
+
 ---
 <PreFooter></PreFooter>
-<footer class="w-full bg-gradient-to-b from-neutral-400 to-neutral-800">
+<footer class="w-full bg-gradient-to-b from-gray to-gray-dark">
   <div class="container mx-auto px-4 py-10 flex items-center">
     <img class="mx-auto w-20" src="ashford-tarmac-symbol-red.svg" alt="Ashford Tarmac Symbol"/>
   </div>
@@ -31,14 +33,14 @@ const currentYear = new Date().getFullYear();
       <p>Ashford Tarmacadam <br />Contractors Ltd<br />Goodwin Capel Road<br />Ruckinge Near Ashford<br />Kent TN26 2EJ</p>
     </div>
     <div class="py-4">
-      <img class="mx-auto" src="button-red.svg" alt="Get a tarmac quote today"/>
+      <GetEstimateBtn />
     </div>
     <div class="">
       <p class="v-copy text-black">Back to top <span>---></span></p>
     </div>
   </div>
-  <div class="w-full flex items-center justify-between py-4 border-t border-red-500 px-10 mt-40 mb-4">
+  <div class="w-full flex items-center justify-between py-4 border-t border-red px-10 mt-40 mb-4">
     <span class="text-xs text-white">Copyright © {currentYear}</span>
-    <a href="https://quadweb.uk" class="text-xs text-white hover:text-red-500">Website by QUAD WEB</a>
+    <a href="https://quadweb.uk" class="text-xs text-white hover:text-red">Website by QUAD WEB</a>
   </div>
 </footer>
