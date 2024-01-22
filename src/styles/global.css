@@ -43,23 +43,6 @@ color: var(--r);
 transform-origin: left center; /* or 50% 50% */
 line-height: 1.2; /* Adjust as needed */
 }
-.p_btn .s_btn {
-
-}
-.tile {
-
-}
-.tile2 {
-
-}
-/* containers */
-.section {
-height:100vh;
-padding: 3.125rem;
-}
-.container {
-grid-template-columns: 50px repeat(4, 1fr) 50px;
-}
 
 .v-copy {
 display:inline;
@@ -107,22 +90,6 @@ letter-spacing: 0.06rem;
 transform-origin: 155% 85%; /* or 50% 50% */
 line-height: 1.2; /* Adjust as needed */
 }
-
-footer h6 {
-margin: 1rem 0;
-font-size: 1.2rem;
-color: var(--w);
-font-weight:500;
-}
-
-footer p {
-padding-bottom: 10px;
-color: var(--b);
-font-size: 1em;
-color: var( --w)
-}
-
-/* styles.css or within your <style> tag */
 
 /* styles.css or within your <style> tag */
 

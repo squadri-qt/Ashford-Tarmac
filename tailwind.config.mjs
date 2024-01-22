@@ -14,12 +14,12 @@ export default {
           fontWeight: '500',
         }],
         base: ['1rem', {
-          lineHeight: '1.4rem',
+          lineHeight: '1.5rem',
           letterSpacing: '0.05rem',
           fontWeight: '400',
         }],
-        lg: ['1rem', {
-          lineHeight: '1.5rem',
+        lg: ['0.9rem', {
+          lineHeight: '1.8rem',
           letterSpacing: '0.05rem',
           fontWeight: '600',
         }],
