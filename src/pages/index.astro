@@ -8,23 +8,23 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="flex bg-[url('/ashford-tarmac-car-park-hero.webp')] bg-top">
-    <div class="flex items-center justify-center w-40 border-r border-gray-dark border-solid">
+    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid">
         <div class="flex flex-col items-start justify-center items-center"></div>
     </div>
-    <div class="lg:flex-grow lg:flex lg:items-center lg:justify-center py-24">
-        <div class="w-3/5">
-            <h1 class="lg:text-lg uppercase text-red">Creating safer playgrounds & efficient car parks</h1>
-            <h1 class="lg:text-3xl text-white">Enhance public spaces with quality surfacing</h1>
-            <p class="lg:base text-white my-8 pr-24">We understand that public spaces are the heart of our communities, and we're here to help you make them even better. At Ashford Tarmac, we specialise in surfacing solutions that go beyond the ordinary. Whether it's crafting safe and vibrant playgrounds or creating efficient car parks, we bring your vision to life with top-quality workmanship.</p>
+    <div class="flex-1 lg:flex lg:items-center lg:justify-center lg:py-24 py-12">
+        <div class="lg:w-3/5 w-full">
+            <h1 class="md:text-lg text-smh uppercase text-red">Creating safer playgrounds & efficient car parks</h1>
+            <h1 class="md:text-3xl text-2xl font-black text-white">Enhance public spaces with quality surfacing</h1>
+            <p class="lg:text-base text-white my-8 lg:pr-24">We understand that public spaces are the heart of our communities, and we're here to help you make them even better. At Ashford Tarmac, we specialise in surfacing solutions that go beyond the ordinary. Whether it's crafting safe and vibrant playgrounds or creating efficient car parks, we bring your vision to life with top-quality workmanship.</p>
             <GetEstimateBtn />
         </div>
-        <div class="w-2/5 flex justify-end">
-            <div class="bg-[url('/commercial-tarmac-services-1.webp')] bg-top py-24 bg-no-repeat">
-                <p class="text-white uppercase text-xl font-medium px-2">commercial services</p>
+        <div class="lg:w-2/5 lg:flex lg:justify-end h-48 md:mt-12 flex pt-12">
+            <div class="bg-[url('/commercial-tarmac-services-1.webp')] bg-top h-full bg-no-repeat md:bg-left flex flex-col justify-end">
+                <p class="text-white uppercase md:text-xl font-medium px-4 pb-2 md:pb-4">commercial services</p>
             </div>
         </div>
     </div>
-    <div class="flex items-center justify-center w-40 border-l border-gray-dark border-solid">
+    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid">
         <div class="flex flex-col items-start justify-center items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -35,8 +35,8 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 <Clients />
 <!-- Red section (about) -->
 <div class="flex bg-red">
-    <div class="border-r border-red-dark border-solid w-36"></div>
-    <div class="flex-grow flex-col items-center justify-center bg-red">
+    <div class="border-r border-red-dark border-solid w-12"></div>
+    <div class="flex-1 flex-col items-center justify-center bg-red">
         <div class="flex flex-col items-start justify-center items-center pb-4">
             <p class="v-copy3">about us</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mt-8">
@@ -59,18 +59,18 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
         <div class="text-7xl text-left"><p class="font-black text-9xl uppercase text-gray-dark text-opacity-40">driveways | car </p></div>
         <div class="bg-white w-3/5 py-12 flex"><p>&nbsp;</p></div>
     </div>
-    <div class="border-l border-red-dark border-solid w-36"></div>
+    <div class="border-l border-red-dark border-solid w-12"></div>
 </div>
 <!-- services section --> 
 <!-- left margin -->
 <div class="flex bg-white h-full">
-    <div class="bg-white flex items-center justify-center border-r border-gray-light border-solid w-28">
+    <div class="bg-white flex items-center justify-center border-r border-gray-light border-solid w-12">
         <div class="flex flex-col items-start justify-center items-center">
             <p class="v-copy text-gray pb-2">New Driveways | Resurfacing Tarmac | Tarmac Repairs | Resin Bound & Bond</p>
         </div>
     </div>
     <!-- main content -->
-    <div class="flex-grow flex-col items-center justify-center h-14">
+    <div class="flex-1 flex-col items-center justify-center h-14">
         <div class="flex flex-col items-start justify-center items-center">
             <p class="v-copy2 pb-2">services</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
@@ -124,7 +124,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
         </div>
     </div>
     <!-- right margin -->
-    <div class="bg-white flex-col border-l border-gray-light border-solid w-28 pt-24">
+    <div class="bg-white flex-col border-l border-gray-light border-solid w-12 pt-24">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>       
@@ -132,10 +132,10 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 </div>
 <!-- blog archive --> 
 <div class="flex bg-gray-dark">
-    <div class="bg-gray-dark flex items-center justify-center w-52 border-r border-gray-border border-solid">
+    <div class="bg-gray-dark flex items-center justify-center w-12 border-r border-gray-border border-solid">
         <div class="flex flex-col items-start justify-center items-center"><p class="v-copy4">our blog</p></div>
     </div>
-    <div class="flex-grow flex items-center justify-center py-20">
+    <div class="flex-1 flex items-center justify-center py-20">
     <!-- Main blog cards -->
     <div class="flex"><!-- card wrapper -->
         <div class="relative w-1/4 ml-10 my-element">
@@ -211,6 +211,6 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
       </div>
     </div>
     <!-- empty right gutter -->
-    <div class="bg-gray-dark flex items-center justify-center w-52 border-l border-gray-border border-solid"></div>
+    <div class="bg-gray-dark flex items-center justify-center w-12 border-l border-gray-border border-solid"></div>
 </div>  
 </BaseLayout>

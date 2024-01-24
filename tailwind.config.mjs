@@ -8,6 +8,11 @@ export default {
           letterSpacing: '0.05rem',
           fontWeight: '500',
         }],
+        smh: ['0.7rem', {
+          lineHeight: '1.2rem',
+          letterSpacing: '0.05rem',
+          fontWeight: '500',
+        }],
         sm: ['0.8rem', {
           lineHeight: '1.2rem',
           letterSpacing: '0.05rem',
@@ -93,6 +98,7 @@ export default {
           '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
           '4xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)',
         },
+
       },
     },
     plugins: [
