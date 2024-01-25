@@ -1,56 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "About Me";
-const identity = {
-firstName: "Shakeel",
-country: "UK",
-occupation: "Web Designer/Developer",
-hobbies: ["F1", "Technology", "Cars" ],
-};
-
-const skills = ["html", "css", "Javascript", "Svelte", "Astro", "UI/UX Design"];
-const aSkill = ["Brand style", "Brand messaging", "User Experience Design", "User Interface Design", "On page optimisation","Off page optimisation","Technical optimisation", "Google ads account management"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
+import Clients from '../components/Clients.astro';
+import GetEstimateBtn from '../components/GetEstimateBtn.astro';
+const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
-<BaseLayout pageTitle={pageTitle}>
-	<style define:vars={{skillColor, fontWeight, textCase}}>
-		.skill {
-			color: var(--skillColor);
-			font-weight: var(--fontWeight);
-			text-transform: var(--textCase);
-		}
-	</style>
-	<h2>This is a test blog</h2>
-	<img src="https://img.endole.co.uk/?t=a39b2d451e99ad8cad7415580e4750c4&l=6879500a6f474b3ef9823f2806dec0b3" title="thats me">
-	<p>More info:
-	   <a href="https://www.linkedin.com/in/shakeelquadri" target="_blank">Linkedin Profile</a> 
-	</p>
-	<p>Here are some more facts about me:</p>
-	<ul>
-		<li>My name is {identity.firstName}.</li>
-		<li>They live in {identity.country} and they work as a {identity.occupation}.</li>
-		{identity.hobbies.length >= 2 &&
-		 <li>Two of my hobbies are : {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-		}
-	</ul>
-	<p>My skills are:</p>
-	<ul>
-		{skills.map((skill) => <li class="skill">{skill}</li>)}
-	</ul>
-	{happy && <p>I am happy to be learning Astro!</p>}
-	{finished && <p>I have finished this tutorial!</p>}
-	{goal === 3 ? <p>My goal is to finish in 3 days</p> : <p>My goal is not 3 days</p>}
 
-	<h2>Additional Skills</h2>
-	Building websites isnt my only skill set, in fact that's my newest skillset. For the past 17 years I have been doing the following:
-	<ul>
-		{aSkill.map((aSkill) => <li class="aSkill">{aSkill}</li>)}
-	</ul>
+<BaseLayout pageTitle={pageTitle}>
+<!-- hero section --> 
+<div class="flex bg-black bg-[url('/blk_symb.svg')] bg-bottom bg-right bg-no-repeat">
+    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
+    <div class="flex-1 py-24">
+	<h1 class="text-white text-4xl font-light md:text-6xl pb-48 w-4/5">Welcome to AT - Your Trusted Tarmac Contractor</h1>
+	<div class="flex flex-row gap-14 pr-24">
+		<div class="flex-item">
+			<h2 class="text-gray uppercase font-bold tracking-wider">a reliable contractor</h2>
+			<div class="border-b border-red border-solid py-1"></div>
+			<p class="text-white pt-4">We're not just another tarmac company – we're trusted by Domestic clients, Hospitals, Schools and Developers.</p>
+		</div>
+		<div class="flex-item">
+			<h2 class="text-gray uppercase font-bold tracking-wider">with solid foundations</h2>
+			<div class="border-b border-red border-solid py-1"></div>
+			<p class="text-white pt-4">Since our inception in 1979, our family-run business has been dedicated to client satisfaction, honesty and value for money.</p>
+		</div>
+		<div class="flex-item">
+			<h2 class="text-gray uppercase font-bold tracking-wider">with the knowledge you need</h2>
+			<div class="border-b border-red border-solid py-1"></div>
+			<p class="text-white pt-4">At Ashford Tarmac, we blend decades of experience with a personal touch to provide you with an exceptional service.</p>
+		</div>
+	</div>
+
+	</div>
+    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid"></div>
+</div>
 </BaseLayout>
