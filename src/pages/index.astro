@@ -8,9 +8,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="flex bg-[url('/ashford-tarmac-car-park-hero.webp')] bg-top">
-    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid">
-        <div class="flex flex-col items-start justify-center items-center"></div>
-    </div>
+    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
     <div class="flex-1 lg:flex lg:items-center lg:justify-center lg:py-24 py-12">
         <div class="lg:w-3/5 w-full">
             <h1 class="md:text-lg text-smh uppercase text-red">Creating safer playgrounds & efficient car parks</h1>
@@ -25,11 +23,9 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
         </div>
     </div>
     <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid">
-        <div class="flex flex-col items-start justify-center items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>   
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>   
     </div>
 </div>
 <Clients />
@@ -43,9 +39,9 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
-        <div class="flex-col w-2/3">
-            <h2 class="text-lg uppercase text-white pb-4 pt-12">Discover Our Kent Tarmac Legacy</h2>
-            <h4 class="text-6xl">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
+        <div class="flex-col md:w-2/3">
+            <h2 class="md:text-lg text-smh uppercase text-white pb-4 pt-12">Discover Our Kent Tarmac Legacy</h2>
+            <h4 class="text-4xl  font-light md:text-6xl">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
             <button class="bg-black hover:bg-white hover:text-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
                 <span>About Ashford Tarmac</span>
                 <span class="bg-red rounded-full p-2 ml-4">
@@ -55,65 +51,39 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
                 </span>
             </button>
         </div>
-        <div class="text-7xl text-right"><p class="font-black text-9xl uppercase text-gray text-opacity-70">ashford tarma</p></div>
-        <div class="text-7xl text-left"><p class="font-black text-9xl uppercase text-gray-dark text-opacity-40">driveways | car </p></div>
+        <div class="text-4xl md:text-7xl text-right"><p class="font-black text-9xl uppercase text-gray text-opacity-70">ashford tarma</p></div>
+        <div class="text-4xl md:text-7xl text-left"><p class="font-black text-9xl uppercase text-gray-dark text-opacity-40">driveways | car </p></div>
         <div class="bg-white w-3/5 py-12 flex"><p>&nbsp;</p></div>
     </div>
     <div class="border-l border-red-dark border-solid w-12"></div>
 </div>
-<!-- services section --> 
-<!-- left margin -->
-<div class="flex bg-white h-full">
-    <div class="bg-white flex items-center justify-center border-r border-gray-light border-solid w-12">
-        <div class="flex flex-col items-start justify-center items-center">
-            <p class="v-copy text-gray pb-2">New Driveways | Resurfacing Tarmac | Tarmac Repairs | Resin Bound & Bond</p>
-        </div>
+<!-- New Service section (about) -->
+<div class="flex bg-white"><!-- service wrapper -->
+    <div class="flex items-center justify-center border-r border-gray-light border-solid w-12">
+        <p class="v-copy text-gray py-2">New Driveways | Resurfacing Tarmac | Tarmac Repairs | Resin Bound & Bond</p>
     </div>
-    <!-- main content -->
-    <div class="flex-1 flex-col items-center justify-center h-14">
-        <div class="flex flex-col items-start justify-center items-center">
-            <p class="v-copy2 pb-2">services</p>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
+    <!-- Main -->
+    <div class="flex-1 flex-col items-center justify-center">
+        <div class="flex flex-col items-start justify-center items-center pb-4">
+            <p class="v-copy2">services</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
-        <div class="flex pt-3">
-            <div class="w-3/5">
-                <img src="driveway1.svg" alt="Domestic Driveway Tarmac Services in Kent"/>
-            </div>
-            <div class="w-2/5 text-right">
-                    <h2 class="text-lg uppercase  text-gray pb-4">service sectors</h2>
-                    <h3 class="text-3x2 uppercase text-red pb-0">domestic tarmac</h3>
-                    <h3 class="text-3x2 uppercase text-black pb-0">commercial tarmac</h3>
-                    <h3 class="text-3x2 uppercase text-gray pb-0">public sector tarmac</h3>
-                <span class="thin-text text-gray">24%</span>
-                <div class="border-t border-red ml-8 "><p>&nbsp;</p></div>
-                <p>Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>
-                <button class="ml-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
-                    <span>Get a Tarmac Estimate</span>
-                    <span class="bg-black rounded-full p-2 ml-4">
-                        <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                        </svg>
-                    </span>
-                </button>
-            </div>
+    <!-- Image and text -->
+    <div class="md:flex">
+        <div class="md:w-3/5">
+            <img src="driveway1.svg" alt="Domestic Driveway Tarmac Services in Kent"/>
         </div>
-        <div class="flex flex-col items-start justify-center items-center pb-4 pt-12">
-            <p class="v-copy2">get estimate</p>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-            </svg>
-        </div>
-        <!-- get estimate section --> 
-        <div class="bg-gray-dark rounded-lg mx-auto text-center w-1/2 p-12 shadow-2xl">
-            <h2 class="text-lg uppercase text-gray">send tarmac estimate in under 30 seconds!</h2>
-            <h1 class="text-3xl text-white">Rapid Tarmac Estimate</h1>
-                <div class="flex items-center justify-center pt-12">
-                <img src="estimate-numbers.svg" alt="3 steps tarmac estimate process"/>
-                </div>
-            <p class="text-white pt-12">[FORM]</p>
-            <button class="m-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
+        <div class="md:w-2/5 text-right">
+                <h2 class="text-lg lg:text-lg uppercase  text-gray pb-4">service sectors</h2>
+                <h3 class="text-xl font-black lg:text-3x2 uppercase text-red pb-0">domestic tarmac</h3>
+                <h3 class="text-xl font-black lg:text-3x2 uppercase text-black pb-0">commercial tarmac</h3>
+                <h3 class="text-xl font-black lg:text-3x2 uppercase text-gray pb-0">public sector tarmac</h3>
+            <span class="thin-text text-gray">24%</span>
+            <div class="border-t border-red ml-8 "><p>&nbsp;</p></div>
+            <p class="md:pl-6 ">Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>
+            <button class="ml-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
                 <span>Get a Tarmac Estimate</span>
                 <span class="bg-black rounded-full p-2 ml-4">
                     <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -123,22 +93,46 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             </button>
         </div>
     </div>
-    <!-- right margin -->
-    <div class="bg-white flex-col border-l border-gray-light border-solid w-12 pt-24">
+    <!-- Get estimate -->
+    <div class="flex flex-col items-start justify-center items-center pb-4 pt-12">
+        <p class="v-copy2">get estimate</p>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+        </svg>
+    </div>
+    <div class="bg-gray-dark rounded-lg md:mx-auto text-center lg:w-1/2 p-12 mb-12 shadow-est">
+        <h2 class="font-bold text-xs text-gray-light md:text-lg uppercase text-gray">send tarmac estimate in under 30 seconds!</h2>
+        <h1 class="text-xl font-black md:text-3xl text-white">Rapid Tarmac Estimate</h1>
+        <div class="flex items-center justify-center pt-12">
+            <img src="estimate-numbers.svg" alt="3 steps tarmac estimate process"/>
+        </div>
+        <p class="text-white pt-12">[FORM]</p>
+        <button class="m-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
+            <span>Get a Tarmac Estimate</span>
+            <span class="bg-black rounded-full p-2 ml-4">
+                <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+            </span>
+        </button>
+    </div>
+    </div><!--end of main -->
+    <div class="border-l border-gray-light border-solid w-12 pt-24">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-          </svg>       
+        </svg> 
     </div>
+    <!-- CTA -->
+    
 </div>
 <!-- blog archive --> 
 <div class="flex bg-gray-dark">
     <div class="bg-gray-dark flex items-center justify-center w-12 border-r border-gray-border border-solid">
-        <div class="flex flex-col items-start justify-center items-center"><p class="v-copy4">our blog</p></div>
+        <p class="v-copy4">our blog</p>
     </div>
-    <div class="flex-1 flex items-center justify-center py-20">
+    <div class="flex-1 flex md:items-center md:justify-center py-20">
     <!-- Main blog cards -->
-    <div class="flex"><!-- card wrapper -->
-        <div class="relative w-1/4 ml-10 my-element">
+        <div class="relative w-2/5 lg:w-1/4 ml-1 my-element">
           <div class="bg-gray-dark rounded-lg shadow-4xl">
             <div class="h-1/2">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -152,7 +146,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             </div>
           </div>
         </div>
-        <div class="relative w-1/4 -ml-20 my-element">
+        <div class="relative w-2/5 lg:w-1/4 -ml-20 my-element">
           <div class="bg-gray-dark rounded-lg shadow-4xl">
             <div class="h-1/2">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -166,7 +160,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             </div>
           </div>
         </div>
-        <div class="relative w-1/4 -ml-20 my-element">
+        <div class="relative w-2/5 lg:w-1/4 -ml-20 my-element">
           <div class="bg-gray-dark rounded-lg shadow-4xl">
             <div class="h-1/2">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -180,7 +174,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             </div>
           </div>
         </div>
-        <div class="relative w-1/4 -ml-20 my-element">
+        <div class="relative w-2/5 lg:w-1/4 -ml-20 my-element">
           <div class="bg-gray-dark rounded-lg shadow-4xl">
             <div class="h-1/2">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -194,7 +188,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             </div>
           </div>
         </div>
-        <div class="relative w-1/4 -ml-20 my-element">
+        <div class="relative w-2/5 lg:w-1/4 -ml-20 mr-1 my-element">
           <div class="bg-gray-dark rounded-lg shadow-4xl">
             <div class="h-1/2">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -208,7 +202,6 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             </div>
           </div>
         </div>
-      </div>
     </div>
     <!-- empty right gutter -->
     <div class="bg-gray-dark flex items-center justify-center w-12 border-l border-gray-border border-solid"></div>

@@ -49,7 +49,7 @@ export default {
           fontWeight: '900',
         }],
         '4xl': ['2.441rem', {
-          lineHeight: '1.5rem',
+          lineHeight: '3rem',
           letterSpacing: '0.05rem',
           fontWeight: '700',
         }],
@@ -97,6 +97,7 @@ export default {
         boxShadow:{
           '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
           '4xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)',
+          'est': '0 0 30px 5px rgba(0.5, 0.5, 0.5, 0.5)',
         },
 
       },

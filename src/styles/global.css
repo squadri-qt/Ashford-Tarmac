@@ -186,6 +186,16 @@ nav {
     display: none;
   }
 }
-@media screen and (max-width: 636px) {
+@media screen and (max-width: 768px) {
   /* Styles for smaller screens if needed */
+.v-copy {
+  display:inline;
+  font-size:0.5rem;
+  font-weight:600;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  vertical-align: baseline;
+  writing-mode: vertical-lr;
+  letter-spacing: 0.1em;
+  }
 }
