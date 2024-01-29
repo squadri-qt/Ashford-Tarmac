@@ -2,34 +2,140 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
+import RedLine from '../components/RedLine.astro';
 const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="flex bg-black bg-[url('/blk_symb.svg')] bg-bottom bg-right bg-no-repeat">
-    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
-    <div class="flex-1 py-24">
+    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid">
+	</div>
+    <div class="flex-1 pt-24">
 	<h1 class="text-white text-4xl font-light md:text-6xl pb-48 w-4/5">Welcome to AT - Your Trusted Tarmac Contractor</h1>
 	<div class="flex flex-row gap-14 pr-24">
 		<div class="flex-item">
 			<h2 class="text-gray uppercase font-bold tracking-wider">a reliable contractor</h2>
-			<div class="border-b border-red border-solid py-1"></div>
-			<p class="text-white pt-4">We're not just another tarmac company – we're trusted by Domestic clients, Hospitals, Schools and Developers.</p>
+			<RedLine />
+			<p class="text-white">We're not just another tarmac company – we're trusted by Domestic clients, Hospitals, Schools and Developers.</p>
 		</div>
 		<div class="flex-item">
 			<h2 class="text-gray uppercase font-bold tracking-wider">with solid foundations</h2>
-			<div class="border-b border-red border-solid py-1"></div>
-			<p class="text-white pt-4">Since our inception in 1979, our family-run business has been dedicated to client satisfaction, honesty and value for money.</p>
+			<RedLine />
+			<p class="text-white">Since our inception in 1979, our family-run business has been dedicated to client satisfaction, honesty and value for money.</p>
 		</div>
 		<div class="flex-item">
 			<h2 class="text-gray uppercase font-bold tracking-wider">with the knowledge you need</h2>
-			<div class="border-b border-red border-solid py-1"></div>
-			<p class="text-white pt-4">At Ashford Tarmac, we blend decades of experience with a personal touch to provide you with an exceptional service.</p>
+			<RedLine />
+			<p class="text-white">At Ashford Tarmac, we blend decades of experience with a personal touch to provide you with an exceptional service.</p>
 		</div>
 	</div>
-
+	<div class="flex flex-col items-start justify-center items-center pt-24">
+		<p class="v-copy2">your</p>
+	</div>
 	</div>
     <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid"></div>
 </div>
+<!-- Your tarmac partner -->
+<div class="flex bg-white">
+    <div class="border-r border-gray-light border-solid w-12">
+		<div class="flex flex-col justify-evenly h-full pt-24">
+			<img src="lc-grey.svg" class="md:w-[6rem] w-[3rem] h-auto transform -rotate-90" alt="">
+			<img src="abc-grey.svg" class="md:w-[6rem] w-[3rem] h-auto transform -rotate-90" alt="">
+			<img src="nt-grey.svg" class="md:w-[6rem] w-[3rem] h-auto transform -rotate-90" alt="">
+			<img src="ukc-grey.svg" class="md:w-[6rem] w-[3rem] h-auto transform -rotate-90"alt="">
+			<img src="ekc-grey.svg" class="md:w-[6rem] w-[3rem] h-auto transform -rotate-90" alt="">
+		</div>
+	</div>
+    <div class="flex-1 flex-col items-center justify-center bg-white">
+        <div class="flex flex-col items-start justify-center items-center">
+            <p class="v-copy2 pt-2">partner</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+            </svg>
+        </div>
+		<div class="w-2/5 mx-auto pb-14">
+			<h1 class="text-3xl uppercase font-bolder text-center">your tarmac partner</h1>
+			<RedLine />
+			<p class="text-center">The perfect guide to get you from rocky roads through too ultra smooth tarmac.</p>
+		</div>
+		<!-- tile section -->
+		<div class="grid grid-cols-4 gap-0.5">
+			<div class="col-span-2 row-span-2 bg-black rounded-lg bg-[url('/company-mission.webp')] bg-center bg-no-repeat flex items-center justify-end p-4">
+				<div class="flex flex-col w-2/6 h-full justify-end">
+					<div class="h-3/5 flex justify-end">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+						</svg>						  
+					</div>
+					<div class="h-2/5 border-l border-red flex flex-col justify-end pl-2 text-xl font-bolder uppercase text-white">
+						<h3>mission</h3>
+					</div>
+				</div>
+			</div>
+			<!-- box 2 -->
+			<div class="col-span-2 row-span-1 bg-gray rounded-lg p-4 flex flex-col items-start gap-4">
+				<div class="w-full flex justify-end mb-4">
+				  <!-- Your div with an icon or other content -->
+				  <!-- Example: -->
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
+					<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+				</svg>	
+				</div>
+				<div class="flex items-start gap-4">
+				  <img src="/favicon.svg" alt="at symbol" class="w-12" />
+				  <div>
+					<p class="pr-12">Our journey began in 1979 when Ashford Tarmac Contractors was founded. For over 45 years, we've remained a family-run business, proudly serving a diverse range of clients in the Private, Commercial, and Public Sectors. We started in road construction, but our true expertise lies in macadam surfacing. Trust, knowledge, and competitive pricing define our approach.</p>
+					<div class="text-xl font-bold uppercase text-black text-right pt-12">
+					  <h3>the at story</h3>
+					</div>
+				  </div>
+				</div>
+			  </div>						
+			<!-- box 3 -->
+			<div class="col-span-1 row-span-1 bg-gray-dark rounded-lg flex items-center justify-end p-4 h-64">
+				<div class="flex flex-col w-2/6 h-full justify-end">
+					<div class="h-3/5 flex justify-end">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+						</svg>						  
+					</div>
+					<div class="h-3/5 border-l border-red flex flex-col justify-end text-xl font-bolder uppercase text-white pl-2">
+						<h3>beliefs</h3>
+					</div>
+				</div>
+			</div>
+			<!-- box 4 -->
+			<div class="col-span-1 row-span-1 rounded-lg flex items-center justify-end p-4 border border-red">
+				<div class="flex flex-col w-2/6 h-full justify-end">
+					<div class="h-3/5 flex justify-end">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+						</svg>						  
+					</div>
+					<div class="h-3/5 border-l border-red flex flex-col justify-end text-xl font-bolder uppercase text-black pl-2">
+						<h3>values</h3>
+					</div>
+				</div>
+			</div>
+
+		</div>
+    </div>
+    <div class="border-l border-gray-light border-solid w-12"></div>
+</div>
 </BaseLayout>
+
+		<!-- Card Flip -->
+		<div class="flip-card relative bg-gray w-full h-full">
+			<div class="inner relative w-full h-full">
+				<div class="front w-full h-full absolute">
+					<img src="img_avatar.png" alt="Daily Dev Tips" style="width:300px;height:300px;" />
+				</div>
+				<div class="back w-full h-full absolute">
+					<h1>Chris Bongers</h1>
+					<p>Writer, Developer</p>
+					<p>Yes, I do love alpacas 🦙</p>
+				</div>
+			</div>
+		</div>
+		<!-- End Card Flip -->
