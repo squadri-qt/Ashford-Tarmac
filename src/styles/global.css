@@ -76,7 +76,24 @@ letter-spacing: 0.1em;
   letter-spacing: 0.2em;
   color: var(--w);
 }
-
+.v-copy-q {
+  display:inline;
+  font-size:8rem;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  vertical-align: baseline;
+  writing-mode: vertical-lr;
+  transform-origin:60%; /* or 50% 50% */
+  }
+.v-copy-ans {
+  display:inline;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  vertical-align: baseline;
+  writing-mode: vertical-lr;
+  letter-spacing: 0.1em;
+  transform-origin:430%; /* or 50% 50% */
+  }
 .v-copy-sup{
 display:inline;
 font-size:0.9rem;
