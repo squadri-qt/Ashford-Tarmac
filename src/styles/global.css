@@ -83,7 +83,7 @@ letter-spacing: 0.1em;
   transform: rotate(180deg);
   vertical-align: baseline;
   writing-mode: vertical-lr;
-  transform-origin:60%; /* or 50% 50% */
+  transform-origin:81.5%; /* or 50% 50% */
   }
 .v-copy-ans {
   display:inline;
