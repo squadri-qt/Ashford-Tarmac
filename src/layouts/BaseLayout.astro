@@ -14,7 +14,7 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body transition:animate="fade">
     <Header />
     <slot />
     <Footer />
@@ -23,3 +23,12 @@ const { pageTitle } = Astro.props;
     </script>
   </body>
 </html>
+<!--
+<div class="flex bg-white">
+  <div class="border-r border-gray-light border-solid w-12"></div>
+      <div class="flex-1 flex-col items-center justify-center">
+
+      </div>
+  <div class="border-l border-gray-light border-solid w-12"></div>
+</div>
+ -->

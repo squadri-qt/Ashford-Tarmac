@@ -99,7 +99,9 @@ export default {
           '4xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)',
           'est': '0 0 30px 5px rgba(0.5, 0.5, 0.5, 0.5)',
         },
-
+        rotate: {
+          '18': '18deg',
+        }
       },
     },
     plugins: [

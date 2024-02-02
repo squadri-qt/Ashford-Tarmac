@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Clients from '../components/Clients.astro';
+import GetEstimateBtn from '../components/GetEstimateBtn.astro';
+import EstimateForm from '../components/EstimateForm.astro';
+import RedLine from '../components/RedLine.astro';
+const pageTitle = "Find a tarmac company in kent - Ashford Tarmac contact details";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username");
+    const email = data.get("email");
+    const password = data.get("password");
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<BaseLayout pageTitle={pageTitle}>
+<!-- hero section -->
+<div class="flex bg-black">
+    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
+    <div class="flex-1 lg:flex flex-col py-12">
+        <div class="pb-48">
+            <h1 class="md:text-lg text-smh uppercase text-white">ASHFORD TARMACADAM LTD</h1>
+            <h2 class="text-white text-4xl font-light md:text-6xl w-4/5">Specialist tarmac contractor in Kent, serving the domestic, commercial and public sectors.</h2>
+        </div>
+        <div class="">
+            <h3 class="text-white text-7xl font-bold uppercase opacity-30 ">tarmac company</h3>
+            <h3 class="text-white text-7xl font-bold uppercase opacity-10">skills, knowledge</h3>
+        </div>
+    </div>
+    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid"></div>
+</div>
+<!-- contact section -->
+<div class="flex bg-white">
+    <div class="border-r border-gray-light border-solid w-12"></div>
+        <div class="flex-1 flex-col items-center justify-center pt-48">
+            <h3 class="text-3xl font-bold">Send us an email</h3>
+            <RedLine />
+            <form method="POST">
+                <div class="pt-12">
+                    <label>
+                        <span class="text-xl uppercase font-bold pr-72">Name:</span>
+                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="text" name="username" required />
+                    </label>
+                    <div class="pt-4"><RedLine /></div>
+                </div>
+                <div class="pt-2">
+                    <label>
+                        <span class="text-xl uppercase font-bold pr-72">Email:</span>
+                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="email" name="email" required />
+                    </label>
+                    <div class="pt-4"><RedLine /></div>
+                </div>
+                <div class="pt-2">
+                    <label>
+                        <span class="text-xl uppercase font-bold pr-72">Phone:</span>
+                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="text" name="phone" required minlength="11" />
+                    </label>
+                    <div class="pt-4"><RedLine /></div>
+                </div>
+                <div class="">
+                    <button><GetEstimateBtn /></button>
+                </div>
+            </form>
+        </div>
+    <div class="border-l border-gray-light border-solid w-12"></div>
+  </div>
+</BaseLayout>

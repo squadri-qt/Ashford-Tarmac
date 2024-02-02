@@ -62,6 +62,7 @@ letter-spacing: 0.1em;
   color: var(--r);
 }
 .v-copy3 {
+  display: inline;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
