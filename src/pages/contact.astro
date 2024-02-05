@@ -20,7 +20,22 @@ if (Astro.request.method === "POST") {
   }
 }
 ---
-
+<script>
+    import {atFormSend} from '../scripts/form'
+    const btn = document.querySelector('#contact-btn')
+    btn?.addEventListener('click', () => {
+        const form = btn.closest('form')
+        const message = form?.querySelector('.at-form-response')
+        atFormSend(form, 'https://eos.ct1.xyz/quad-at-form.php').then(res => {
+            if (res.success) {
+                form?.reset()
+            }
+            if (message && res.message) {
+                message.textContent = res.message;
+            }
+        }).catch();
+    })
+</script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
 <div class="flex bg-black">
@@ -43,11 +58,11 @@ if (Astro.request.method === "POST") {
         <div class="flex-1 flex-col items-center justify-center pt-48">
             <h3 class="text-3xl font-bold">Send us an email</h3>
             <RedLine />
-            <form method="POST">
+            <form name="contact" method="POST">
                 <div class="pt-12">
                     <label>
                         <span class="text-xl uppercase font-bold pr-72">Name:</span>
-                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="text" name="username" required />
+                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="text" name="name" required />
                     </label>
                     <div class="pt-4"><RedLine /></div>
                 </div>
@@ -61,12 +76,13 @@ if (Astro.request.method === "POST") {
                 <div class="pt-2">
                     <label>
                         <span class="text-xl uppercase font-bold pr-72">Phone:</span>
-                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="text" name="phone" required minlength="11" />
+                        <input class="w-72 h-12 border border-gray rounded-xl p-4 text-base text-gray font-bold text-xl" type="tel" name="phone" required minlength="11" />
                     </label>
                     <div class="pt-4"><RedLine /></div>
                 </div>
                 <div class="">
-                    <button><GetEstimateBtn /></button>
+                    <button><GetEstimateBtn id="contact-btn" /></button>
+                    <div class="at-form-response"></div>
                 </div>
             </form>
         </div>

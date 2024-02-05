@@ -221,7 +221,8 @@ nav {
 /* get estimate card animation */
 .card {
   position: relative;
-  height: 450px;
+  width: 50%;
+  /* height: 450px; */
   border-radius: 14px;
   z-index: 1111;
   overflow: hidden;
@@ -230,15 +231,50 @@ nav {
   align-items: center;
   justify-content: center;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  ;
+}
+
+.at-steps > nav {
+  display:block;
+}
+.at-steps > nav > span {
+  background: #959595;
+  border-radius: 50%;
+  color: black;
+  cursor: pointer;
+  display:inline-block;
+  font-size:1.5em;
+  font-weight:bold;
+  line-height:1.75em;
+  text-align:center;
+  vertical-align: middle;
+
+  width:1.75em;
+  height:1.75em;
+}
+
+.at-steps > nav > hr {
+  background:none;
+  border-top:1px solid white;
+  display: inline-block;
+  width:3em;
+  height:1px;
+  vertical-align: middle;
+}
+
+.at-steps > .at-step {
+  max-height: 0;
+  overflow:hidden;
+}
+
+.at-steps > .at-step.at-step-active {
+  display:block;
+  max-height:15em;
 }
 
 .at-bg {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 98.2%;
-  height: 440px;
+  position: relative;
+  width: calc(100% - 4px);
+  /* height: 440px; */
   z-index: 2;
   background: #2B2B2B;
   backdrop-filter: blur(24px);
