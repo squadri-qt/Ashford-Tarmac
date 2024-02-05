@@ -221,7 +221,6 @@ nav {
 /* get estimate card animation */
 .card {
   position: relative;
-  width: 50%;
   /* height: 450px; */
   border-radius: 14px;
   z-index: 1111;
@@ -268,7 +267,12 @@ nav {
 
 .at-steps > .at-step.at-step-active {
   display:block;
-  max-height:15em;
+  max-height:20em;
+  height:20em;
+}
+
+.at-steps > .at-step :invalid {
+  background: rgba(255, 0, 0, 0.5);
 }
 
 .at-bg {

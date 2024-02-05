@@ -57,11 +57,11 @@ if (Astro.request.method === "POST") {
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
     </svg>
 </div>
-<div class="card rounded-lg mx-auto text-center lg:w-1/2 p-2 mb-12 shadow-est">
+<div class="card rounded-lg mx-auto text-center w-full lg:w-1/2 p-1 mb-12 shadow-est">
     <div class="at-bg">
         <h2 class="font-bold text-xs text-gray md:text-lg uppercase text-gray pt-12 ">send tarmac estimate in under 30 seconds!</h2>
         <h1 class="text-xl font-black md:text-3xl text-white">Rapid Tarmac Estimate</h1>
-        <form name="estimate" method="POST">
+        <form name="estimate" method="POST" autocomplete="off">
             <div class="pt-12 at-steps">
                 <nav>
                     <span>1</span><hr /><span>2</span><hr /><span>3</span>
@@ -69,9 +69,11 @@ if (Astro.request.method === "POST") {
                 </nav>
                 <div class="at-step at-step-active">
                     <div class="pt-12">
-                        <label>
-                            <input class="w-72 h-12 border border-gray bg-gray-dark rounded-xl p-4 text-base text-gray font-bold text-xl" type="text" name="client" required />
-                        </label>
+                        <select class="w-72 h-12 border border-gray bg-gray-dark rounded-xl p-4 text-base text-gray font-bold text-xl" name="client" required>
+                            <option value="Domestic">Domestic</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Public Sector">Public Sector</option>
+                        </select>
                     </div>
                 </div>
                 <div class="at-step">
@@ -94,12 +96,12 @@ if (Astro.request.method === "POST") {
                 <div class="at-step">
                     <div class="pt-12">
                         <label>
-                            <textarea class="w-72 h-12 border border-gray bg-gray-dark rounded-xl p-4 text-base text-gray font-bold text-xl" name="notes" required></textarea>
+                            <textarea class="w-72 h-36 border border-gray bg-gray-dark rounded-xl p-4 text-base text-gray font-bold text-xl" name="notes" required placeholder="Notes"></textarea>
                         </label>
                     </div>
                     <div class="pt-12">
                         <label>
-                            <input class="w-72 h-12 border border-gray bg-gray-dark rounded-xl p-4 text-base text-gray font-bold text-xl" type="file" name="attachment" required />
+                            <input class="w-72 h-12 border border-gray bg-gray-dark rounded-xl p-4 text-base text-gray font-bold text-xl" type="file" name="attachment" />
                         </label>
                     </div>
                 </div>
