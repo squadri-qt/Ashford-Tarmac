@@ -35,15 +35,15 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
-        <div class="grid grid-cols-2 bg-black">
+        <div class="grid md:grid-cols-2 grid-cols-1 bg-black">
             <div class="">
                 <h2 class="md:text-lg text-smh uppercase text-white pb-2">The Commercial Tarmac Challenge</h2>
-                <h4 class="text-6xl text-white font-light">We understand<br />the challenge.</h4>
+                <h4 class="md:text-6xl text-4xl text-white font-light">We understand<br />the challenge.</h4>
                 <p class="text-white pt-12">Finding a reputable and trustworthy contractor for your commercial tarmac needs at the right price can be daunting. You need a new road or car park, but the search for the right contractor seems never-ending.</p>
                 <p class="text-white pt-6">We understand your quest for trust and affordability. Since 1979, we've served housing developers, hospitals, universities, and more. Our experienced team is known for reliability, and our advice is highly valued by our clients.</p>
             </div>
-            <div class="flex justify-end items-center">
-                <div class="text-white text-7xl opacity-30 uppercase rotate-90 whitespace-nowrap pb-96"><p>ashford tarma</p></div>
+            <div class="md:flex md:justify-end md:items-center">
+                <div class="text-white text-7xl opacity-30 uppercase rotate-90 whitespace-nowrap md:pb-96 origin-bottom-right"><p>ashford tarma</p></div>
             </div>
         </div>
         <div class="flex flex-col items-start justify-center items-center pb-2">
@@ -55,30 +55,107 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
 <!-- solution section -->
 <div class="flex bg-white">
     <div class="border-r border-gray-light border-solid w-12"></div>
-        <div class="flex-1 flex-col items-center justify-center">
+    <div class="flex-1 flex-col items-center justify-center">
+        <div class="flex flex-col items-start justify-center items-center pb-4">
+            <p class="v-copy2">solving the</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+            </svg>
+        </div>
+        <div class="md:w-2/5 mx-auto pb-14">
+            <!-- tabbed content --> 
+            <div class="flex items-center justify-center mx-auto w-96 mb-12 bg-gray rounded-full uppercase text-lg font-bold text-white">
+                <div class="flex items-center justify-center w-48 h-12 bg-gray-dark rounded-full">
+                    <p class="">solution</p>
+                </div>
+                <div class="flex items-center justify-center w-48 h-12 rounded-full">
+                    <p class="">pricing</p>
+                </div>
+            </div>
+            <!-- tabs -->
+            <div id="tab-1" class="tab-1 active">
+                <h1 class="md:text-3xl text-2xl uppercase font-bold text-center">The Solution</h1>
+                <RedLine />
+                <p class="text-center"><span class="font-bold">Tarmac Solutions for Your Commercial Space</span> <br />Imagine having a reliable partner for your commercial tarmac needs. Whether it's a new road or car park, our services are tailored to your specifications and budget.</p>
+            </div>
+            <div id="tab-2" class="hidden">
+                <h1 class="text-3xl uppercase font-bolder text-center">Pricing</h1>
+                <RedLine />
+                <p class="text-center"><span class="font-bold">When you choose Ashford Tarmac Contractors - </span> <br />You're choosing a solution that offers consistent and reasonable pricing. We ensure value for money and stand by our work with a guarantee. No more unreasonable quotes or unreliable contractors.
+                      .</p>
+            </div>
+        </div>
+        <div class="w-full mx-auto pb-12">
+            <img src="/dev1.svg" alt="commercial tarmac company in kent"/>
+        </div>
+        <div class="flex flex-col items-start justify-center items-center">
+            <p class="v-copy2">the p</p>
+        </div>
+    </div>    
+    <div class="border-l border-gray-light border-solid w-12"></div>
+</div>
+<!-- process section-->
+<div class="flex bg-black">
+    <div class="border-r border-gray-dark border-solid w-12"></div>
+        <div class="flex-1 flex-col items-center justify-center pb-24">
             <div class="flex flex-col items-start justify-center items-center pb-4">
-                <p class="v-copy2">solving the</p>
+                <p class="v-copy2">rocess</p>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
                 </svg>
             </div>
-            <div class="md:w-2/5 mx-auto pb-14">
-                <h1 class="text-3xl uppercase font-bolder text-center">The Solution</h1>
-                <RedLine />
-                <p class="text-center"><span class="font-bold">Tarmac Solutions for Your Commercial Space</span> <br />Imagine having a reliable partner for your commercial tarmac needs. Whether it's a new road or car park, our services are tailored to your specifications and budget.</p>
+            <!-- process 1 -->
+            <div class="flex flex-row items-center">
+                <div class="flex-col w-1/3 text-white g-red">
+                    <h1 class="md:text-3xlmd:text-3xl text-xl font-bold"">How do you get started?</h1>
+                    <RedLine />
+                    <p class="md:text-base text-sm">It’s normal to advise clients on the best options which meet your objectives, we are a friendly bunch so please get in touch.</p>
+                </div>
+                <div class="w-2/3 pl-14">
+                    <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+                </div>
             </div>
-            <div class="w-full mx-auto">
-                <img src="/dev1.svg" alt="commercial tarmac company in kent"/>
+            <!-- process 2 -->
+            <div class="flex flex-row items-center hidden">
+                <div class="flex-col w-1/3 text-white g-red">
+                    <h1 class="md:text-3xl text-xl font-bolder"">Our Promise to You</h1>
+                    <RedLine />
+                    <p class="">We're confident in our ability to meet your expectations. Our promise includes providing the best possible outcome, delivering value for money, and offering expert advice based on our years of knowledge.</p>
+                </div>
+                <div class="w-2/3 pl-14">
+                    <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+                </div>
+            </div>
+            <!-- process 3 -->
+            <div class="flex flex-row items-center hidden">
+                <div class="flex-col w-1/3 text-white g-red">
+                    <h1 class="md:text-3xl text-xl font-bolder"">From Uncertainty to Confidence</h1>
+                    <RedLine />
+                    <p class="">Say goodbye to the uncertainty of dealing with unprofessional contractors and excessive charges. Choose Ashford Tarmac Contractors for expert advice, reliability, and affordability.</p>
+                </div>
+                <div class="w-2/3 pl-14">
+                    <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+                </div>
+            </div>
+            <!-- process 4 -->
+            <div class="flex flex-row items-center hidden">
+                <div class="flex-col w-1/3 text-white g-red">
+                    <h1 class="md:text-3xl text-xl font-bolder"">The Cost of Making the Wrong Choice</h1>
+                    <RedLine />
+                    <p class="">Opting for a lesser-known contractor can lead to subpar results, overcharging, and poor advice. Don't risk it. Choose a reliable and experienced contractor instead.</p>
+                </div>
+                <div class="w-2/3 pl-14">
+                    <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+                </div>
             </div>
         </div>
-    <div class="border-l border-gray-light border-solid w-12"></div>
-</div>
+    <div class="border-l border-gray-dark border-solid w-12"></div>
+</div> 
 <!-- get estimate section -->
 <div class="flex bg-white">
     <div class="border-r border-gray-light border-solid w-12"></div>
         <div class="flex-1 flex-col items-center justify-center">
             <EstimateForm />
-            
         </div>
     <div class="border-l border-gray-light border-solid w-12"></div>
 </div> 

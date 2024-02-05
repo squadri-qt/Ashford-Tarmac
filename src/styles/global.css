@@ -221,7 +221,6 @@ nav {
 /* get estimate card animation */
 .card {
   position: relative;
-  width: 50%;
   height: 450px;
   border-radius: 14px;
   z-index: 1111;
