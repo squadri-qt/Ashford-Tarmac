@@ -39,30 +39,80 @@ if (Astro.request.method === "POST") {
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
 <div class="flex bg-black">
-    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
-    <div class="flex-1 lg:flex flex-col py-12">
+    <div class="border-r border-gray-dark border-solid w-12"></div>
+    <div class="flex-1 py-12">
         <div class="pb-48">
             <h1 class="md:text-lg text-smh uppercase text-white">ASHFORD TARMACADAM LTD</h1>
             <h2 class="text-white text-4xl font-light md:text-6xl w-4/5">Specialist tarmac contractor in Kent, serving the domestic, commercial and public sectors.</h2>
         </div>
-        <div class="">
-            <h3 class="text-white text-7xl font-bold uppercase opacity-30 ">tarmac company</h3>
-            <h3 class="text-white text-7xl font-bold uppercase opacity-10">skills, knowledge</h3>
+        <div class="block">
+            <h3 class="text-white md:text-7xl text-4xl font-bold uppercase opacity-30 ">tarmac company</h3>
+            <h3 class="text-white md:text-7xl text-4xl font-bold uppercase opacity-10">skills, knowledge</h3>
         </div>
     </div>
-    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid"></div>
+    <div class="border-l border-gray-dark border-solid w-12"></div>
 </div>
 <!-- contact section -->
 <div class="flex bg-white">
     <div class="border-r border-gray-light border-solid w-12"></div>
-        <div class="flex-1 pt-48">
-            <h3 class="text-3xl font-bold">Send us an email</h3>
+        <div class="flex-1 pt-24">
+            <!-- Contact details -->
+            <div class="grid grid-cols-4 w-full pt-4 pb-2">
+                <div class="col-span-1 flex items-center">
+                    <h3 class="md:text-3xl text-xl font-bold">Contact details</h3>
+                </div>
+                <div class="col-span-3 md:w-1/2 flex items-center">
+                    <p class="text-sm">Please get in touch for advice that is based on 40 years experience.</p>
+                </div>
+            </div>
+            <RedLine />
+            <!-- Contact details row 1 -->
+            <div class="grid grid-cols-4 w-full pt-2 pb-4">
+                <div class="col-span-1 flex items-center h-14">
+                    <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Phone:</span>
+                </div>
+                <div class="col-span-3 flex items-center pl-4 md:pl-0">
+                    <p class="md:text-[2rem] text-lg">01233 733735</p>
+                </div>
+            </div>
+            <RedLine />
+            <!-- Contact details row 2 -->
+            <div class="grid grid-cols-4 w-full pt-2 pb-4">
+                <div class="col-span-1 flex items-center h-14">
+                    <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Fax:</span>
+                </div>
+                <div class="col-span-3 flex items-center pl-4 md:pl-0">
+                    <p class="md:text-[2rem] text-lg">01233 732319</p>
+                </div>
+            </div>
+            <RedLine />
+            <!-- Contact details row 3 -->
+            <div class="grid grid-cols-4 w-full pt-2 pb-4">
+                <div class="col-span-1 flex items-center h-14">
+                    <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Email:</span>
+                </div>
+                <div class="col-span-3 flex items-center pl-4 md:pl-0">
+                    <p class="md:text-[2rem] text-lg">info@ashfordtarmac.co.uk</p>
+                </div>
+            </div>
+            <RedLine />
+            <!-- Contact details row 4 -->
+            <div class="grid grid-cols-4 w-full pt-2 pb-4">
+                <div class="col-span-1 flex items-center h-14">
+                    <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Address:</span>
+                </div>
+                <div class="col-span-3 flex items-center pl-4 md:pl-0">
+                    <p class="md:text-[2rem] text-lg leading-9">Goodwin Capel Road Ruckinge Ashford Kent TN26 2EJ</p>
+                </div>
+            </div>
+            <RedLine />
+            <h3 class="text-3xl font-bold pt-24">Send us an email</h3>
             <RedLine />
             <form name="contact" method="POST">
                 <!-- Form row 1 -->
                 <div class="grid grid-cols-4 w-full pt-2 pb-4">
                     <div class="col-span-1 flex items-end h-14">
-                        <span class="text-[1.15rem] tracking-wide uppercase font-bold">Name:</span>
+                        <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Name:</span>
                     </div>
                     <div class="col-span-3">
                         <label>
@@ -74,7 +124,7 @@ if (Astro.request.method === "POST") {
                 <!-- Form row 2 -->
                 <div class="grid grid-cols-4 w-full pt-4 pb-6">
                     <div class="col-span-1 flex items-end h-14">
-                        <span class="text-[1.15rem] tracking-wide uppercase font-bold">Email:</span>
+                        <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Email:</span>
                     </div>
                     <div class="col-span-3">
                         <label>
@@ -86,7 +136,7 @@ if (Astro.request.method === "POST") {
                 <!-- Form row 3 -->
                 <div class="grid grid-cols-4 w-full pt-4 pb-6">
                     <div class="col-span-1 flex items-end h-14">
-                        <span class="text-[1.15rem] tracking-wide uppercase font-bold">Phone:</span>
+                        <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Phone:</span>
                     </div>
                     <div class="col-span-3">
                         <label>
@@ -98,7 +148,7 @@ if (Astro.request.method === "POST") {
                 <!-- Form row 4 -->
                 <div class="grid grid-cols-4 w-full pt-4 pb-6">
                     <div class="col-span-1 flex items-center h-14">
-                        <span class="text-[1.15rem] tracking-wide uppercase font-bold">Phone:</span>
+                        <span class="md:text-[1.15rem] tracking-wide uppercase font-bold">Message:</span>
                     </div>
                     <div class="col-span-3">
                         <label>
