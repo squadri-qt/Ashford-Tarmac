@@ -218,20 +218,6 @@ nav {
   }
 }
 
-/* get estimate card animation */
-.card {
-  position: relative;
-  /* height: 450px; */
-  border-radius: 14px;
-  z-index: 1111;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-}
-
 .at-steps > nav {
   display:block;
 }
@@ -272,19 +258,16 @@ nav {
 }
 
 .at-steps > .at-step :invalid {
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(43, 43, 43, 0.5);
 }
 
+/* Styles for the estimate box */
 .at-bg {
-  position: relative;
   width: calc(100% - 4px);
-  /* height: 440px; */
-  z-index: 2;
-  background: #2B2B2B;
+  /* height: 440px;
   backdrop-filter: blur(24px);
-  border-radius: 10px;
-  overflow: hidden;
   outline: 2px solid white;
+  */
 }
 
 .blob {
@@ -292,13 +275,13 @@ nav {
   z-index: 1;
   top: 50%;
   left: 50%;
-  width: 50%;
-  height: 450px;
+  width: 75%;
+  height: 350px;
   border-radius: 50%;
-  background-color: #ff0000;
+  background-color: var( --r);
   opacity: 1;
-  filter: blur(12px);
-  animation: blob-bounce 5s infinite ease;
+  filter: blur(50px);
+  animation: blob-bounce 3s infinite ease;
 }
 
 @keyframes blob-bounce {
@@ -321,29 +304,4 @@ nav {
   100% {
     transform: translate(-100%, -100%) translate3d(0, 0, 0);
   }
-}
-/* card flip */
-.flip-card {
-  perspective: 1000px;
-}
-.flip-card .inner {
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-.flip-card .inner .front,
-.flip-card .inner .back {
-
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.flip-card .inner .front {
-  background-color: #bbb;
-}
-.flip-card .inner .back {
-  background-color: teal;
-  color: white;
-  transform: rotateY(180deg);
-}
-.flip-card:hover .inner {
-  transform: rotateY(180deg);
 }
