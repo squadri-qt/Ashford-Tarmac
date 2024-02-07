@@ -236,13 +236,22 @@ nav {
   width:1.75em;
   height:1.75em;
 }
+.at-steps > nav > span.at-active {
+  color: red;
+  background: white;
+}
+
+.at-steps > nav > span.at-active ~ hr {
+  background-color:white;
+}
 
 .at-steps > nav > hr {
-  background:none;
-  border-top:1px solid white;
+  background:red;
+  border:none;
+  box-sizing:border-box;
   display: inline-block;
   width:3em;
-  height:1px;
+  height:0.6px;
   vertical-align: middle;
 }
 
@@ -257,8 +266,9 @@ nav {
   height:20em;
 }
 
-.at-steps > .at-step :invalid {
-  background: rgba(43, 43, 43, 0.5);
+.at-steps > .at-step .at-invalid {
+  background: rgba(43, 0, 0, 0.5);
+  transition: background-color 0.5s;
 }
 
 /* Styles for the estimate box */

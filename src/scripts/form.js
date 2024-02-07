@@ -7,9 +7,11 @@ async function atFormSend(form, url) {
             body: new FormData(form)
         });
         const json = await response.json();
-        console.log("Result", json);
         if (Object.prototype.hasOwnProperty.call(json, 'success')) {
             result = json
+            if (result.success) {
+                form.reset()
+            }
         }
         return result
     } catch (error) {
