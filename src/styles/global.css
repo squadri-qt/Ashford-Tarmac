@@ -6,25 +6,12 @@
   p {
     @apply text-base antialiased font-medium text-white leading-6 tracking-wide;
   }
-  h1 {
-    @apply md:text-lg text-smh uppercase text-red
-  }
-  h2 {
-    @apply md:text-3xl text-2xl font-black text-white
-  }
-  h3 {
-    @apply md:text-3xl text-2xl font-black text-white
-  }
-  h4 {
-    @apply md:text-3xl text-2xl font-black text-white
-  }
-  h5 {
-    @apply md:text-3xl text-2xl font-black text-white
-  }
-  h6 {
-    @apply md:text-3xl text-2xl font-black text-white
-  }
-}
+} /*
+  md:text-3xl text-2xl font-black text-white
+  
+@apply md:text-3xl text-2xl font-black text-white;
+  
+@apply md:text-3xl text-2xl font-black text-white;*/
 
 /* global */
 html {
