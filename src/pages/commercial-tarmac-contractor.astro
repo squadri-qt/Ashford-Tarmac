@@ -8,46 +8,45 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
 
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
-<div class="flex bg-[url('/commercial-tarmac-contractor-hero.jpg')] bg-top bg-fixed">
-    <div class="flex items-center justify-center w-12 border-r border-gray-light border-solid"></div>
-    <div class="flex-1 lg:flex lg:items-center lg:justify-center lg:py-24 py-12">
-        <div class="w-3/5 pb-48">
-            <h1 class="md:text-lg text-smh uppercase">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h1>
-            <h1 class="md:text-3xl text-2xl font-bold">Transform your commercial space with quality tarmac solutions</h1>
-            <p class="lg:text-base my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
-            <div class="-rotate-18 absolute top-120 right-160 pb-6">
-                <GetEstimateBtn />
+<div class="flex min-h-[40rem] bg-[url('/commercial-tarmac-contractor-hero.jpg')] lg:bg-top-right bg-fixed bg-no-repeat">
+    <div class="border-r border-gray-light border-solid w-12"></div>
+    <div class="flex-1 flex-col pt-24">
+        <div class="grid md:grid-cols-2 grid-cols-1">
+            <div class="">
+                <h1 class="md:text-lg text-sm pb-2 uppercase">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h1>
+                <h1 class="md:text-3xl text-2xl font-bold">Transform your commercial space with quality tarmac solutions</h1>
+                <p class="lg:text-base my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
+                <div class="md:-rotate-18 md:absolute md:top-250 md:right-160">
+                    <GetEstimateBtn />
+                </div>    
+            </div>
+            <div class="md:flex md:justify-end md:items-center">
+                <div class="text-white text-7xl font-bold -rotate-90 uppercase opacity-30  whitespace-no-wrap"><p>knowledge</p></div>
             </div>
         </div>
-        <div class="w-2/5">
-            <h3 class="text-white text-7xl font-bold -rotate-90 uppercase opacity-30 transform origin-bottom">knowledge</h3>
-        </div>
     </div>
-    <div class="flex items-center justify-center w-12 border-l border-gray-light border-solid"></div>
+    <div class="border-l border-gray-light border-solid w-12"></div>
 </div>
 <!-- challenge section -->
-<div class="flex bg-black">
+<div class="flex min-h-[40rem] bg-black">
     <div class="border-r border-gray-dark border-solid w-12"></div>
     <div class="flex-1 flex-col bg-black">
         <div class="flex flex-col items-start justify-center items-center pb-4">
-            <p class="v-copy3">commercial challenge</p>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mt-24">
+            <p class="v-copy2">commercial challenge</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
         <div class="grid md:grid-cols-2 grid-cols-1 bg-black">
-            <div class="">
+            <div class="pb-48">
                 <h2 class="md:text-lg text-smh uppercase text-white pb-2">The Commercial Tarmac Challenge</h2>
                 <h4 class="md:text-6xl text-4xl text-white font-light">We understand<br />the challenge.</h4>
                 <p class="text-white pt-12">Finding a reputable and trustworthy contractor for your commercial tarmac needs at the right price can be daunting. You need a new road or car park, but the search for the right contractor seems never-ending.</p>
                 <p class="text-white pt-6">We understand your quest for trust and affordability. Since 1979, we've served housing developers, hospitals, universities, and more. Our experienced team is known for reliability, and our advice is highly valued by our clients.</p>
             </div>
             <div class="md:flex md:justify-end md:items-center">
-                <div class="text-white text-7xl opacity-30 uppercase rotate-90 whitespace-nowrap md:pb-96 origin-bottom-right"><p>ashford tarma</p></div>
+                <div class="text-white text-7xl font-bold -rotate-90 uppercase opacity-30  whitespace-no-wrap"><p>ashford tarmac</p></div>
             </div>
-        </div>
-        <div class="flex flex-col items-start justify-center items-center pb-2">
-            <p class="v-copy2">solving the </p>
         </div>
     </div>
     <div class="border-l border-gray-dark border-solid w-12"></div>
@@ -57,14 +56,14 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
     <div class="border-r border-gray-light border-solid w-12"></div>
     <div class="flex-1 flex-col items-center justify-center">
         <div class="flex flex-col items-start justify-center items-center pb-4">
-            <p class="v-copy2">solving the</p>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-2">
+            <p class="v-copy2">solving the challenge</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
         <div class="md:w-2/5 mx-auto pb-14">
             <!-- tabbed content --> 
-            <div class="flex items-center justify-center mx-auto w-96 mb-12 bg-gray rounded-full uppercase text-lg font-bold text-white">
+            <div class="flex items-center justify-center mx-auto md:max-w-96 w-72 mb-12 bg-gray rounded-full uppercase text-lg font-bold text-white">
                 <div class="flex items-center justify-center w-48 h-12 bg-gray-dark rounded-full">
                     <p class="">solution</p>
                 </div>
@@ -88,9 +87,6 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
         <div class="w-full mx-auto pb-12">
             <img src="/dev1.svg" alt="commercial tarmac company in kent"/>
         </div>
-        <div class="flex flex-col items-start justify-center items-center">
-            <p class="v-copy2">the p</p>
-        </div>
     </div>    
     <div class="border-l border-gray-light border-solid w-12"></div>
 </div>
@@ -99,8 +95,8 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
     <div class="border-r border-gray-dark border-solid w-12"></div>
         <div class="flex-1 flex-col items-center justify-center pb-24">
             <div class="flex flex-col items-start justify-center items-center pb-4">
-                <p class="v-copy2">rocess</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-2">
+                <p class="v-copy2">the process</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-12">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
                 </svg>
             </div>

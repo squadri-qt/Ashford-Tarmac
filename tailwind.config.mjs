@@ -19,7 +19,7 @@ export default {
           fontWeight: '500',
         }],
         base: ['1rem', {
-          lineHeight: '1.5rem',
+          lineHeight: '1.6rem',
           letterSpacing: '0.05rem',
           fontWeight: '400',
         }],
@@ -78,6 +78,9 @@ export default {
         DEFAULT: '1px',
       },
       extend: {
+        fontSize: {
+          p: '20px',
+        },
         fontFamily: {
           'sans': ['Roboto', 'ui-sans-serif', 'system-ui'],
           'serif': ['Roboto Slab', 'ui-serif'],
@@ -106,6 +109,6 @@ export default {
     },
     plugins: [
       "prettier-plugin-astro",
-      "prettier-plugin-tailwindcss"
+      "prettier-plugin-tailwindcss",
     ],
   };

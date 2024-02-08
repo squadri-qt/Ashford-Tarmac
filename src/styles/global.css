@@ -1,4 +1,32 @@
-  /* more global */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply text-base antialiased font-medium text-white leading-6 tracking-wide;
+  }
+  h1 {
+    @apply md:text-lg text-smh uppercase text-red
+  }
+  h2 {
+    @apply md:text-3xl text-2xl font-black text-white
+  }
+  h3 {
+    @apply md:text-3xl text-2xl font-black text-white
+  }
+  h4 {
+    @apply md:text-3xl text-2xl font-black text-white
+  }
+  h5 {
+    @apply md:text-3xl text-2xl font-black text-white
+  }
+  h6 {
+    @apply md:text-3xl text-2xl font-black text-white
+  }
+}
+
+/* global */
 html {
 height: 100%;
 }
@@ -57,7 +85,7 @@ letter-spacing: 0.1em;
   display: inline;
   font-size: 0.8rem;
   text-transform: uppercase;
-  writing-mode: vertical-lr; /* Update the writing-mode property */
+  transform: rotate(90deg);
   letter-spacing: 0.1em;
   color: var(--r);
 }
@@ -208,13 +236,13 @@ nav {
   /* Styles for smaller screens if needed */
 .v-copy {
   display:inline;
-  font-size:0.5rem;
+  font-size:0.6rem;
   font-weight:600;
   text-transform: uppercase;
   transform: rotate(180deg);
   vertical-align: baseline;
   writing-mode: vertical-lr;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   }
 }
 
