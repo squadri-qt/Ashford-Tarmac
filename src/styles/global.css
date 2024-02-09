@@ -4,14 +4,9 @@
 
 @layer base {
   p {
-    @apply text-base antialiased font-medium text-white leading-6 tracking-wide;
+    @apply text-base antialiased font-normal text-white leading-6 tracking-wider;
   }
-} /*
-  md:text-3xl text-2xl font-black text-white
-  
-@apply md:text-3xl text-2xl font-black text-white;
-  
-@apply md:text-3xl text-2xl font-black text-white;*/
+} 
 
 /* global */
 html {

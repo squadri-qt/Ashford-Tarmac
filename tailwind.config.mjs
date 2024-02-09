@@ -19,7 +19,7 @@ export default {
           fontWeight: '500',
         }],
         base: ['1rem', {
-          lineHeight: '1.6rem',
+          lineHeight: '1.5rem',
           letterSpacing: '0.05rem',
           fontWeight: '400',
         }],
