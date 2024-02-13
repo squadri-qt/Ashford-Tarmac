@@ -232,9 +232,9 @@ nav {
   display:block;
 }
 .at-steps > nav > span {
-  background: #959595;
+  background: black;
   border-radius: 50%;
-  color: black;
+  color: #959595;
   cursor: pointer;
   display:inline-block;
   font-size:1.5em;
@@ -246,9 +246,9 @@ nav {
   width:1.75em;
   height:1.75em;
 }
-.at-steps > nav > span.at-active {
-  color: red;
-  background: white;
+.at-steps > nav > span.at-active ~ span {
+  color: black;
+  background: #959595;
 }
 
 .at-steps > nav > span.at-active ~ hr {
