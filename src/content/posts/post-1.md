@@ -1,23 +1,14 @@
 ---
 title: 'My First Blog Post'
 pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
+description: 'This is the first post of my new Astro blog. This is the first post of my new Astro blog.'
 author: 'Astro Learner'
+category: 'test'
 image:
-    url: 'https://docs.astro.build/assets/arc.webp'
-    alt: 'The full Astro logo.'
-tags: ["astro", "blogging", "learning in public"]
+    url: '/case-study.webp'
+    alt: 'A tarmac driveway project in tenderden.'
+tags: ["driveway", "tarmac", "tenderden"]
 ---
-## What I've accomplished
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
-
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+<div >
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ipsum tellus. Nunc eu odio libero. In posuere porta pellentesque. Ut quis ligula nec diam facilisis sodales id id turpis. Aenean libero turpis, commodo in volutpat ac, volutpat in justo. Vestibulum ligula felis, aliquam laoreet lacinia id, pharetra eu dui. Proin accumsan purus libero, eu ornare lacus rutrum eu.Quisque eget maximus turpis, sed vulputate nulla. Vivamus euismod in lectus eget placerat. Etiam congue tempus metus, sit amet sagittis felis faucibus sit amet. Nunc et facilisis lectus. Suspendisse porta mi a tortor euismod, varius placerat massa porttitor. Ut nisl nibh, consequat eu neque nec, dapibus vehicula sapien. Praesent faucibus est dapibus leo pulvinar feugiat. Phasellus commodo enim id ante iaculis efficitur. Curabitur placerat diam nulla, porta aliquet nisl interdum eget. Sed sed feugiat magna.Nam iaculis enim sed lectus elementum luctus. Aliquam nisl enim, iaculis vel nisi non, pharetra dignissim elit. Donec laoreet condimentum nulla sed aliquet. Quisque at fermentum lectus, in rutrum ante. Pellentesque eu felis vulputate, accumsan lectus a, luctus dolor. Ut at est feugiat, tempus sem hendrerit, ultricies ipsum. Vivamus non arcu ac dolor lobortis varius. Sed volutpat massa diam, a blandit purus rutrum quis. Praesent interdum, augue nec dictum maximus, nibh justo tristique massa, a venenatis nunc dui sed velit. Nunc imperdiet cursus sapien ut posuere. 
 ---

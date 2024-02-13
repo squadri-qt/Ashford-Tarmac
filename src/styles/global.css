@@ -325,3 +325,7 @@ nav {
     transform: translate(-100%, -100%) translate3d(0, 0, 0);
   }
 }
+/* blog template styles */
+#custom-background {
+  background-size: 600px 100%; /* 600px width, 100% height */
+}
