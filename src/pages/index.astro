@@ -6,18 +6,18 @@ import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
 const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 ---
+<script>
+    import { gsap } from 'gsap';
+    gsap.to(".redbox", { 
+        duration: 2,
+        scale: 2,
+        rotation: 360,
+    });
+</script>
 
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="redbox"></div>
-<script type="module">
-    import { gsap } from '../node_modules/gsap/all.js';
-      gsap.to(".redbox", { 
-        duration: 2,
-        scale: 2,
-        rotation: 360,
-      });
-</script>  
 <div class="flex bg-[url('/hero.webp')] bg-top bg-no-repeat bg-fixed ">
     <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
     <div class="flex-1 lg:flex lg:items-center lg:justify-center lg:py-24 py-14">
