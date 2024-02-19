@@ -7,14 +7,38 @@ import RedLine from '../components/RedLine.astro';
 const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 ---
 <script>
+    console.log(ScrollTrigger);
     import { gsap } from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
     gsap.to(".redbox", { 
         duration: 2,
         scale: 2,
         rotation: 360,
     });
+    gsap.to(".btext", {
+    x: 600,
+    scrollTrigger: {
+    trigger: '.container',
+    start: "clamp(top center)",
+    scrub: 3,
+    pin: '.pin',
+    pinSpacing: false,
+    markers:false,
+    },
+  });
+    gsap.to(".btext2", {
+    x: -600,
+    scrollTrigger: {
+    trigger: '.container',
+    start: "clamp(top center)",
+    scrub: 3,
+    pin: '.pin',
+    pinSpacing: false,
+    markers:false,
+    },
+    });
 </script>
-
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="redbox"></div>
@@ -62,8 +86,10 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
                 </span>
             </button>
         </div>
-        <div class="md:text-7xl font-black text-6xl uppercase text-gray text-opacity-70 text-right"><span>ashford tarma</span></div>
-        <div class="md:text-7xl font-black text-6xl uppercase text-gray-dark text-opacity-40"><span>driveways | car </span></div>
+        <div class="container w-full overflow-hidden">
+            <div class="btext whitespace-nowrap md:text-7xl text-3xl text-gray font-bolder text-opacity-70 uppercase">ashford tarmac</div>
+            <div class="btext2 whitespace-nowrap md:text-7xl text-3xl text-gray-dark font-bolder text-opacity-40 uppercase">driveways | roads</div>
+        </div>
         <div class="bg-white w-3/5 py-12 flex"><p>&nbsp;</p></div>
     </div>
     <div class="border-l border-red-dark border-solid w-12"></div>
