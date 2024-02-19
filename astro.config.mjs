@@ -5,5 +5,5 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://at-gamma.vercel.app/',
-  integrations: [preact(), tailwind()]
+  integrations: [preact(), tailwind(),],
 });
