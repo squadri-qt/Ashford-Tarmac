@@ -329,3 +329,9 @@ nav {
 #custom-background {
   background-size: 600px 100%; /* 600px width, 100% height */
 }
+.redbox {
+  background-color: #ED1C24;
+  width: 25px;
+  height: 25px;
+  display: block;
+}
