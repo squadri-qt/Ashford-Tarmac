@@ -11,17 +11,12 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
     import { gsap } from 'gsap';
     import ScrollTrigger from 'gsap/ScrollTrigger';
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".redbox", { 
-        duration: 2,
-        scale: 2,
-        rotation: 360,
-    });
     gsap.to(".btext", {
     x: 600,
     scrollTrigger: {
     trigger: '.container',
-    start: "clamp(top center)",
-    scrub: 3,
+    start: "clamp(top bottom)",
+    scrub: 2,
     pin: '.pin',
     pinSpacing: false,
     markers:false,
@@ -31,37 +26,37 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
     x: -600,
     scrollTrigger: {
     trigger: '.container',
-    start: "clamp(top center)",
-    scrub: 3,
+    start: "clamp(top bottom)",
+    scrub: 2,
     pin: '.pin',
     pinSpacing: false,
     markers:false,
     },
     });
+
 </script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
-<div class="redbox"></div>
-<div class="flex bg-[url('/hero.webp')] bg-top bg-no-repeat bg-fixed ">
-    <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>
-    <div class="flex-1 lg:flex lg:items-center lg:justify-center lg:py-24 py-14">
-        <div class="lg:w-3/5 w-full">
-            <h1 class="md:text-lg text-smh text-red uppercase">Creating safer playgrounds & efficient car parks</h1>
-            <h2 class="md:text-3xl text-2xl text-white font-bold">Enhance public spaces with quality surfacing</h2>
-            <p class="my-8 lg:pr-24">We understand that public spaces are the heart of our communities, and we're here to help you make them even better. At Ashford Tarmac, we specialise in surfacing solutions that go beyond the ordinary. Whether it's crafting safe and vibrant playgrounds or creating efficient car parks, we bring your vision to life with top-quality workmanship.</p>
+<div class="flex">
+    <div class="flex items-center justify-center border-r border-gray-dark border-solid w-12"></div>
+    <div class="flex flex-1 p-1 h-[48rem] bg-[url('/driveway1.svg')] lg:bg-contain bg-fixed bg-no-repeat">
+        <div class="w-14 bg-black border border-gray-dark border-solid rounded-xl">
+            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
+        </div>
+        <div class="flex-grow pt-24 pl-12">
+            <h1 class="text-red md:text-lg text-sm pb-2 uppercase">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h1>
+            <h1 class="text-white md:text-3xl text-2xl font-bold">Transform your commercial space with quality tarmac solutions</h1>
+            <p class="text-white text-black my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
             <GetEstimateBtn />
         </div>
-        <div class="lg:w-2/5 lg:flex lg:justify-end h-64 md:mt-12 flex pt-12">
-            <div class="border-b border-red-dark border-solid bg-[url('/commercial-tarmac-services-1.webp')] bg-top h-full bg-no-repeat md:bg-left flex flex-col justify-end">
-                <p class="text-white uppercase md:text-xl font-medium px-4 pb-2 md:pb-4">commercial services</p>
-            </div>
+        <div class="w-14 bg-gray-dark rounded-xl">
+            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
+        </div>
+        <div class="w-14 bg-gray-light rounded-xl">
+            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
         </div>
     </div>
-    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-        </svg>   
-    </div>
+    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid"></div>
 </div>
 <Clients />
 <!-- Red section (about) -->
