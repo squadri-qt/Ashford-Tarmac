@@ -39,7 +39,7 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 <!-- hero section --> 
 <div class="flex">
     <div class="flex items-center justify-center border-r border-gray-dark border-solid w-12"></div>
-    <div class="flex flex-1 p-1 h-[48rem] bg-[url('/driveway1.svg')] lg:bg-contain bg-fixed bg-no-repeat">
+    <div class="flex flex-1 p-1 h-[48rem] bg-[url('/driveway1.svg')] lg:bg-contain bg-fixed bg-no-repeat gap-0.5">
         <div class="w-14 bg-black border border-gray-dark border-solid rounded-xl">
             <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
         </div>
@@ -56,7 +56,12 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
         </div>
     </div>
-    <div class="flex items-center justify-center w-12 border-l border-gray-dark border-solid"></div>
+    <div class="flex flex-col items-center justify-start w-12 border-l border-gray-dark border-solid">
+        <p class="text-gray font-light text-lg">100%</p>
+        <div class="min-w-0.5 min-h-16 bg-red"></div>
+        <div class="min-w-0.5 min-h-16 bg-gray"></div>
+        <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
+    </div>
 </div>
 <Clients />
 <!-- Red section (about) -->
