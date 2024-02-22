@@ -33,27 +33,40 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
     markers:false,
     },
     });
-
+// animation for the red background
+const targetDiv = document.getElementById("target-div");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      gsap.to(targetDiv, {
+        duration: 1, // Adjust duration as needed
+        css: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+        ease: "power3.inOut" // Adjust easing if needed
+      });
+    }
+  });
+});
+observer.observe(targetDiv);
 </script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="flex">
     <div class="flex items-center justify-center border-r border-gray-dark border-solid w-12"></div>
     <div class="flex flex-1 p-1 h-[48rem] bg-[url('/driveway1.svg')] lg:bg-contain bg-fixed bg-no-repeat gap-0.5">
-        <div class="w-14 bg-black border border-gray-dark border-solid rounded-xl">
-            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
+        <div class="flex flex-item items-center justify-center w-14 bg-black border border-gray-dark border-solid rounded-xl hover:bg-red text-gray hover:text-black">
+            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light py-12">commercial tarmac services</h1>
         </div>
-        <div class="flex-grow pt-24 pl-12">
-            <h1 class="text-red md:text-lg text-sm pb-2 uppercase">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h1>
-            <h1 class="text-white md:text-3xl text-2xl font-bold">Transform your commercial space with quality tarmac solutions</h1>
-            <p class="text-white text-black my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
+        <div class="flex-grow pt-24 px-12">
+            <h2 class="text-red md:text-lg text-sm pb-2">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h2>
+            <h3 class="text-white md:text-3xl text-xl font-bold normal-case">Transform your commercial space with quality tarmac</h3>
+            <p class="text-sm text-white my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
             <GetEstimateBtn />
         </div>
-        <div class="w-14 bg-gray-dark rounded-xl">
-            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
+        <div class="flex flex-item items-center justify-center w-14 bg-gray-dark rounded-xl text-gray hover:text-black hover:bg-red">
+            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light py-12 ">domestic tarmac services</h1>
         </div>
-        <div class="w-14 bg-gray-light rounded-xl">
-            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light text-gray py-12 ">domestic tarmac services</h1>
+        <div class="flex flex-item items-center justify-center w-14 bg-gray-light rounded-xl text-gray hover:text-black hover:bg-red">
+            <h1 class="whitespace-nowrap rotate-90 uppercase text-xl font-light py-12 ">public sector tarmac services</h1>
         </div>
     </div>
     <div class="flex flex-col items-center justify-start w-12 border-l border-gray-dark border-solid">
@@ -65,18 +78,18 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 </div>
 <Clients />
 <!-- Red section (about) -->
-<div class="flex bg-red">
+<div class="flex bg-red" id="target-div">
     <div class="border-r border-red-dark border-solid w-12"></div>
-    <div class="flex-1 flex-col items-center justify-center bg-red">
-        <div class="flex flex-col items-start justify-center items-center pb-4">
+    <div class="flex-1 flex-col items-center justify-center">
+        <div class="flex flex-col items-start justify-center items-center py-6 bg-red">
             <p class="v-copy3">about us</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mt-8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
         <div class="flex-col md:w-2/3">
-            <h2 class="md:text-lg text-smh uppercase text-white pb-4 pt-12">Discover Our Kent Tarmac Legacy</h2>
-            <h4 class="text-3xl md:text-6xl text-2xl font-light text-black">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
+            <h2 class="md:text-lg text-smh text-white pb-4 pt-12">Discover Our Kent Tarmac Legacy</h2>
+            <h4 class="md:text-6xl text-3xl font-light">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
             <button class="bg-black hover:bg-white hover:text-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
                 <a href="/about">About Ashford Tarmac</a>
                 <span class="bg-red rounded-full p-2 ml-4">
@@ -113,10 +126,10 @@ const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
             <img src="/driveway1.svg" alt="Domestic Driveway Tarmac Services in Kent"/>
         </div>
         <div class="md:w-2/5 text-right">
-                <h2 class="text-lg lg:text-lg uppercase text-gray pb-4">service sectors</h2>
-                <h3 class="text-xl font-black lg:text-3x2 uppercase text-red pb-0">domestic tarmac</h3>
-                <h3 class="text-xl font-black lg:text-3x2 uppercase text-black pb-0">commercial tarmac</h3>
-                <h3 class="text-xl font-black lg:text-3x2 uppercase text-gray pb-0">public sector tarmac</h3>
+                <h2 class="lg:text-lg text-gray pb-4">service sectors</h2>
+                <h3 class="lg:text-3xl text-xl font-bold text-red">domestic tarmac</h3>
+                <h3 class="lg:text-3xl text-xl font-bold text-black">commercial tarmac</h3>
+                <h3 class="lg:text-3xl text-xl font-bold text-gray">public sector tarmac</h3>
             <span class="thin-text text-gray">24%</span>
             <div class="border-t border-red ml-8 "><p>&nbsp;</p></div>
             <p class="md:pl-6 text-black">Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>

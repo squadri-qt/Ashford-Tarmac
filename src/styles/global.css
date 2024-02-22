@@ -4,7 +4,25 @@
 
 @layer base {
   p {
-    @apply text-base antialiased font-normal text-white leading-6 tracking-wider;
+    @apply text-base antialiased font-normal leading-6 tracking-wider;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-lg uppercase;
+  }
+  h3 {
+    @apply text-lg uppercase;
+  }
+  h4 {
+    @apply text-6xl;
+  }
+  h5 {
+    @apply text-7xl uppercase;
+  }
+  h6 {
+    @apply text-base font-bold;
   }
 } 
 

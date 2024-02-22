@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { fade } from "astro:transitions";
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
 const { frontmatter } = Astro.props;
@@ -12,8 +11,8 @@ const text = "Back to blog archive";
   <div class="border-r border-gray-light border-solid w-12 bg-white"></div>
   <div class="flex-1">
     <div class="h-full w-1/2 pt-24 pb-96 bg-white">
-      <h1 class="md:text-lg text-smh text-red uppercase" transition:animate={fade({ duration: '0.5s' })}>{frontmatter.title}</h1>
-        <h2 class="font-bold text-3xl font-bolder text-black" transition:animate={fade({ duration: '0.5s' })}>{frontmatter.description}</h2>
+      <h1 class="md:text-lg text-smh text-red uppercase">{frontmatter.title}</h1>
+        <h2 class="font-bold text-3xl font-bolder text-black">{frontmatter.description}</h2>
         <div class="pr-8"><RedLine /></div>        
         <div class="">
           <span class="text-sm text-gray-dark uppercase">tags:</span>
@@ -22,27 +21,33 @@ const text = "Back to blog archive";
           ))}
         </div>
     </div>
-    <div class="flex flex-col items-start justify-center items-center pb-4">
-      <p class="v-copy2">read on</p>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-      </svg>
-    </div>
   </div>
   <div class="border-l border-gray-light border-solid w-12"></div>
 </div>
+<div class="flex bg-white">
+  <div class="border-r border-gray-light border-solid w-12"></div>
+      <div class="flex-1 flex-col items-center justify-center">
+        <div class="flex flex-col items-start justify-center items-center pb-4">
+          <p class="v-copy2">read on</p>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+          </svg>
+        </div>
+      </div>
+  <div class="border-l border-gray-light border-solid w-12"></div>
+</div>
 <!-- main blog copy -->
-<div class="flex bg-white pt-24">
+<div class="flex bg-white">
   <div class="border-r border-gray-light border-solid w-12"></div>
       <div class="flex-1 flex-col items-center justify-center">
         <div class="grid md:grid-cols-3 grid-cols-1 gap-6 pb-24">
           <div class="grid-cols-1">
-            <h3 class="uppercase text-gray text-lg">m.brown</h3>
+            <h3 class="uppercase text-gray text-lg">{frontmatter.author}</h3>
             <RedLine />
             <span class="text-gray font-extralight text-3xl">"The driveway area is expected to last for years since it is supposed to be tough"</span>
           </div>
-          <div class="grid-cols-1 text-black"><slot /></div>
-          <div class="grid-cols-1 text-black"><slot /></div>
+          <div class="grid-cols-1"><slot /></div>
+          <div class="grid-cols-1"></div>
         </div>
       </div>
   <div class="border-l border-gray-light border-solid w-12"></div>

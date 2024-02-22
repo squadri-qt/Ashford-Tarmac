@@ -6,4 +6,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://at-gamma.vercel.app/',
   integrations: [preact(), tailwind(),],
+  prefetch: {prefetchAll: true},
 });
