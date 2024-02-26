@@ -40,14 +40,17 @@ const text = "Back to blog archive";
 <div class="flex bg-white">
   <div class="border-r border-gray-light border-solid w-12"></div>
       <div class="flex-1 flex-col items-center justify-center">
-        <div class="grid md:grid-cols-3 grid-cols-1 gap-6 pb-24">
-          <div class="grid-cols-1">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-6">
+          <div class="col-span-1">
             <h3 class="uppercase text-gray text-lg">{frontmatter.author}</h3>
             <RedLine />
             <span class="text-gray font-extralight text-3xl">"The driveway area is expected to last for years since it is supposed to be tough"</span>
           </div>
-          <div class="grid-cols-1"><slot /></div>
-          <div class="grid-cols-1"></div>
+          <div class="col-span-2">
+            <div class="news-cols">
+              <slot />
+            </div>
+          </div>
         </div>
       </div>
   <div class="border-l border-gray-light border-solid w-12"></div>
@@ -61,4 +64,3 @@ const text = "Back to blog archive";
   <div class="border-l border-gray-light border-solid w-12"></div>
 </div>
 </BaseLayout>
-

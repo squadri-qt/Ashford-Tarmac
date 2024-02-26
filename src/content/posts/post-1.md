@@ -9,7 +9,7 @@ image:
     alt: 'A tarmac driveway project in tenderden.'
 tags: ["driveway", "tarmac", "tenderden"]
 ---
-**When you are considering getting a driveway, one thing you have to think about is the cost.** 
+**When you are considering getting a driveway, one thing you have to think about is the cost.**
 
 It helps to know what it will cost you to get that driveway. This will depend on several factors. A driveway that’s meant for a single car will obviously cost less than a bigger one. You have to consider how large the driveway is going to be to know what it’s going to cost. Contractors will charge per project. You can find out what a particular contractor charges for that. You have more than enough options when it comes to paving in kent.
 
