@@ -54,7 +54,7 @@ export default {
           fontWeight: '700',
         }],
         '5xl': ['3.052rem', {
-          lineHeight: '1.5rem',
+          lineHeight: '3.2rem',
           letterSpacing: '0.05rem',
           fontWeight: '700',
         }],

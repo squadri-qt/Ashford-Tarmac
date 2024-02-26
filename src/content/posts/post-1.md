@@ -13,7 +13,7 @@ tags: ["driveway", "tarmac", "tenderden"]
 
 It helps to know what it will cost you to get that driveway. This will depend on several factors. A driveway that’s meant for a single car will obviously cost less than a bigger one. You have to consider how large the driveway is going to be to know what it’s going to cost. Contractors will charge per project. You can find out what a particular contractor charges for that. You have more than enough options when it comes to paving in kent.
 
-#### Consider the quality and the design
+### Consider the quality and the design
 
 The quality will also matter. There are several options that people have when it comes to driveways. A driveway can be gravel, asphalt, tarmacadam or concrete. All these materials mean different quality of driveways. Concrete and asphalt usually cost more. It helps to check the different materials that a contractor uses. You have to consider not just the cost but the quality too. There are some materials that will last longer than others. Concrete is more durable and the overall maintenance is lower however tarmac driveways look cleaner and crisper. This is one factor to put into consideration.
 
