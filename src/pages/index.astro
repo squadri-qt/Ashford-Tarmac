@@ -5,6 +5,7 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
 const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
+import BlogArchive from '../components/BlogArchive.astro';
 ---
 <script>
     console.log(ScrollTrigger);
@@ -160,84 +161,5 @@ observer.observe(targetDiv);
     <!-- CTA -->
 </div>
 <!-- blog archive --> 
-<div class="flex bg-gray-dark">
-    <div class="bg-gray-dark flex items-center justify-center w-12 border-r border-gray-border border-solid">
-        <p class="v-copy4">our blog</p>
-    </div>
-    <div class="flex-1 flex md:items-center md:justify-center py-20">
-    <!-- Main blog cards -->
-        <div class="relative w-2/5 lg:w-1/4 ml-1 my-element">
-          <div class="bg-gray-dark rounded-lg shadow-4xl">
-            <div class="h-1/2">
-                <img class="rounded-t-lg" src="/blog-placeholder.webp" alt="">
-            </div>
-            <div class="h-1/2 flex flex-col justify-between p-4">
-              <h2 class="text-gray text-xl font-bold">Title</h2>
-              <p class="text-white text-sm py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white hover:text-red">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="relative w-2/5 lg:w-1/4 -ml-20 my-element">
-          <div class="bg-gray-dark rounded-lg shadow-4xl">
-            <div class="h-1/2">
-                <img class="rounded-t-lg" src="/blog-placeholder.webp" alt="">
-            </div>
-            <div class="h-1/2 flex flex-col justify-between p-4">
-                <h2 class="text-gray text-xl font-bold">Title</h2>
-                <p class="text-white text-sm py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white hover:text-red">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
-          </div>
-        </div>
-        <div class="relative w-2/5 lg:w-1/4 -ml-20 my-element">
-          <div class="bg-gray-dark rounded-lg shadow-4xl">
-            <div class="h-1/2">
-                <img class="rounded-t-lg" src="/blog-placeholder.webp" alt="">
-            </div>
-            <div class="h-1/2 flex flex-col justify-between p-4">
-                <h2 class="text-gray text-xl font-bold">Title</h2>
-                <p class="text-white text-sm py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white hover:text-red">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
-          </div>
-        </div>
-        <div class="relative w-2/5 lg:w-1/4 -ml-20 my-element">
-          <div class="bg-gray-dark rounded-lg shadow-4xl">
-            <div class="h-1/2">
-                <img class="rounded-t-lg" src="/blog-placeholder.webp" alt="">
-            </div>
-            <div class="h-1/2 flex flex-col justify-between p-4">
-                <h2 class="text-gray text-xl font-bold">Title</h2>
-                <p class="text-white text-sm py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white hover:text-red">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
-          </div> 
-        </div>
-        <div class="relative w-2/5 lg:w-1/4 -ml-20 mr-1 my-element">
-          <div class="bg-gray-dark rounded-lg shadow-4xl">
-            <div class="h-1/2">
-                <img class="rounded-t-lg" src="/blog-placeholder.webp" alt="">
-            </div>
-            <div class="h-1/2 flex flex-col justify-between p-4">
-                <h2 class="text-gray text-xl font-bold">Title</h2>
-                <p class="text-white text-sm py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white hover:text-red">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- empty right gutter -->
-    <div class="bg-gray-dark flex items-center justify-center w-12 border-l border-gray-border border-solid"></div>
-</div>
+<BlogArchive />
 </BaseLayout>

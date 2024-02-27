@@ -8,6 +8,8 @@ const postsCollection = defineCollection({
       pubDate: z.date(),
       description: z.string(),
       author: z.string(),
+      sortOrder: z.number(),
+      excerpt: z.string().max(90),
       image: z.object({
         url: z.string(),
         alt: z.string()
@@ -15,7 +17,22 @@ const postsCollection = defineCollection({
       tags: z.array(z.string())
     })
 });
+const casestudies = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    author: z.string(),
+    image: z.object({
+      url: z.string(),
+      alt: z.string()
+    }),
+    tags: z.array(z.string())
+  })
+});
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
+  casestudies: casestudies,
 };

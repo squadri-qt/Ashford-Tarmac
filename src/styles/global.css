@@ -25,7 +25,13 @@
     @apply text-base font-bold;
   }
 } 
-
+a {
+  color: #ED1C24;
+  font-weight: 500;
+}
+a:hover {
+  color: #2B2B2B;
+}
 /* global */
 html {
 height: 100%;
@@ -350,8 +356,4 @@ nav {
   100% {
     transform: translate(-100%, -100%) translate3d(0, 0, 0);
   }
-}
-/* blog template styles */
-#custom-background {
-  background-size: 600px 100%; /* 600px width, 100% height */
 }

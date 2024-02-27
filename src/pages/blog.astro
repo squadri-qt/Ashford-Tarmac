@@ -8,8 +8,13 @@ const allPosts = await getCollection("posts");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>This is where I will post about my journey learning Astro.</p>
-	<ul>
-		{allPosts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)}
-	</ul>
+	<div class="flex bg-white">
+		<div class="border-r border-gray-light border-solid w-12"></div>
+			<div class="flex-1 flex-col items-center justify-center">
+				<ul>
+					{allPosts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)}
+				</ul>
+			</div>
+		<div class="border-l border-gray-light border-solid w-12"></div>
+	  </div>
 </BaseLayout>

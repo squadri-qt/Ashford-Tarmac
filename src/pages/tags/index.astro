@@ -1,34 +1,69 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import RedLine from "../../components/RedLine.astro";
+import BlogArchive from '../../components/BlogArchive.astro';
 
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "Tag Index";
 ---
+<script>
+  console.log(ScrollTrigger);
+  import { gsap } from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.to(".btext", {
+  x: 100,
+  scrollTrigger: {
+  trigger: '.container',
+  start: "clamp(top bottom)",
+  scrub: 2,
+  pin: '.pin',
+  pinSpacing: false,
+  markers:false,
+  },
+});
+// animation for the red background
+const targetDiv = document.getElementById("target-div");
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+  if (entry.isIntersecting) {
+    gsap.to(targetDiv, {
+      duration: 1, // Adjust duration as needed
+      css: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+      ease: "power3.inOut" // Adjust easing if needed
+    });
+  }
+});
+});
+observer.observe(targetDiv);
+</script>
 <BaseLayout pageTitle = {pageTitle}>
-    <div class="tags">
-        {tags.map((tag) => (
-        <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-        ))}
-    </div>
+  <div class="flex bg-white" id="target-div">
+    <div class="border-r border-gray-light border-solid w-12"></div>
+        <div class="flex-1 flex-col items-center justify-center">
+          <div class="md:w-2/5 mx-auto py-14">
+            <h1 class="text-center uppercase">Blog Archive</h1>
+            <RedLine />
+            <p class="text-center text-black">Select any link below to read more about any of our blog articles from driveways to commercial planning to public sector spaces.</p>
+          </div>
+          <BlogArchive />
+          <div class="tags flex flex-wrap pt-16">
+            {tags.map((tag) => (
+            <div class="mr-4 btext">       
+              <button type="button" class="bg-red hover:bg-black text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full flex items-center at-estimate-btn">
+                <span><a class="text-white hover:text-white capitalize" href={`/tags/${tag}`}>{tag}</a></span>
+                <span class="bg-black rounded-full p-2 ml-4 hover:bg-red">
+                    <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </span>
+              </button>
+            </div>
+            ))}
+        </div>
+        </div>
+    <div class="border-l border-gray-light border-solid w-12"></div>
+  </div>
 </BaseLayout>
-<style>
-    a {
-      color: #00539F;
-    }
-  
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  
-    .tag {
-      margin: 0.25em;
-      border: dotted 1px #a1a1a1;
-      border-radius: .5em;
-      padding: .5em 1em;
-      font-size: 1.15em;
-      background-color: #F8FCFD;
-    }
-  </style>

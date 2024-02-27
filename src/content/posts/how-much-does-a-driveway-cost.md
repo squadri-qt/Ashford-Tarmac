@@ -1,13 +1,15 @@
 ---
 title: 'How much does a driveway cost?'
 pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog. This is the first post of my new Astro blog.'
+description: 'When you are considering getting a driveway, one thing you have to think about is the cost.'
+excerpt: "Average cost: £2,500 - £6,000"
+sortOrder: 2
 author: 'Mr Brown - MD'
 category: 'test'
 image:
     url: '/case-study.webp'
     alt: 'A tarmac driveway project in tenderden.'
-tags: ["driveway", "tarmac", "tenderden"]
+tags: ["domestic", driveway", "tarmac", "tenderden"]
 ---
 **When you are considering getting a driveway, one thing you have to think about is the cost.**
 
@@ -20,7 +22,7 @@ The quality will also matter. There are several options that people have when it
 The design is another aspect that will come into play. There are some driveways that are very intricate. The design will determine how much material is used, the time spent among other things. This will eat into the overall cost. If you want detailed designs, then it will cost more. If you are working on a budget, then consider something simpler. This will mean saving some money on your driveway project. Find a suitable contractor for driveways Dublin. You can then look at the different designs and styles that are available together with their costs. Take your pick carefully.
 
 
-Overall costs of the project
+### Overall costs of the project
 
 There are some other costs that you will have to consider when thinking of getting a driveway. Depending on where you live, there are permits that may be required. Find out about these before you start your project. There may also be other penalties or fees required by the resident association. You have to find out about this. Do your research so you will know how to plan your budget. You can ask a contractor first so you will know about the expenses. You can also talk to someone who has done all this before.
 

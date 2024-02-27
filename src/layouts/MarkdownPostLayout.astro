@@ -7,10 +7,10 @@ const text = "Back to blog archive";
 ---
 <BaseLayout pageTitle={frontmatter.title}>
 <!-- hero section -->
-<div id="custom-background" class="flex bg-white bg-no-repeat bg-right-bottom" style={{ backgroundImage: `url(${frontmatter.image.url})` }}>
+<div class="flex bg-white bg-no-repeat bg-right-top" style={{ backgroundImage: `url(${frontmatter.image.url})` }}>
   <div class="border-r border-gray-light border-solid w-12 bg-white"></div>
   <div class="flex-1">
-    <div class="h-full w-1/2 pt-24 pb-96 bg-white">
+    <div class="h-full w-1/2 pt-24 pr-12 pb-96 bg-white">
       <h1 class="md:text-lg text-smh text-red uppercase">{frontmatter.title}</h1>
         <h2 class="font-bold text-3xl font-bolder text-black">{frontmatter.description}</h2>
         <div class="pr-8"><RedLine /></div>        
@@ -29,7 +29,7 @@ const text = "Back to blog archive";
       <div class="flex-1 flex-col items-center justify-center">
         <div class="flex flex-col items-start justify-center items-center pb-4">
           <p class="v-copy2">read on</p>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
           </svg>
         </div>
@@ -44,7 +44,7 @@ const text = "Back to blog archive";
           <div class="col-span-1">
             <h3 class="uppercase text-gray text-lg">{frontmatter.author}</h3>
             <RedLine />
-            <span class="text-gray font-extralight text-3xl">"The driveway area is expected to last for years since it is supposed to be tough"</span>
+            <span class="text-gray font-extralight text-3xl italic">"{frontmatter.excerpt}"</span>
           </div>
           <div class="col-span-2">
             <div class="news-cols">
@@ -59,8 +59,10 @@ const text = "Back to blog archive";
 <div class="flex bg-white">
   <div class="border-r border-gray-light border-solid w-12"></div>
       <div class="flex-1 flex-col items-center justify-center">
-          <div class="flex flex-items-center justify-center py-12"><GetEstimateBtn {text}/></div>
+          <div class="flex flex-items-center justify-center py-12">
+            <a href="/tags"><GetEstimateBtn {text}/></a>
+          </div>
       </div>
   <div class="border-l border-gray-light border-solid w-12"></div>
-</div>
+</div>  
 </BaseLayout>

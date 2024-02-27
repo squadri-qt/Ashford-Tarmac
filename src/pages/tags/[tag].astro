@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 import { getCollection } from "astro:content";
+import RedLine from "../../components/RedLine.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
@@ -21,8 +22,18 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 <BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-    {posts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)}
-  </ul>
+  <div class="flex bg-white">
+    <div class="border-r border-gray-light border-solid w-12"></div>
+        <div class="flex-1 flex-col items-center justify-center pt-14">
+          <div class="md:w-2/5 mx-auto py-14">
+            <h1 class="text-center uppercase">Posts tagged with:<span class="text-gray">{tag}</span></h1>
+            <RedLine />
+            <p class="text-center text-black">Click on the blog post links below to read articles.</p>
+            <ul class="text-center">
+              {posts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)}
+            </ul>
+          </div>      
+        </div>
+    <div class="border-l border-gray-light border-solid w-12"></div>
+  </div>
 </BaseLayout>
