@@ -2,12 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
-import EstimateForm from '../components/EstimateForm.astro';
 const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathways";
 const text = "Back to case studies";
+const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={frontmatter.title}>
 <!-- hero section --> 
  <div class="flex bg-[url('/ground-work-tarmac-project-kent2.webp')] bg-no-repeat bg-cover">
     <div class="flex items-center justify-center border-r border-gray border-solid w-12 bg-black bg-opacity-80">
