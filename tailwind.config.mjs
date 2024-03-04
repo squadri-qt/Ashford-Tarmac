@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss/plugin'
 export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
@@ -105,5 +106,8 @@ export default {
       },
     },
     plugins: [
+      plugin(({addUtilities}) =>
+        addUtilities({'.vertical-lr': { 'writing-mode': 'vertical-lr' }, '.vertical-rl': { 'writing-mode': 'vertical-rl' }})
+      ),
     ],
   };

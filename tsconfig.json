@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "strictNullChecks": true,
+    "target": "es6",
     "allowJs": true,
   }
 }

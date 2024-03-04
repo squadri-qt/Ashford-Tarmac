@@ -5,7 +5,10 @@ import RedLine from '../components/RedLine.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathways";
 ---
-
+<script>
+import {scrolltrigger_text} from '../scripts/animation'
+scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
+</script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
 <div class="flex min-h-[40rem] bg-[url('/commercial-tarmac-contractor-hero.jpg')] lg:bg-contain bg-fixed bg-no-repeat">
@@ -37,15 +40,15 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
-        <div class="grid md:grid-cols-2 grid-cols-1 bg-black">
+        <div id="at-stc1" class="grid md:grid-cols-2 grid-cols-1 bg-black">
             <div class="pb-48">
                 <h2 class="text-gray">The Commercial Tarmac Challenge</h2>
                 <h4 class="md:text-6xl text-5xl text-white font-light pb-6">We understand<br />the challenge.</h4>
                 <p class="text-white">Finding a reputable and trustworthy contractor for your commercial tarmac needs at the right price can be daunting. You need a new road or car park, but the search for the right contractor seems never-ending.</p>
                 <p class="text-white">We understand your quest for trust and affordability. Since 1979, we've served housing developers, hospitals, universities, and more. Our experienced team is known for reliability, and our advice is highly valued by our clients.</p>
             </div>
-            <div class="md:flex md:justify-end md:items-center">
-                <div class="text-white text-7xl font-bold -rotate-90 uppercase opacity-30  whitespace-no-wrap"><span>ashford tarmac</span></div>
+            <div class="overflow-hidden h-[100%]">
+                <div id="at-stc1-a" class="text-white text-7xl font-bold lg:-rotate-90 uppercase opacity-30 whitespace-nowrap" data-at-scroll-pos="-30rem"><span class="ml-[-70rem]">Ashford Tarmac</span></div>
             </div>
         </div>
     </div>

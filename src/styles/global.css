@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*
+CW: Causes css property duplication
+
+*/
 
 @layer base {
   p {

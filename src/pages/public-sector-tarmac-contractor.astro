@@ -5,7 +5,10 @@ import RedLine from '../components/RedLine.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals & Schools.";
 ---
-
+<script>
+import {scrolltrigger_text} from '../scripts/animation'
+scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
+</script>
 <BaseLayout pageTitle={pageTitle}>
     <!-- hero section --> 
     <div class="flex min-h-[40rem] bg-[url('/commercial-tarmac-contractor-hero.jpg')] lg:bg-contain bg-fixed bg-no-repeat">
@@ -37,15 +40,15 @@ const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals &
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
                 </svg>
             </div>
-            <div class="grid md:grid-cols-2 grid-cols-1 bg-black">
+            <div id="at-stc1" class="grid md:grid-cols-2 grid-cols-1 bg-black">
                 <div class="pb-48">
                     <h2 class="md:text-lg text-smh text-gray">Challenges in Public Sector Tarmac Projects</h2>
                     <h4 class="md:text-6xl text-4xl text-white font-light pb-6">We understand<br />the challenge.</h4>
                     <p class="text-white">Finding a reputable and trustworthy contractor for your commercial tarmac needs at the right price can be daunting. You need a new road or car park, but the search for the right contractor seems never-ending.</p>
                     <p class="text-white">We understand the unique challenges public sector clients face. The need for safe and efficient playgrounds, car parks, and roads is paramount, but finding a trusted advisor can be daunting.</p>
                 </div>
-                <div class="md:flex md:justify-end md:items-center">
-                    <div class="text-white text-7xl font-bold -rotate-90 uppercase opacity-30  whitespace-no-wrap"><span>Your Expert Advisor Since 1979</span></div>
+                <div class="overflow-hidden h-[100%]">
+                    <div id="at-stc1-a" class="text-white text-7xl font-bold -rotate-90 uppercase opacity-30 whitespace-nowrap" data-at-scroll-pos="-30rem"><span class="ml-[-100rem]">Your Expert Advisor Since 1979</span></div>
                 </div>
             </div>
         </div>
@@ -102,7 +105,7 @@ const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals &
                 <!-- process 1 -->
                 <div class="flex flex-row items-center">
                     <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl md:text-3xl text-xl font-bold"">Your Roadmap to Public Sector Success</h3>
+                        <h3 class="md:text-3xl md:text-3xl text-xl font-bold">Your Roadmap to Public Sector Success</h3>
                         <RedLine />
                         <p class="md:text-base text-sm">Wondering about the process? We've simplified it for public sector clients: 1. Get in touch. 2. Share project details. 3. Receive expert consultation and a tailored plan.</p>
                     </div>
@@ -113,7 +116,7 @@ const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals &
                 <!-- process 2 -->
                 <div class="flex flex-row items-center hidden">
                     <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl text-xl font-bolder"">Our Commitment to Public Sector Excellence</h3>
+                        <h3 class="md:text-3xl text-xl font-bolder">Our Commitment to Public Sector Excellence</h3>
                         <RedLine />
                         <p class="">We're committed to delivering excellence in public sector projects. Our promise includes expert guidance, safety, and efficiency, all backed by our years of knowledge.</p>
                     </div>
@@ -124,7 +127,7 @@ const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals &
                 <!-- process 3 -->
                 <div class="flex flex-row items-center hidden">
                     <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl text-xl font-bolder"">The Cost of Inexpert Advice</h3>
+                        <h3 class="md:text-3xl text-xl font-bolder">The Cost of Inexpert Advice</h3>
                         <RedLine />
                         <p class="">Opting for inexpert advice can lead to project setbacks, safety concerns, and inefficiencies. Don't compromise. Choose expert guidance for your public sector projects.</p>
                     </div>
@@ -135,7 +138,7 @@ const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals &
                 <!-- process 4 -->
                 <div class="flex flex-row items-center hidden">
                     <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl text-xl font-bolder"">From Uncertainty to Public Sector Excellence</h3>
+                        <h3 class="md:text-3xl text-xl font-bolder">From Uncertainty to Public Sector Excellence</h3>
                         <RedLine />
                         <p class="">Say goodbye to uncertainty and delays. Transform your public sector projects into a benchmark of excellence with the expert guidance of Ashford Tarmac Contractors.</p>
                     </div>
