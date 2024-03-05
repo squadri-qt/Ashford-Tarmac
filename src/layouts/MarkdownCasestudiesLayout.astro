@@ -1,22 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "./BaseLayout.astro";
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
-const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathways";
-const text = "Back to case studies";
 const { frontmatter } = Astro.props;
+const text = "Back to blog archive";
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
 <!-- hero section --> 
- <div class="flex bg-[url('/ground-work-tarmac-project-kent2.webp')] bg-no-repeat bg-cover">
+ <div class="flex bg-no-repeat bg-cover" style={{ backgroundImage: `url(${frontmatter.image.url})` }}>
     <div class="flex items-center justify-center border-r border-gray border-solid w-12 bg-black bg-opacity-80">
-        <p class="v-copy text-gray py-2">SERVICE SECTOR: DOMESTIC | PROJECT: DRIVEWAY | SURFACE: RESIN BOUND</p>
+        <p class="v-copy text-gray py-2">{frontmatter.tags}</p>
     </div>
     <div class="flex-1 flex-col items-center justify-center">
         <div class="grid grid-cols-2 min-h-[40rem]">
             <div class="md:col-span-1 h-full md:pr-12 pb-4 md:pb-0 bg-black bg-opacity-80 md:bg-opacity-80 flex flex-col justify-center md:justify-center">
-                <h1 class="uppercase md:text-7xl text-6xl font-bold md:font-bolder text-white col-span-2 text-center absolute inset-x-0 transform">resin<br /><span class="underline decoration-red">bound</span></h1>
+                <h1 class="uppercase md:text-7xl text-6xl font-bold md:font-bolder text-white col-span-2 text-center absolute inset-x-0 transform">{frontmatter.title}<br /><span class="underline decoration-red">{frontmatter.title}</span></h1>
             </div>
             <div class="md:col-span-1 h-full bg-black bg-opacity-30 text-white flex flex-col items-center justify-center pb-16 md:py-24 md:pl-12 md:pr-8"></div>            
         </div>                                
@@ -33,8 +32,7 @@ const { frontmatter } = Astro.props;
                 <RedLine />
             </div>
             <div class="md:col-span-1 h-full bg-black bg-opacity-80 text-white flex flex-col items-center justify-center pb-16 md:py-24 md:pl-12 md:pr-8">
-                <p class="text-base">This project was to replace an existing gravel driveway at a residential property. After having a gravel driveway for many years, the client had decided that they required a more practical surface. They favored the lighter, more natural appearance of gravel but were tired of finding loose stones in their house and cars!</p>
-                <p class="text-base">The residential driveway led to a property situated on the Kent & Sussex border. The existing loose surface was removed, and the existing sub base prepared. New charcoal Block Edging Kerbs were installed together with a “double band” of Block Paviors to the perimeter of the driveway. A new Open Textured Surface Course was laid to a 70mm depth, and the final surface layer was 18mm depth of Resin Bound Aggregate. The client's choice of color was “natural gravel” with a charcoal-colored band laid to the edge of the granite setts to enhance the overall effect.</p>
+                <slot />
             </div>            
         </div>                                
     </div>

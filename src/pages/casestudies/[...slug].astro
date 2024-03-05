@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import MarkdownCasestudiesLayout from '../../layouts/MarkdownCasestudiesLayout.astro';
+
+export async function getStaticPaths() {
+  const casestudiesEntries = await getCollection('casestudies');
+  return casestudiesEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<MarkdownCasestudiesLayout frontmatter={entry.data}>
+    <Content />
+</MarkdownCasestudiesLayout>
