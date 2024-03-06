@@ -22,10 +22,15 @@ const caseStudiesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     title2: z.string(),
-    pubDate: z.date(),
-    description: z.string(),
+    location: z.string(),
     client: z.string(),
-    image: z.object({
+    quote: z.string(),
+    sector: z.string(),
+    heroImage: z.object({
+      url: z.string(),
+      alt: z.string()
+    }),
+    quoteImage: z.object({
       url: z.string(),
       alt: z.string()
     }),
