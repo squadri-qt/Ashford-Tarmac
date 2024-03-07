@@ -5,7 +5,7 @@ sortOrder: 1
 description: "A driveway can be defined as a private road. It is a private road for local access. It provides access to one building structure or a small group of structures."
 excerpt: "Driveways, like all personal property, need to be protected."
 image:
-    url: "/driveway-gates-kent.webp"
+    url: "/case-studies/gallery/driveway-gates.webp"
     alt: "Driveways can be decorated"
 pubDate: 2024-02-27
 tags: ["domestic", "driveway", "driveway gates", "tarmac", "blockwork"]

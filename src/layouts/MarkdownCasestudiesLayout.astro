@@ -3,7 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
 const { frontmatter } = Astro.props;
-const text = "Back to blog archive";
+const text = "Back to archive";
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -55,7 +55,7 @@ const text = "Back to blog archive";
     <div class="border-r border-gray-light border-solid w-12"></div>
         <div class="flex-1 flex-col items-center justify-center">
             <div class="flex flex-items-center justify-center py-12">
-                <GetEstimateBtn {text}/>
+                <a href="/tarmac-case-study-archive"><GetEstimateBtn {text}/></a>
             </div>
         </div>
     <div class="border-l border-gray-light border-solid w-12"></div>
