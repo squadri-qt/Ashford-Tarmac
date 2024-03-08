@@ -91,8 +91,8 @@ observer.observe(targetDiv);
         <div class="flex-col md:w-2/3">
             <h2 class="md:text-lg text-smh text-white pb-4 pt-12">Discover Our Kent Tarmac Legacy</h2>
             <h4 class="md:text-6xl text-3xl font-light">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
-            <button class="bg-black hover:bg-white hover:text-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
-                <a href="/about">About Ashford Tarmac</a>
+            <button class="bg-black hover:bg-white hover:text-black font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
+                <a class=" text-white" href="/about">About Ashford Tarmac</a>
                 <span class="bg-red rounded-full p-2 ml-4">
                     <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
@@ -143,7 +143,7 @@ observer.observe(targetDiv);
                 </span>
             </button>
         </div>
-  </div>
+    </div>
     <!-- Get estimate -->
     <EstimateForm />
     <div class="flex flex-col items-start justify-center items-center pb-4 pt-12">
@@ -152,14 +152,13 @@ observer.observe(targetDiv);
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
         </svg>
     </div>
-    </div><!--end of main -->
+    <!-- blog archive --> 
+<BlogArchive />
+</div><!--end of main -->
     <div class="border-l border-gray-light border-solid w-12 md:pt-24 pt-96">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg> 
     </div>
-    <!-- CTA -->
 </div>
-<!-- blog archive --> 
-<BlogArchive />
 </BaseLayout>
