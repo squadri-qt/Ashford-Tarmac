@@ -9,7 +9,7 @@ category: 'test'
 image:
     url: '/case-study.webp'
     alt: 'A tarmac driveway project in tenderden.'
-tags: ["cost", driveway", "tarmac", "tenderden"]
+tags: ["cost", "driveway", "tarmac", "tenderden"]
 ---
 **When you are considering getting a driveway, one thing you have to think about is the cost.**
 

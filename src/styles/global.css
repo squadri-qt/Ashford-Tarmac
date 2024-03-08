@@ -153,6 +153,27 @@ transform-origin: 155% 85%; /* or 50% 50% */
 line-height: 1.2; /* Adjust as needed */
 }
 
+.v-header {
+  font-weight:normal;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--r);
+  margin:-1.25em 50%;
+  display:inline-block;
+  /*transform: translate(50%, 0);*/
+  writing-mode: vertical-lr;
+}
+
+.v-header::after {
+  display:inline-block;
+  position:relative;
+  content: '🡒';
+  left:0.05em;
+  margin:1em 0 1em 0;
+  font-size:2em;
+}
+
 /* styles.css or within your <style> tag */
 
 @keyframes moveLeft {

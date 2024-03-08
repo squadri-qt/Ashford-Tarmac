@@ -6,8 +6,9 @@ import EstimateForm from '../components/EstimateForm.astro';
 const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathways";
 ---
 <script>
-import {scrolltrigger_text} from '../scripts/animation'
+import {scrolltrigger_text, service_tabs} from '../scripts/animation'
 scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
+service_tabs(document.getElementById('at-tabs'))
 </script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
@@ -55,7 +56,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
     <div class="border-l border-gray-dark border-solid w-12"></div>
 </div>
 <!-- solution section -->
-<div class="flex bg-white">
+<div class="flex bg-white" id="at-tabs">
     <div class="border-r border-gray-light border-solid w-12"></div>
     <div class="flex-1 flex-col items-center justify-center">
         <div class="flex flex-col items-start justify-center items-center pb-4">
@@ -64,30 +65,42 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
-        <div class="md:w-2/5 mx-auto pb-14">
+        <div>
             <!-- tabbed content --> 
-            <div class="flex items-center justify-center mx-auto md:max-w-96 w-72 mb-12 bg-gray rounded-full uppercase text-lg font-bold text-white">
-                <div class="flex items-center justify-center w-48 h-12 bg-gray-dark rounded-full">
+            <div class="flex items-center relative justify-center mx-auto md:max-w-96 w-72 mb-12 bg-gray rounded-full uppercase text-lg font-bold text-white">
+                <div class="absolute left-0 w-[9rem] h-[100%] rounded-full bg-gray-dark"></div>
+                <div class="flex items-center justify-center w-48 h-12 rounded-full relative" data-at-show="solution">
                     <p class="font-bold">solution</p>
                 </div>
-                <div class="flex items-center justify-center w-48 h-12 rounded-full">
+                <div class="flex items-center justify-center w-48 h-12 rounded-full relative" data-at-show="pricing">
                     <p class="font-bold">pricing</p>
                 </div>
             </div>
             <!-- tabs -->
-            <div id="tab-1" class="tab-1 active">
-                <h3 class="md:text-3xl text-2xl font-bold uppercase font-bold text-center">The Solution</h3>
-                <RedLine />
-                <p class="text-center text-black"><span class="font-bold">Tarmac Solutions for Your Commercial Space</span> <br />Imagine having a reliable partner for your commercial tarmac needs. Whether it's a new road or car park, our services are tailored to your specifications and budget.</p>
+            <div class="relative overflow-hidden">
+                <div class="relative flex flex-row">
+                    <div class="flex-[100%_0_0]" data-at-show-target="solution">
+                        <div class="mx-auto pb-14">
+                            <h3 class="md:text-3xl text-2xl font-bold uppercase font-bold text-center md:w-3/5 mx-auto">The Solution</h3>
+                            <RedLine class=" md:w-3/5 mx-auto"/>
+                            <p class="text-center text-black md:w-3/5 mx-auto"><span class="font-bold">Tarmac Solutions for Your Commercial Space</span> <br />Imagine having a reliable partner for your commercial tarmac needs. Whether it's a new road or car park, our services are tailored to your specifications and budget.</p>
+                        </div>
+                        <div class="w-full mx-auto pb-12">
+                            <img src="/dev1.svg" alt="commercial tarmac company in kent"/>
+                        </div>
+                    </div>
+                    <div class="flex-[100%_0_0]" data-at-show-target="pricing">
+                        <div class="mx-auto pb-14">
+                            <h3 class="md:text-3xl text-2xl font-bold uppercase font-bold text-center md:w-3/5 mx-auto">Pricing</h3>
+                            <RedLine class=" md:w-3/5 mx-auto" />
+                            <p class="text-center text-black md:w-3/5 mx-auto"><span class="font-bold">When you choose Ashford Tarmac Contractors - </span> <br />You're choosing a solution that offers consistent and reasonable pricing. We ensure value for money and stand by our work with a guarantee. No more unreasonable quotes or unreliable contractors.</p>
+                        </div>
+                        <div class="w-full mx-auto pb-12">
+                            <img src="/dev1.svg" alt="commercial tarmac company in kent"/>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="tab-2" class="hidden">
-                <h3 class="md:text-3xl text-2xl font-bold uppercase font-bold text-center">Pricing</h3>
-                <RedLine />
-                <p class="text-center text-black"><span class="font-bold">When you choose Ashford Tarmac Contractors - </span> <br />You're choosing a solution that offers consistent and reasonable pricing. We ensure value for money and stand by our work with a guarantee. No more unreasonable quotes or unreliable contractors.</p>
-            </div>
-        </div>
-        <div class="w-full mx-auto pb-12">
-            <img src="/dev1.svg" alt="commercial tarmac company in kent"/>
         </div>
     </div>    
     <div class="border-l border-gray-light border-solid w-12"></div>
@@ -105,7 +118,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
             <!-- process 1 -->
             <div class="flex flex-row items-center">
                 <div class="flex-col w-1/3 text-white g-red">
-                    <h3 class="md:text-3xl md:text-3xl text-xl font-bold"">How do you get started?</h3>
+                    <h3 class="md:text-3xl md:text-3xl text-xl font-bold">How do you get started?</h3>
                     <RedLine />
                     <p class="md:text-base text-sm">It’s normal to advise clients on the best options which meet your objectives, we are a friendly bunch so please get in touch.</p>
                 </div>
@@ -116,7 +129,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
             <!-- process 2 -->
             <div class="flex flex-row items-center hidden">
                 <div class="flex-col w-1/3 text-white g-red">
-                    <h3 class="md:text-3xl text-xl font-bolder"">Our Promise to You</h3>
+                    <h3 class="md:text-3xl text-xl font-bolder">Our Promise to You</h3>
                     <RedLine />
                     <p class="">We're confident in our ability to meet your expectations. Our promise includes providing the best possible outcome, delivering value for money, and offering expert advice based on our years of knowledge.</p>
                 </div>
@@ -127,7 +140,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
             <!-- process 3 -->
             <div class="flex flex-row items-center hidden">
                 <div class="flex-col w-1/3 text-white g-red">
-                    <h3 class="md:text-3xl text-xl font-bolder"">From Uncertainty to Confidence</h3>
+                    <h3 class="md:text-3xl text-xl font-bolder">From Uncertainty to Confidence</h3>
                     <RedLine />
                     <p class="">Say goodbye to the uncertainty of dealing with unprofessional contractors and excessive charges. Choose Ashford Tarmac Contractors for expert advice, reliability, and affordability.</p>
                 </div>
@@ -138,7 +151,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
             <!-- process 4 -->
             <div class="flex flex-row items-center hidden">
                 <div class="flex-col w-1/3 text-white g-red">
-                    <h3 class="md:text-3xl text-xl font-bolder"">The Cost of Making the Wrong Choice</h3>
+                    <h3 class="md:text-3xl text-xl font-bolder">The Cost of Making the Wrong Choice</h3>
                     <RedLine />
                     <p class="">Opting for a lesser-known contractor can lead to subpar results, overcharging, and poor advice. Don't risk it. Choose a reliable and experienced contractor instead.</p>
                 </div>
