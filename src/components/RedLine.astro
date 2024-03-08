@@ -1,1 +1,4 @@
-<div class="border-b border-red border-solid pt-2 mb-4"></div>
+---
+const {class: classes} = Astro.props
+---
+<div class:list={["border-b border-red border-solid pt-2 mb-4 ", classes]}></div>

@@ -11,6 +11,7 @@ import BlogArchive from '../components/BlogArchive.astro';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { createCollectionToGlobResultMap } from 'astro/content/runtime';
 gsap.registerPlugin(ScrollTrigger);
 gsap.to(".btext", {
     x: 600,
@@ -122,8 +123,6 @@ const quadInitTabs = (selector:string) => {
         timeout_token = interval_token = undefined
         root.dataset.activeTab = i
     }))
-
-    console.log(`delay: ${delay_ms}, interval: ${speed_ms}`)
 }
 
 quadInitTabs('#at-tabs-1')
@@ -160,7 +159,81 @@ const serviceSection = (selector:string, scroll_distance_factor:number) => {
             }
         });
 }
-serviceSection('[data-at-snap=services]', 2.5)
+// serviceSection('[data-at-snap=services]', 0.1)
+
+const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
+    const trigger = document.querySelector('[data-at-snap=services]')
+    const progress = trigger?.querySelector('[data-progress]')
+
+    if (!trigger || !progress) {
+        return
+    }
+    const headers = [...trigger?.querySelectorAll('[data-at-service-id]')]
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger,
+            pin: true,
+            start: 'top top',
+            scrub: 1,
+            end: () => `+=5000`
+        }
+    })
+    const st = tl.scrollTrigger
+    const update_progress = function() {
+        progress.dataset.progress = `${Math.ceil(this.progress() * 100)}%`
+    }
+    const state = {
+        last_img: null,
+        last_txt: null,
+        pos: 0,
+        tt_dur: []
+    }
+
+    headers.forEach((h:HTMLDataElement, i) => {
+        const service_id = h.dataset.atServiceId
+        const images = [...trigger.querySelectorAll(`[data-at-service-img="${service_id}"]`)]
+        const txt = trigger.querySelector(`[data-at-service-txt="${service_id}"]`)
+        const tt = gsap.timeline({onUpdate: update_progress})
+
+        h.addEventListener('click', () => {
+            const st = tl.scrollTrigger
+            window.scrollTo({top: st.labelToScroll(`hdr${h.dataset.atServiceId}`), behavior: 'smooth'});
+        })
+
+        tt.to(h, {color: 'red', duration: 0.01}, '<')
+        if (i > 0) {
+            tt.add(gsap.to(headers[i-1], {color: null, duration: 0}), '<')
+            tt.to(images[0], {display: 'inline-block', left: '0'}, '<')
+            tt.to(txt, {display: 'inline-block', left: '0', delay: 0.1}, '<')
+            tt.to(state.last_img, {display: 'none', duration: 0}, '<')
+            tt.to(state.last_txt, {display: 'none', duration: 0}, '<')
+        }
+        tt.addLabel(`hdr${service_id}`)
+        for (let k = 1; k < images.length; ++k) {
+            tt.to(images[k-1], {display: 'none', duration: 0}),
+            tt.to(images[k], {display: 'inline-block'}, '<')
+            state.last_img = images[k]
+        }
+        if (i < (headers.length - 1)) {
+            state.last_txt = txt
+            tt.to(state.last_img, {position: 'relative', left: '100%'}, '<')
+            tt.to(state.last_txt, {position: 'relative', left: '130%', delay: 0.15})
+        }
+        tl.add(tt)
+    })
+    
+    tl.getChildren(false, false, true).forEach(x => {
+        const tk = Object.keys(x.labels)[0]
+        const tv = x.labels[tk] + x.startTime()
+        tl.addLabel(tk, tv)
+    })
+
+    trigger.querySelector('[data-at-services-next]')?.addEventListener('click', () => {
+        state.pos = (state.pos + 1) % headers.length
+        window.scrollTo({top: st.labelToScroll(`hdr${state.pos + 1}`), behavior: 'smooth'});
+    })
+}
+serviceSection2('[data-at-snap=services]', 0.1)
 
 </script>
 <style>
@@ -176,6 +249,7 @@ serviceSection('[data-at-snap=services]', 2.5)
     #at-tabs-1[data-active-tab="2"] > div:nth-child(1) { width: 3.5rem }
     #at-tabs-1[data-active-tab="2"] > div:nth-child(2) { width: 3.5rem }
     #at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red }
+    [data-at-service-txt]::after {white-space: nowrap}
 </style>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section --> 
@@ -268,32 +342,74 @@ serviceSection('[data-at-snap=services]', 2.5)
         </div>
     <!-- Image and text -->
     <div class="md:flex pb-12">
-        <div class="overflow-hidden w-[100%] md:w-3/5 whitespace-nowrap" data-panels="s1">
-            <span class="inline-block width-[100%]"><img src="/driveway1.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway2.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway3.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway4.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway5.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway6.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway7.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="inline-block width-[100%]"><img src="/driveway8.svg" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+        <div class="overflow-hidden w-[100%] relative md:w-3/5 whitespace-nowrap">
+            <span class="inline-block relative w-[100%]" data-at-service-img="1"><img src="/driveway1.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway2.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway3.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway4.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway5.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway6.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway7.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="1"><img src="/driveway8.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%] left-[100%]" data-at-service-img="2"><img src="/driveway1.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway2.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway3.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway4.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway5.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway6.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway7.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="2"><img src="/driveway8.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%] left-[100%]" data-at-service-img="3"><img src="/driveway1.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway2.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway3.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway4.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway5.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway6.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway7.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+            <span class="hidden relative w-[100%]" data-at-service-img="3"><img src="/driveway8.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
         </div>
         <div class="md:w-2/5 text-right">
-                <h2 class="lg:text-lg text-gray pb-4">Service Sectors</h2>
-                <h3 class="lg:text-3xl text-2xl font-bold text-gray-dark">Domestic Tarmac</h3>
-                <h3 class="lg:text-3xl text-2xl font-bold text-black">Commercial Tarmac</h3>
-                <h3 class="lg:text-3xl text-2xl font-bold text-gray">Public Sector Tarmac</h3>
+            <h2 class="lg:text-lg text-gray pb-4">Service Sectors</h2>
+            <h3 class="lg:text-3xl text-2xl font-bold text-gray-dark" data-at-service-id="1">Domestic Tarmac</h3>
+            <h3 class="lg:text-3xl text-2xl font-bold text-black" data-at-service-id="2">Commercial Tarmac</h3>
+            <h3 class="lg:text-3xl text-2xl font-bold text-gray" data-at-service-id="3">Public Sector Tarmac</h3>
             <span class="thin-text text-gray after:content-[attr(data-progress)]" data-progress="0%"></span>
             <div class="border-t border-red ml-8 block"></div>
-            <p class="md:pl-6 text-black">Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>
-            <button class="ml-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
-                <span>More information</span>
-                <span class="bg-black rounded-full p-2 ml-4">
-                    <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                    </svg>
-                </span>
-            </button>
+            <div class="md:pl-6 overflow-hidden">
+                <div data-at-service-txt="1" class="relative inline-block">
+                    <p class="text-black">Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>
+                    <button class="ml-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
+                        <span>More information</span>
+                        <span class="bg-black rounded-full p-2 ml-4">
+                            <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div data-at-service-txt="2" class="relative hidden left-[130%]">
+                    <p class="text-black">Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>
+                    <button class="ml-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
+                        <span>More information</span>
+                        <span class="bg-black rounded-full p-2 ml-4">
+                            <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div data-at-service-txt="3" class="relative hidden left-[130%]">
+                    <p class="text-black">Transform your home with our expertise in domestic tarmac services. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your dream project will come to life.</p>
+                    <button class="ml-auto bg-red hover:bg-black text-white font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
+                        <span>More information</span>
+                        <span class="bg-black rounded-full p-2 ml-4">
+                            <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Get estimate -->
@@ -307,7 +423,7 @@ serviceSection('[data-at-snap=services]', 2.5)
     <!-- blog archive --> 
 <BlogArchive />
 </div><!--end of main -->
-    <div class="border-l border-gray-light border-solid w-12 md:pt-24 pt-96">
+    <div class="border-l border-gray-light border-solid w-12 md:pt-24 pt-96" data-at-services-next>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg> 

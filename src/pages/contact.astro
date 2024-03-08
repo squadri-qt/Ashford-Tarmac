@@ -21,7 +21,11 @@ if (Astro.request.method === "POST") {
 }
 ---
 <script>
+    import {scrolltrigger_text} from '../scripts/animation'
     import {atFormSend} from '../scripts/form'
+
+    scrolltrigger_text(document.querySelector('[data-at-scroll]'), ...document.querySelectorAll('[data-at-scroll-pos]'))
+
     const btn = document.querySelector('#contact-btn')
     btn?.addEventListener('click', () => {
         const form = btn.closest('form')
@@ -40,14 +44,14 @@ if (Astro.request.method === "POST") {
 <!-- hero section -->
 <div class="flex bg-black">
     <div class="border-r border-gray-dark border-solid w-12"></div>
-    <div class="flex-1 py-12">
+    <div class="flex-1 py-12 overflow-hidden">
         <div class="pb-48">
             <h2 class="text-red">ASHFORD TARMACADAM LTD</h2>
             <h1 class="text-white text-4xl font-light md:text-6xl w-4/5">Specialist tarmac contractor in Kent, serving the domestic, commercial and public sectors.</h1>
         </div>
-        <div class="block">
-            <h3 class="text-white md:text-7xl text-4xl font-bold uppercase opacity-30 ">tarmac company</h3>
-            <h3 class="text-white md:text-7xl text-4xl font-bold uppercase opacity-10">skills, knowledge</h3>
+        <div class="block" data-at-scroll>
+            <h3 class="text-white md:text-7xl text-4xl font-bold uppercase opacity-30 whitespace-nowrap" data-at-scroll-pos="-20rem"><span class="ml-[30rem]">tarmac company</span></h3>
+            <h3 class="text-white md:text-7xl text-4xl font-bold uppercase opacity-10 whitespace-nowrap" data-at-scroll-pos="20rem"><span class="ml-[-30rem]">skills, knowledge</span></h3>
         </div>
     </div>
     <div class="border-l border-gray-dark border-solid w-12"></div>
