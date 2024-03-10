@@ -57,22 +57,34 @@ const fliptastic = (selector) => {
         w: el.offsetWidth,
         h: el.offsetHeight
     }))
-    const rot_axis = {
-        // 'vert': ({deg, ...rest}) => ({rotateX: deg, perspective: '1200px', ...rest}),
-        // 'horz': ({deg, ...rest}) => ({rotateY: deg, perspective: '1200px', ...rest})
-        'vert': ({deg, ...rest}) => ({rotateX: deg, ...rest}),
-        'horz': ({deg, ...rest}) => ({rotateY: deg, ...rest})
+    const get_angle = {
+        vert: el => {
+            const offset = (el.parentElement.offsetHeight * 0.5) - (el.offsetTop + el.offsetHeight * 0.5)
+            const angle = Math.atan(offset / perspective) * (180.0/Math.PI)
+            return angle
+        },
+        horz: el => {
+            const offset = el.offsetLeft + el.offsetWidth * 0.5 - el.parentElement.offsetWidth * 0.5
+            const angle = Math.atan(offset / perspective) * (180.0/Math.PI)
+            return angle
+        }
     }
-    targets.forEach(({root}) => (root.parentElement.style.perspective = '1200px'))
-    //tl.set(parent, {perspective: '100vh'})
+    const rot_axis = {
+        'vert': (root, {deg, ...rest}) => ({rotateX: deg, ...rest}),
+        'horz': (root, {deg, ...rest}) => ({rotateY: deg, ...rest})
+    }
+    const scale_axis = {
+        'vert': ({scale, ...rest}) => ({scaleY: scale, ...rest}),
+        'horz': ({scale, ...rest}) => ({scaleX: scale, ...rest})
+    }
 
+    targets.forEach(({root}) => (root.parentElement.style.perspective = `${perspective}px`))
     targets.forEach(({root, sides, w, h}, i) => {
         if (sides.length < 2) {
             return
         }
         const tl = gsap.timeline()
         root.style.transform = 'perspective-origin: center center'
-        //tl.set(root.parentElement, {perspective: '100vh'})
         const axis = root.dataset.atFlip
         const offset = {
             vert: Math.atan((h * 0.5) / perspective) * (180.0/Math.PI),
@@ -80,15 +92,14 @@ const fliptastic = (selector) => {
         }
         let angle = 0
         let has_click = false
-        console.log(sides, root.children)
         sides.forEach((s1, i) => {
             const s2 = sides[(i + 1) % sides.length]
             angle += 90
-            tl.to(root, rot_axis[axis]({deg: angle - offset[axis], ease: 'power1.out', delay}))
+            tl.to(root, rot_axis[axis](root, {deg: angle - get_angle[axis](root), ease: 'power1.out', delay}))
             tl.set(s1, {display: 'none'})
-            tl.set(s2, {display: 'flex', scaleY: ((i % 2) * 2) - 1})
+            tl.set(s2, scale_axis[axis]({scale: ((i % 2) * 2) - 1, display: 'flex'}))
             angle += 90
-            tl.to(root, rot_axis[axis]({deg: angle, ease: 'power1.in'}))
+            tl.to(root, rot_axis[axis](root, {deg: angle, ease: 'power1.in'}))
         });
 
         ([...root.querySelectorAll('[data-at-flip-play]')]).forEach(el => {
