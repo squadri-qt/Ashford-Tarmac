@@ -152,32 +152,28 @@ const process_section = (selector) => {
 
 const roller_anim = (trigger_selector, dist, selector) => {
     const trigger = document.querySelector(trigger_selector)
-    const svg = document.querySelector(selector)
-    const animate = () => {
-        console.log('object loaded')
-        const roller = svg.contentDocument.getElementById('at-roller')
+    const svg_container = document.querySelector(selector)
+    const animate = (svg) => {
+        const roller = svg.getElementById('at-roller')
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger,
-                start: `top ${dist}`,
+                start: `top top`,
                 scrub: 1,
-                end: () => `+=${trigger.offsetHeight}`
+                end: () => `+=400`
             }
         })
         tl.to(roller, {x:53, y:976, duration: 3})
     }
 
-    if (!svg || !trigger) {
-        console.log('no object')
+    if (!svg_container || !trigger) {
         return
     }
 
-    if (!svg.contentDocument) {
-        svg.addEventListener('load', animate)
-    }
-    else {
-        animate()
-    }
+    fetch("/roller-anim.svg").then(response => response.text()).then(svg => {
+        svg_container.innerHTML = svg;
+        animate(svg_container.firstElementChild)
+    })
 }
 
 export {scrolltrigger_text, service_tabs, fliptastic, process_section, roller_anim}
