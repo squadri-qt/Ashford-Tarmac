@@ -1,0 +1,22 @@
+---
+const {title, items} = Astro.props
+---
+<script>
+import {process_section} from '../scripts/animation'
+process_section('[data-at-pin]')
+</script>
+<div class="h-[100vh] bg-black flex flex-row relative border-t-[2rem] border-white" data-at-pin>
+    <div class="border-r border-gray-dark border-solid w-12 flex-none"></div>
+    <div class="flex flex-col flex-[1_1_0] relative min-w-0">
+        <div class="flex flex-col justify-center items-center mb-[-8rem]">
+            <p class="v-copy2">the process</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-12">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+            </svg>
+        </div>
+        <div class="flex flex-col flex-1">
+            <div class="flex flex-row flex-1 items-center overflow-hidden" data-at-pin-content><slot /></div>
+        </div>
+    </div>
+    <div class="border-l border-gray-dark border-solid w-12 flex-none"></div>
+</div>

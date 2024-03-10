@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
+import ServiceProcess from '../components/ServiceProcess.astro';
+import ServiceProcessItem from '../components/ServiceProcessItem.astro';
 import RedLine from '../components/RedLine.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 const pageTitle = "Domestic tarmac contractor in kent for tarmac driveways.";
 ---
 <script>
-import {scrolltrigger_text, service_tabs, process_section} from '../scripts/animation'
+import {scrolltrigger_text, service_tabs} from '../scripts/animation'
 scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
 service_tabs(document.getElementById('at-tabs'), 'stagger')
-process_section('[data-at-pin]')
 </script>
 <BaseLayout pageTitle={pageTitle}>
     <!-- hero section --> 
@@ -107,6 +108,25 @@ process_section('[data-at-pin]')
         </div>
         <div class="border-l border-gray-light border-solid w-12"></div>
     </div>
+    <ServiceProcess title="The Process">
+        <ServiceProcessItem title="Your Driveway Journey Simplified">
+            <p slot="content">Worried about the process? Don't be. It's as easy as 1-2-3. Reach out to us, confirm your details, and leave the rest to us. From planning to the grand driveway finale, we've got you covered.</p>
+            <img slot="image" src="/driveway8.svg" class="invert" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+        <ServiceProcessItem title="Our Promise to You">
+            <p slot="content">You've glimpsed the transformation. Now, let's turn that vision into reality. Your journey starts here. Take the first step towards your stunning new driveway.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+        <ServiceProcessItem title="Your Driveway Vision is Just a Step Away">
+            <p slot="content">Say goodbye to the uncertainty of dealing with unprofessional contractors and excessive charges. Choose Ashford Tarmac Contractors for expert advice, reliability, and affordability.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+        <ServiceProcessItem title="The Cost of Making the Wrong Choice">
+            <p slot="content">Opting for a lesser-known contractor can lead to subpar results, overcharging, and poor advice. Don't risk it. Choose a reliable and experienced contractor instead.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+    </ServiceProcess>
+    {/*
     <!-- process section-->
     <div class="flex bg-black border-t-[2rem] border-white h-[100vh]" data-at-pin>
         <div class="border-r border-gray-dark border-solid w-12"></div>
@@ -166,6 +186,7 @@ process_section('[data-at-pin]')
             </div>
         <div class="border-l border-gray-dark border-solid w-12"></div>
     </div> 
+     */}
     <!-- get estimate section -->
     <div class="flex bg-white">
         <div class="border-r border-gray-light border-solid w-12"></div>

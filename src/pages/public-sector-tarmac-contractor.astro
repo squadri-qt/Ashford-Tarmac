@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
 import EstimateForm from '../components/EstimateForm.astro';
+import ServiceProcess from '../components/ServiceProcess.astro';
+import ServiceProcessItem from '../components/ServiceProcessItem.astro';
 const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals & Schools.";
 ---
 <script>
@@ -106,62 +108,24 @@ service_tabs(document.getElementById('at-tabs'))
         <div class="border-l border-gray-light border-solid w-12"></div>
     </div>
     <!-- process section-->
-    <div class="flex bg-black">
-        <div class="border-r border-gray-dark border-solid w-12"></div>
-            <div class="flex-1 flex-col items-center justify-center pb-24">
-                <div class="flex flex-col items-start justify-center items-center pb-4">
-                    <p class="v-copy2">the process</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-                    </svg>
-                </div>
-                <!-- process 1 -->
-                <div class="flex flex-row items-center">
-                    <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl md:text-3xl text-xl font-bold">Your Roadmap to Public Sector Success</h3>
-                        <RedLine />
-                        <p class="md:text-base text-sm">Wondering about the process? We've simplified it for public sector clients: 1. Get in touch. 2. Share project details. 3. Receive expert consultation and a tailored plan.</p>
-                    </div>
-                    <div class="w-2/3 pl-14">
-                        <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
-                    </div>
-                </div>
-                <!-- process 2 -->
-                <div class="flex flex-row items-center hidden">
-                    <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl text-xl font-bolder">Our Commitment to Public Sector Excellence</h3>
-                        <RedLine />
-                        <p class="">We're committed to delivering excellence in public sector projects. Our promise includes expert guidance, safety, and efficiency, all backed by our years of knowledge.</p>
-                    </div>
-                    <div class="w-2/3 pl-14">
-                        <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
-                    </div>
-                </div>
-                <!-- process 3 -->
-                <div class="flex flex-row items-center hidden">
-                    <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl text-xl font-bolder">The Cost of Inexpert Advice</h3>
-                        <RedLine />
-                        <p class="">Opting for inexpert advice can lead to project setbacks, safety concerns, and inefficiencies. Don't compromise. Choose expert guidance for your public sector projects.</p>
-                    </div>
-                    <div class="w-2/3 pl-14">
-                        <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
-                    </div>
-                </div>
-                <!-- process 4 -->
-                <div class="flex flex-row items-center hidden">
-                    <div class="flex-col w-1/3 text-white g-red">
-                        <h3 class="md:text-3xl text-xl font-bolder">From Uncertainty to Public Sector Excellence</h3>
-                        <RedLine />
-                        <p class="">Say goodbye to uncertainty and delays. Transform your public sector projects into a benchmark of excellence with the expert guidance of Ashford Tarmac Contractors.</p>
-                    </div>
-                    <div class="w-2/3 pl-14">
-                        <img src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
-                    </div>
-                </div>
-            </div>
-        <div class="border-l border-gray-dark border-solid w-12"></div>
-    </div> 
+    <ServiceProcess title="The Process">
+        <ServiceProcessItem title="Your Roadmap to Public Sector Success">
+            <p slot="content">Wondering about the process? We've simplified it for public sector clients: 1. Get in touch. 2. Share project details. 3. Receive expert consultation and a tailored plan.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+        <ServiceProcessItem title="Our Commitment to Public Sector Excellence">
+            <p slot="content">We're committed to delivering excellence in public sector projects. Our promise includes expert guidance, safety, and efficiency, all backed by our years of knowledge.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+        <ServiceProcessItem title="The Cost of Inexpert Advice">
+            <p slot="content">Opting for inexpert advice can lead to project setbacks, safety concerns, and inefficiencies. Don't compromise. Choose expert guidance for your public sector projects.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+        <ServiceProcessItem title="From Uncertainty to Public Sector Excellence">
+            <p slot="content">Say goodbye to uncertainty and delays. Transform your public sector projects into a benchmark of excellence with the expert guidance of Ashford Tarmac Contractors.</p>
+            <img slot="image" src="/uni2-svg.png" alt="commercial tarmac company in kent"/>
+        </ServiceProcessItem>
+    </ServiceProcess>
     <!-- get estimate section -->
     <div class="flex bg-white">
         <div class="border-r border-gray-light border-solid w-12"></div>
