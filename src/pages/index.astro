@@ -61,106 +61,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 observer.observe(targetDiv);
 
-/*
-const gsapInitTabs = (root_selector) => {
-    const root = document.querySelector(root_selector)
-    if (!root) {
-        return
-    }
-
-    const container:Array<Element> = [...document.querySelectorAll(`${root_selector} > div`)]
-    const tabs:Array<Element> = [...document.querySelectorAll(`${root_selector} > div > h1`)]
-    const content = Array.prototype.slice.call(document.querySelectorAll(`${root_selector} > div > div`), 0)
-    const duration = 0.5
-    
-    const tl = gsap.timeline({repeat: -1, repeatDelay: 0, yoyo: true})
-        .to(container[0], {width: 'calc(100%-7rem)'}, 0)
-        .to(container[1], {width: '3.5rem'}, 0)
-        .to(container[2], {width: '3.5rem'}, 0)
-        .add('p0')
-        .to(container[0], {width: '3.5rem'}, 1)
-        .to(container[1], {width: 'calc(100%-7rem)'}, 1)
-        .to(container[2], {width: '3.5rem'}, 1)
-        .add('p1')
-        .to(container[0], {width: '3.5rem'}, 2)
-        .to(container[1], {width: '3.5rem'}, 2)
-        .to(container[2], {width: 'calc(100%-7rem)'}, 2)
-        .add('p2')
-        .play()
-    tabs.forEach((t, i) => t.addEventListener('click', e => {
-        tl.tweenTo(`p${i}`, {duration: '1s'})
-    }))
-}
-gsapInitTabs('#gs-tabs-1')
-*/
-
-const quadInitTabs = (selector:string) => {
-    const delay_ms = 5000
-    const speed_ms = 4000
-    const root = document.querySelector(selector)
-
-    if (root === null) {
-        return
-    }
-
-    let active = 0
-    let dir = 1
-    let count = root.childElementCount
-    let interval_token:number|undefined = undefined
-    let timeout_token:number|undefined = window.setTimeout(() => {
-        interval_token = window.setInterval(() => {
-            if (active + dir === count || active + dir === -1) {
-                dir = -dir
-            }
-            active += dir
-            root.dataset.activeTab = `${active}`
-        }, speed_ms)
-    }, delay_ms)
-
-    root.querySelectorAll(':scope > div > h1').forEach((element:Element, i:number) => element.addEventListener('click', () => {
-        window.clearTimeout(timeout_token)
-        window.clearInterval(interval_token)
-        timeout_token = interval_token = undefined
-        root.dataset.activeTab = i
-    }))
-}
-
-quadInitTabs('#at-tabs-1')
-
-const serviceSection = (selector:string, scroll_distance_factor:number) => {
-    const root = document.querySelector(selector)
-    const panel_root = root?.querySelector('[data-panels]')
-    const progress = root?.querySelector('[data-progress]')
-    if (!root || !panel_root || !progress) {
-        return
-    }
-    const panels = [...panel_root.children]
-    const panelWidth = panel_root.scrollWidth
-    let pos = 0
-    let prg = 0
-    const hideShow = (e, i) => {
-        e.style.display = i == pos ? 'inline-block' : 'none'
-    }
-    const tween = gsap.to(
-        panels, {
-            ease: "none",
-            onUpdate: function() {
-                prg = this.progress()
-                pos = Math.min(Math.floor(prg * (panels.length + 1)), panels.length - 1)
-                progress.dataset.progress = `${Math.round(prg * 100)}%`
-                panels.forEach(hideShow)
-            },
-            scrollTrigger: {
-                trigger: '[data-at-snap=services]',
-                pin: true,
-                start: 'top top',
-                scrub: 1,
-                end: () => `+=${panelWidth * scroll_distance_factor}`
-            }
-        });
-}
-// serviceSection('[data-at-snap=services]', 0.1)
-
 const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
     const trigger = document.querySelector('[data-at-snap=services]')
     const progress = trigger?.querySelector('[data-progress]')
@@ -235,53 +135,100 @@ const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
 }
 serviceSection2('[data-at-snap=services]', 0.1)
 
+const at_sliding_tabs = () => {
+    const opt = {
+        delay: 5000,
+        hilite: 'red'
+    }
+    const selectors = [...document.querySelectorAll('[data-at-sliding-tabs]')].map(root => ({
+        progressElement: root.nextElementSibling?.children,
+        tabs: [...root.children].map(el => ({
+            tab: el,
+            header: el.querySelector('h1')
+        }))
+    }))
+
+    const progress = function(progressElement) {
+        progressElement.innerText = `${Math.round(this.progress() * 100)}%`
+    }
+    const goto_tab = (tabs, prg, index) => {
+        tabs.forEach((tab, i) => {
+            const active = i === index
+            const flexGrow = active ? 1 : 0
+            const backgroundColor = active ? opt.hilite : ''
+            gsap.to(tab.tab, {flexGrow, onUpdate: active ? progress : undefined, onUpdateParams: [prg[0]]})
+            gsap.to(prg[i+1], {backgroundColor})
+        })
+    }
+    selectors.forEach(({progressElement, tabs}) => {
+        let active = 0
+        let interval_token:number|undefined = window.setInterval(() => {
+            active = (active + 1) % tabs.length
+            goto_tab(tabs, progressElement, active)
+        }, opt.delay)
+
+        tabs.forEach(({tab, header}, t) => {
+            if (!header) return
+            header.addEventListener('click', () => {
+                window.clearInterval(interval_token)
+                interval_token = undefined
+                goto_tab(tabs, progressElement,  t)
+            })
+        })
+    })
+}
+
+at_sliding_tabs()
 </script>
 <style>
     #at-tabs-1 > div { transition: width 1s }
-    #at-tabs-1 > div:last-child { width: calc(100% - 7rem) }
     #at-tabs-1 + div > div { transition: background-color 1s linear; }
+    #at-tabs-1[data-active-tab="0"] + div > div:nth-child(2) { background-color: red }
+    #at-tabs-1[data-active-tab="1"] + div > div:nth-child(3) { background-color: red }
+    #at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red }
+
+    /*
+    #at-tabs-1 > div:last-child { width: calc(100% - 7rem) }
     #at-tabs-1[data-active-tab="0"] > div:nth-child(1) { width: calc(100% - 7rem) }
     #at-tabs-1[data-active-tab="0"] > div:nth-child(2) { width: 3.5rem }
-    #at-tabs-1[data-active-tab="0"] + div > div:nth-child(2) { background-color: red }
     #at-tabs-1[data-active-tab="1"] > div:nth-child(1) { width: 3.5rem }
     #at-tabs-1[data-active-tab="1"] > div:nth-child(2) { width: calc(100% - 7rem) }
-    #at-tabs-1[data-active-tab="1"] + div > div:nth-child(3) { background-color: red }
     #at-tabs-1[data-active-tab="2"] > div:nth-child(1) { width: 3.5rem }
     #at-tabs-1[data-active-tab="2"] > div:nth-child(2) { width: 3.5rem }
-    #at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red }
+    */
     [data-at-service-txt]::after {white-space: nowrap}
 </style>
 <BaseLayout pageTitle={pageTitle}>
-<!-- hero section --> 
+<!-- hero section -->
 <div class="flex">
     <div class="flex flex-none items-center justify-center border-r border-gray-dark border-solid w-12"></div>
-    <div id="at-tabs-1" data-active-tab="0" class="flex flex-1 flex-shrink-0 p-1 h-[48rem] bg-[url('/driveway1.svg')] lg:bg-contain bg-fixed bg-no-repeat gap-0.5 relative overflow-hidden">
+    <div id="at-tabs-1" data-at-sliding-tabs class="flex flex-1 flex-col lg:flex-row flex-shrink-0 p-1 h-[48rem] bg-[url('/driveway1.svg')] lg:bg-contain bg-fixed bg-no-repeat gap-0.5 relative overflow-hidden">
         <!--
         <div class="flex flex-item items-center justify-center w-14 bg-black border border-gray-dark border-solid rounded-xl hover:bg-red text-gray hover:text-black">
             
         </div>
         -->
-        <div class="flex flex-none overflow-hidden relative">
-            <h1 class="flex-none w-14 z-[2] cursor-pointer text-xl text-center font-light border border-gray-dark border-solid rounded-xl hover:bg-red hover:text-black bg-black text-gray"><span class="whitespace-nowrap uppercase vertical-lr align-middle relative h-[100%]">Commercial Tarmac Services</span></h1>
-            <div class="flex-none pt-24 px-12 align-top relative z-[1] w-[calc(100vw-(3.5rem*5))] max-w-[calc(1200px-(3.5rem*5))]">
+        <div class="flex flex-[1_0_3.5rem] flex-col lg:flex-row overflow-hidden relative">
+            <h1 class="flex-none lg:w-14 h-14 lg:h-auto z-[2] cursor-pointer text-base lg:text-xl text-center font-light border border-gray-dark border-solid rounded-xl hover:bg-red hover:text-black bg-black text-gray"><span class="inline-block whitespace-nowrap uppercase lg:vertical-lr align-middle relative h-[100%] leading-[3.5rem] lg:leading-normal">Commercial Tarmac Services</span></h1>
+            <div class="flex-none pt-24 px-12 align-top relative z-[1] lg:w-[calc(100vw-(3.5rem*5))] lg:max-w-[calc(1200px-(3.5rem*5))]">
                 <h2 class="text-red md:text-lg text-sm pb-2">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h2>
                 <h3 class="text-white md:text-3xl text-xl font-bold normal-case">Transform your commercial space with quality tarmac</h3>
                 <p class="text-sm text-white my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
                 <GetEstimateBtn />
             </div>
         </div>
-        <div class="flex flex-none overflow-hidden relative ml-0">
-            <h1 class="flex-none w-14 z-[2] cursor-pointer text-xl text-center font-light border border-gray-dark border-solid rounded-xl hover:bg-red hover:text-black bg-gray-dark text-gray"><span class="whitespace-nowrap uppercase vertical-lr align-middle relative h-[100%]">Domestic Tarmac Services</span></h1>
-            <div class="flex-none pt-24 px-12 align-top relative z-[1] w-[calc(100vw-(3.5rem*5))] max-w-[calc(1200px-(3.5rem*5))]">
+        <div class="flex flex-[0_0_3.5rem] flex-col lg:flex-row overflow-hidden relative">
+            <h1 class="flex-none lg:w-14 h-14 lg:h-auto z-[2] cursor-pointer text-base lg:text-xl text-center font-light border border-gray-dark border-solid rounded-xl hover:bg-red hover:text-black bg-gray-dark text-gray"><span class="inline-block whitespace-nowrap uppercase lg:vertical-lr align-middle relative h-[100%] leading-[3.5rem] lg:leading-normal">Domestic Tarmac Services</span></h1>
+            <div class="flex-none pt-24 px-12 align-top relative z-[1] lg:w-[calc(100vw-(3.5rem*5))] lg:max-w-[calc(1200px-(3.5rem*5))]">
                 <h2 class="text-red md:text-lg text-sm pb-2">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h2>
                 <h3 class="text-white md:text-3xl text-xl font-bold normal-case">Transform your commercial space with quality tarmac</h3>
                 <p class="text-sm text-white my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
                 <GetEstimateBtn />
             </div>
         </div>
-        <div class="flex flex-none overflow-hidden relative">
-            <h1 class="flex-none w-14 z-[2] cursor-pointer text-xl text-center font-light border border-gray-dark border-solid rounded-xl hover:bg-red hover:text-black bg-gray-light text-gray"><span class="whitespace-nowrap uppercase vertical-lr text-center align-middle relative h-[100%]">Public Sector Tarmac Services</span></h1>
-            <div class="flex-none pt-24 px-12 align-top relative z-[1] w-[calc(100vw-(3.5rem*5))] max-w-[calc(1200px-(3.5rem*5))]">
+        <div class="flex flex-[0_0_3.5rem] flex-col lg:flex-row overflow-hidden relative">
+            <h1 class="flex-none lg:w-14 h-14 lg:h-auto z-[2] cursor-pointer text-base lg:text-xl text-center font-light border border-gray-dark border-solid rounded-xl hover:bg-red hover:text-black bg-gray-light text-gray"><span class="inline-block whitespace-nowrap uppercase lg:vertical-lr align-middle relative h-[100%] leading-[3.5rem] lg:leading-normal">Public Sector Tarmac Services</span></h1>
+            <div class="flex-none pt-24 px-12 align-top relative z-[1] lg:w-[calc(100vw-(3.5rem*5))] lg:max-w-[calc(1200px-(3.5rem*5))]">
                 <h2 class="text-red md:text-lg text-sm pb-2">Say Goodbye to Unreasonable Quotes & Unreliable Contractors</h2>
                 <h3 class="text-white md:text-3xl text-xl font-bold normal-case">Transform your commercial space with quality tarmac</h3>
                 <p class="text-sm text-white my-8 lg:pr-24">Welcome to Ashford Tarmac Contractors, where we pave the way for your commercial success. Is your commercial space in need of a new road or car park? Say goodbye to the frustration of searching for a reliable and reasonably priced contractor. </p>
@@ -291,7 +238,7 @@ serviceSection2('[data-at-snap=services]', 0.1)
     </div>
     <div class="flex flex-col flex-none items-center justify-start w-12 border-l border-gray-dark border-solid">
         <p class="text-gray font-light text-lg">100%</p>
-        <div class="min-w-0.5 min-h-16 bg-black"></div>
+        <div class="min-w-0.5 min-h-16 bg-black" style="background-color:red"></div>
         <div class="min-w-0.5 min-h-16 bg-gray"></div>
         <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
     </div>
