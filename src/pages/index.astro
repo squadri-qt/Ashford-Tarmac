@@ -80,7 +80,9 @@ const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
     })
     const st = tl.scrollTrigger
     const update_progress = function() {
-        progress.dataset.progress = `${Math.ceil(this.progress() * 100)}%`
+        const percentage = `${Math.ceil(this.progress() * 100)}%`
+        progress.dataset.progress = percentage
+        progress.nextElementSibling.style.marginRight = `${Math.ceil((1 - this.progress()) * 100)}%`
     }
     const state = {
         last_img: null,
@@ -344,7 +346,7 @@ at_sliding_tabs()
             <h3 class="lg:text-3xl text-2xl font-bold text-black" data-at-service-id="2">Commercial Tarmac</h3>
             <h3 class="lg:text-3xl text-2xl font-bold text-gray" data-at-service-id="3">Public Sector Tarmac</h3>
             <span class="thin-text text-gray after:content-[attr(data-progress)]" data-progress="0%"></span>
-            <div class="border-t border-red ml-8 block"></div>
+            <div class="border-t border-red ml-8 block mr-[100%]"></div>
             <div class="md:pl-6 overflow-hidden">
                 <div data-at-service-txt="1" class="relative inline-block">
                     <p class="text-black">Transform your home with our expertise in domestic tarmac solutions. From crafting beautiful driveways to repairing and resurfacing, we've been enhancing curb appeal for 45 years. Our team's dedication and long-standing commitment to quality ensure your project's success.</p>
