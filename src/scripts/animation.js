@@ -162,31 +162,46 @@ const process_section = (selector) => {
     targets.forEach(root => {
         const trigger = root
         const content = [...root.querySelector('[data-at-pin-content]')?.children]
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger,
-                pin: true,
-                start: 'top top',
-                scrub: 1,
-                end: () => `+=${root.offsetWidth * content.length * 2}`
-            }
-        })
-        content.forEach((c, i) => {
-            const w = c.offsetWidth
-            const isLast = i == content.length - 1
-            if (!isLast) {
-                const items = [...c.querySelectorAll('h3,p,img'), c]
-                tl.to(items, {
-                    x: -w,
-                    stagger: 0.1
-                }, "+=1")
-                tl.to(c.parentElement, {
-                    onUpdate: function() {
-                        c.parentElement.scrollTo({left: (i * w) + (this.progress() * w), behavior: 'smooth'})
-                    }
-                })
-                tl.addPause("+=1")
-            }
+        gsap.matchMedia().add({
+            isDesktop: '(min-width: 1024px)',
+            isMobile: '(max-width: 1023px)'
+        }, context => {
+            let { isDesktop, isMobile } = context.conditions
+            const tl = gsap.timeline({
+                ease: 'none',
+                scrollTrigger: {
+                    trigger,
+                    pin: true,
+                    start: 'top top',
+                    scrub: 1,
+                    end: () => `+=4000`
+                }
+            })
+            let last_img = undefined
+            const txt_off = isDesktop ? {y: '-100vh', delay: 1} : {x: '-100vw', delay: 1}
+            const txt_on = isDesktop ? {y: 0} : {x: 0}
+            const img_off = isDesktop ? {y: '-100vh', opacity: 0} : {x: '-100vw'}
+            const img_on = isDesktop ? {x: 0} : {y: 0}
+
+            content.forEach((c, i) => {
+                const index = i
+                const last = i == (content.length - 1)
+                const text = c.children[0]
+                const img = c.children[1]
+                if (last) return
+                tl.to(text, txt_off)
+                tl.to(content[i+1].children[0], txt_on, '<')
+                if (!last_img) {
+                   last_img = img
+                }
+                if ((i % 2) == 1) {
+                    tl.to(last_img, img_off, '<')
+                    tl.to(img, img_on, '<')
+                    last_img = img
+                }
+             })
+             
+             return () => {}
         })
     })
 }
