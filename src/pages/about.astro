@@ -8,7 +8,7 @@ const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
 <script>
 import {fliptastic, how_we_work_roller} from '../scripts/animation'
-fliptastic("[data-at-flip]");
+fliptastic("[data-at-flip]", {duration: 0.125});
 how_we_work_roller();
 </script>
 <BaseLayout pageTitle={pageTitle}>
@@ -73,7 +73,7 @@ how_we_work_roller();
 						<div class="border-l w-2/6 border-red flex flex-col justify-end pl-2 text-xl font-bolder uppercase text-white"><h3>our mission</h3></div>
 					</div>
 				</div>
-				<div class="flex flex-col w-full h-full justify-end bg-center bg-no-repeat hidden">
+				<div class="flex flex-col w-full h-full justify-end bg-center bg-no-repeat" style="display:none">
 					<div class="h-full flex justify-end">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
 							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
@@ -107,7 +107,7 @@ how_we_work_roller();
 						</div>
 					</div>
 				</div>
-				<div class="flex flex-col w-full h-full hidden">
+				<div class="flex flex-col w-full h-full" style="display:none">
 					<div class="w-full flex justify-end mb-4">
 						<!-- Your div with an icon or other content -->
 						<!-- Example: -->
@@ -140,7 +140,7 @@ how_we_work_roller();
 						</div>
 					</div>
 				</div>
-				<div class="w-full h-full hidden">
+				<div class="w-full h-full" style="display:none">
 					<div class="flex flex-col w-full h-full justify-end">
 						<div class="h-3/5 flex justify-end">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
@@ -167,7 +167,7 @@ how_we_work_roller();
 						</div>
 					</div>
 				</div>
-				<div class="w-full h-full hidden">
+				<div class="w-full h-full" style="display:none">
 					<div class="flex flex-col w-full h-full justify-end">
 						<div class="h-3/5 flex justify-end">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
@@ -252,21 +252,45 @@ how_we_work_roller();
 		<!--questions -->
 		<h2 class="text-right text-gray pb-4 font-bold">questions that our clients often ask</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0.5">
-			<div class="bg-red rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-52 lg:pb-2">
-				<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>
+			<div data-at-flip="vert" class="w-full h-full relative">
+				<div class="bg-red rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-52 lg:pb-2">
+					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>
+				</div>
+				<div class="bg-red rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-52 lg:pb-2" style="display:none">
+					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>
+				</div>
 			</div>
-			<div class="bg-gray p-4 rounded-lg min-h-96">
-				<h3 class="uppercase text-3xl text-white">spec</h3>
-				<RedLine />
-				<p class="text-white text-sm md:text-base">Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas.</p>	
+			<div data-at-flip="horz" class="w-full h-full relative">
+				<div class="bg-gray p-4 rounded-lg min-h-96 h-full">
+					<h3 class="uppercase text-3xl text-white">spec</h3>
+					<RedLine />
+					<p class="text-white text-sm md:text-base">Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas.</p>
+				</div>
+				<div class="bg-gray p-4 rounded-lg min-h-96 h-full" style="display:none">
+					<h3 class="uppercase text-3xl text-white">spec2</h3>
+					<RedLine />
+					<p class="text-white text-sm md:text-base">Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas.</p>
+				</div>
 			</div>
-			<div class="bg-gray-dark rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-72 lg:pb-16">
-				<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">Process</h3>
+			<div data-at-flip="vert" class="w-full h-full relative">
+				<div class="bg-gray-dark rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-72 lg:pb-16">
+					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">Process</h3>
+				</div>
+				<div class="bg-gray-dark rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-72 lg:pb-16" style="display:none">
+					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">Process</h3>
+				</div>
 			</div>
-			<div class="bg-black p-4 rounded-lg min-h-96">
-				<p class="v-copy-ans text-lg text-white">Mrs S Reed – Kent</p>
-				<p class="text-white font-bold lg:text-2xl text-xl pb-6">“I am writing to thank you and your team formally and personally for helping to ensure that the major project undertaken by the school this summer was a success.”</p>
-				<img src="ukc.svg" class="md:w-[6rem] h-12 ml-auto"alt="university of kent tarmac review">
+			<div data-at-flip="horz" class="w-full h-full relative">
+				<div class="bg-black p-4 rounded-lg min-h-96">
+					<p class="v-copy-ans text-lg text-white">Mrs S Reed – Kent</p>
+					<p class="text-white font-bold lg:text-2xl text-xl pb-6">“I am writing to thank you and your team formally and personally for helping to ensure that the major project undertaken by the school this summer was a success.”</p>
+					<img src="ukc.svg" class="md:w-[6rem] h-12 ml-auto"alt="university of kent tarmac review">
+				</div>
+				<div class="bg-black p-4 rounded-lg min-h-96" style="display:none">
+					<p class="v-copy-ans text-lg text-white">Mrs S Reed – Kent</p>
+					<p class="text-white font-bold lg:text-2xl text-xl pb-6">“I am writing to thank you and your team formally and personally for helping to ensure that the major project undertaken by the school this summer was a success.”</p>
+					<img src="ukc.svg" class="md:w-[6rem] h-12 ml-auto"alt="university of kent tarmac review">
+				</div>
 			</div>
 		</div>
 		<div class="flex flex-col items-start justify-center items-center pb-4 pt-28">

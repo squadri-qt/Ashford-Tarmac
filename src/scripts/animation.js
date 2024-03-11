@@ -84,12 +84,13 @@ const fliptastic = (selector, options) => {
 
     const flip_final = (root, state) => {
         state.angle += 90
+        state.flipping = false
     }
     const flip_next = (root, state) => {
         state.angle += 90
         state.scale = -state.scale
         gsap.set(state.s1, {display: 'none'})
-        gsap.set(state.s2, scale_axis[state.axis]({scale: state.scale, display: 'flex'}))
+        gsap.set(state.s2, scale_axis[state.axis]({scale: state.scale, display: ''}))
         state.s1 = state.s2
         gsap.to(root, rot_axis[state.axis](root, {
             deg: state.angle + 90,
@@ -141,9 +142,13 @@ const fliptastic = (selector, options) => {
             scale: 1
         }
         root.addEventListener('click', e => {
-            clicked = true
-            window.clearInterval(reminder)
-            reminder = undefined
+            if (!clicked) {
+                clicked = true
+                window.clearInterval(reminder)
+                reminder = undefined
+            }
+            if (state.flipping) return
+            state.flipping = true
             state.side = (state.side + 1) % sides.length
             state.s2 = sides[state.side]
             flip_start(root, state)
