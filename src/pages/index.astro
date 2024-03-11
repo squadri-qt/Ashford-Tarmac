@@ -141,6 +141,7 @@ const at_sliding_tabs = () => {
         hilite: 'red'
     }
     const selectors = [...document.querySelectorAll('[data-at-sliding-tabs]')].map(root => ({
+        root,
         progressElement: root.nextElementSibling?.children,
         tabs: [...root.children].map(el => ({
             tab: el,
@@ -148,33 +149,55 @@ const at_sliding_tabs = () => {
         }))
     }))
 
-    const progress = function(progressElement) {
+    const progress = function(progressElement, bar) {
         progressElement.innerText = `${Math.round(this.progress() * 100)}%`
     }
-    const goto_tab = (tabs, prg, index) => {
+    const goto_tab = (tabs, prg, index, bk) => {
         tabs.forEach((tab, i) => {
             const active = i === index
             const flexGrow = active ? 1 : 0
             const backgroundColor = active ? opt.hilite : ''
-            gsap.to(tab.tab, {flexGrow, onUpdate: active ? progress : undefined, onUpdateParams: [prg[0]]})
-            gsap.to(prg[i+1], {backgroundColor})
+            gsap.to(tab.tab, {flexGrow})
+            if (bk) {
+                gsap.to(prg[i+1], {backgroundColor})
+            }
         })
     }
-    selectors.forEach(({progressElement, tabs}) => {
+    selectors.forEach(({root, progressElement, tabs}) => {
         let active = 0
-        let interval_token:number|undefined = window.setInterval(() => {
-            active = (active + 1) % tabs.length
-            goto_tab(tabs, progressElement, active)
-        }, opt.delay)
-
+        let tl = gsap.timeline()
+        const kill_tl = () => {
+            if (typeof tl !== 'undefined') {
+                tl.kill()
+                tl = undefined
+                return true
+            }
+            return false
+        }
+        tabs.forEach(({tab}, i) => {
+            tl.to(progressElement[i + 1], {borderTop: '4rem solid red', duration: opt.delay / 1000, onUpdate: progress, onUpdateParams: [progressElement[0]]})
+            tl.set(progressElement[i + 1], {borderTop: '', onComplete: () => {
+                active = (i + 1) % tabs.length
+                goto_tab(tabs, progressElement, active, false)
+            }})
+        })
         tabs.forEach(({tab, header}, t) => {
             if (!header) return
             header.addEventListener('click', () => {
-                window.clearInterval(interval_token)
-                interval_token = undefined
-                goto_tab(tabs, progressElement,  t)
+                kill_tl()
+                goto_tab(tabs, progressElement,  t, true)
             })
         })
+
+        root.addEventListener('click', () => {
+            gsap.set(progressElement[active + 1], {borderTop: '', duration:0})
+            gsap.to(progressElement[0], {opacity: 0})
+            if (kill_tl()) {
+                goto_tab(tabs, progressElement, active, true)
+            }
+        }, {once: true})
+
+        tl.repeat(-1)
     })
 }
 
@@ -238,7 +261,7 @@ at_sliding_tabs()
     </div>
     <div class="flex flex-col flex-none items-center justify-start w-12 border-l border-gray-dark border-solid">
         <p class="text-gray font-light text-lg">100%</p>
-        <div class="min-w-0.5 min-h-16 bg-black" style="background-color:red"></div>
+        <div class="min-w-0.5 min-h-16 bg-black"></div>
         <div class="min-w-0.5 min-h-16 bg-gray"></div>
         <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
     </div>
