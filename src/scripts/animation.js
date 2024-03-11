@@ -221,6 +221,7 @@ const how_we_work_roller = (options) => {
     const opt = {
         lines: 4,
         tarmac: 10,
+        offset: '',
         ...(options || {})
     }
     const roller = document.getElementById('at-hww-roller')
@@ -230,9 +231,9 @@ const how_we_work_roller = (options) => {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: roller,
-            start: 'top 80%',
+            start: `top 80%${opt.offset}`,
             scrub: 1,
-            end: 'top 20%'
+            end: `top 20%${opt.offset}`
         }
     })
     const rw = `${roller.offsetWidth}px`
@@ -243,4 +244,4 @@ const how_we_work_roller = (options) => {
     tl.to(tarmac, {width: '100%', duration: opt.tarmac}, '<')
 }
 
-export {scrolltrigger_text, service_tabs, fliptastic, process_section, roller_anim, how_we_work_roller}
+export {gsap, scrolltrigger_text, service_tabs, fliptastic, process_section, roller_anim, how_we_work_roller}

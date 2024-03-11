@@ -7,9 +7,61 @@ import BlogArchive from '../components/BlogArchive.astro';
 const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
 <script>
-import {fliptastic, how_we_work_roller} from '../scripts/animation'
+import {fliptastic, how_we_work_roller, gsap} from '../scripts/animation'
 fliptastic("[data-at-flip]", {duration: 0.125});
-how_we_work_roller();
+how_we_work_roller({offset: '-=5000'});
+
+const how_we_work_sections = () => {
+	const root = document.querySelector('[data-at-hww1=root]')
+	if (!root) return
+	const headers = [...root.querySelectorAll('[data-at-hww1=header] > h3')]
+	const progress = root.querySelector('[data-at-hww1=progress]')
+	const progress_bar = progress.nextElementSibling
+	const content = [...root.querySelectorAll('[data-at-hww1=content] > div')]
+	const trigger = root
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger,
+            pin: true,
+            start: 'top top',
+            scrub: 1,
+            end: () => `+=5000`
+        }
+    })
+    const update_progress = function() {
+        const percentage = `${Math.ceil(this.progress() * 100)}%`
+        progress.textContent = `${Math.ceil((1 - this.progress()) * 100)}%`
+    }
+	const state = {
+		active: 0
+	}
+	headers.forEach((hdr, i) => {
+		const index = i
+		tl.set(hdr, {color: 'var(--r)', onComplete: () => state.active = index})
+		tl.to(content[i], {left: 0})
+		tl.to(progress_bar, {width: '0', onUpdate: update_progress}, '<')
+		tl.addLabel(`lbl${index}`)
+		tl.to(progress_bar, {width: '100%', onUpdate: update_progress, duration: 5})
+		if (i < content.length - 1) {
+			tl.to(content[i], {left: '100%'})
+			tl.set(hdr, {color: ''})
+		}
+        hdr.addEventListener('click', () => {
+            const st = tl.scrollTrigger
+            window.scrollTo({top: st.labelToScroll(`lbl${index}`), behavior: 'smooth'});
+        })
+	})
+
+	root.querySelector('[data-at-hww1=next')?.addEventListener('click', () => {
+		const st = tl.scrollTrigger
+		state.active = (state.active + 1) % content.length
+		window.scrollTo({top: st.labelToScroll(`lbl${state.active}`), behavior: 'smooth'});
+	})
+}
+
+how_we_work_sections()
+
 </script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
@@ -185,7 +237,7 @@ how_we_work_roller();
     <div class="border-l border-gray-light border-solid w-12"></div>
 </div>
 <!-- get things done section -->
-<div class="flex bg-white">
+<div class="flex bg-white" data-at-hww1="root">
     <div class="flex items-center justify-center border-r border-gray-light border-solid w-12"></div>
     <div class="flex-1 flex-col items-center justify-center">
 		<div class="flex flex-col items-start justify-center items-center pb-4 pt-24">
@@ -198,34 +250,36 @@ how_we_work_roller();
 			<div class="md:w-2/5">
 				<h4 class="text-4xl font-light lg:text-6xl pb-12 w-4/5">“...we bring a wealth of knowledge to every project.”</h4>
 			</div>
-			<div class="md:w-3/5 text-right">
-					<h2 class="text-gray pb-4">how we get things done</h2>
-					<h3 class="text-xl font-black lg:text-3x2  text-red pb-0">masters of our craft</h3>
-					<h3 class="text-xl font-black lg:text-3x2 text-black pb-0">our approach</h3>
-					<h3 class="text-xl font-black lg:text-3x2 text-gray pb-0">our promise</h3>
-				<span class="thin-text text-gray">24%</span>
-				<div class="border-t border-red ml- "></div>
-				<div id=masters" class="hidden">
-					<p class="pb-12 text-black"><span class="font-bold">Tarmac Surfacing Experts - </span>Our journey began in road construction, but we've evolved into true specialists in macadam surfacing. Our experience is our strength, forming the bedrock of our expertise. Whether we're crafting beautiful driveways or constructing sturdy roads, we bring a wealth of knowledge to every project.</p>
-				</div>
-				<div id=approach class="hidden" >
-					<p class="text-black"><span class="font-bold">Your Vision, Our Commitment - </span>Ever wondered how we tackle projects? It's straightforward:</p>
-					<p>1. Reach out to us > 2. Confirm your project details > 3. Leave the rest to us, from meticulous planning to flawless project completion.</p>
-					<p class="pb-12 text-black"><span class="">We pledge to deliver the best possible outcome, provide unmatched value for your investment, and offer advice you can trust.</p>
-				</div>
-				<div id=promise"">
-					<p class="text-black"><span class="font-bold">Your Peace of Mind Matters - </span>We understand your concerns:</p>
-					<ul class="">
-						<li>Homeowners worry about worn driveways, diminished curb appeal, and car damage.</li>
-						<li>Businesses struggle to find trustworthy contractors.</li>
-						<li>Public sector clients grapple with budget constraints and reliability issues.</li>
-					</ul>
-					<p class="text-black"><span class="font-bold">At Ashford Tarmac Contractors, </span>we promise to:</p>
-					<ul>
-						<li>Elevate your home's aesthetics while ensuring safety.</li>
-						<li>Provide consistent, competitively priced sliutions for commercial projects.</li>
-						<li>Deliver dependable services within your budget for public sector needs.</li>
-					</ul>
+			<div class="md:w-3/5 text-right" data-at-hww1="header">
+				<h2 class="text-gray pb-4">how we get things done</h2>
+				<h3 class="text-xl font-black lg:text-3x2 text-gray-dark pb-0 transition-all">masters of our craft</h3>
+				<h3 class="text-xl font-black lg:text-3x2 text-black pb-0 transition-all">our approach</h3>
+				<h3 class="text-xl font-black lg:text-3x2 text-gray pb-0 transition-all">our promise</h3>
+				<span class="thin-text text-gray" data-at-hww1="progress">0%</span>
+				<div class="border-t border-red relative w-0"></div>
+				<div class="overflow-hidden relative flex flex-row" data-at-hww1="content">
+					<div id="masters" class="flex-[0_0_100%] mr-[-100%] relative">
+						<p class="pb-12 text-black"><span class="font-bold">Tarmac Surfacing Experts - </span>Our journey began in road construction, but we've evolved into true specialists in macadam surfacing. Our experience is our strength, forming the bedrock of our expertise. Whether we're crafting beautiful driveways or constructing sturdy roads, we bring a wealth of knowledge to every project.</p>
+					</div>
+					<div id="approach" class="flex-[0_0_100%] mr-[-100%] relative left-[100%]">
+						<p class="text-black"><span class="font-bold">Your Vision, Our Commitment - </span>Ever wondered how we tackle projects? It's straightforward:</p>
+						<p>1. Reach out to us > 2. Confirm your project details > 3. Leave the rest to us, from meticulous planning to flawless project completion.</p>
+						<p class="pb-12 text-black"><span class="">We pledge to deliver the best possible outcome, provide unmatched value for your investment, and offer advice you can trust.</p>
+					</div>
+					<div id="promise" class="flex-[0_0_100%] mr-[-100%] relative left-[100%]">
+						<p class="text-black"><span class="font-bold">Your Peace of Mind Matters - </span>We understand your concerns:</p>
+						<ul class="">
+							<li>Homeowners worry about worn driveways, diminished curb appeal, and car damage.</li>
+							<li>Businesses struggle to find trustworthy contractors.</li>
+							<li>Public sector clients grapple with budget constraints and reliability issues.</li>
+						</ul>
+						<p class="text-black"><span class="font-bold">At Ashford Tarmac Contractors, </span>we promise to:</p>
+						<ul>
+							<li>Elevate your home's aesthetics while ensuring safety.</li>
+							<li>Provide consistent, competitively priced sliutions for commercial projects.</li>
+							<li>Deliver dependable services within your budget for public sector needs.</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -301,7 +355,7 @@ how_we_work_roller();
 		</div>
     </div>	  
 	<!-- end of main tile content-->
-    <div class="border-l border-gray-light border-solid w-12 pt-40">
+    <div class="border-l border-gray-light border-solid w-12 pt-40" data-at-hww1="next">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12 text-red">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg> 
