@@ -51,7 +51,8 @@ const service_tabs = (root, alt) => {
     })
 }
 
-const fliptastic = (selector) => {
+const fliptastic = (selector, options) => {
+    const opt = {duration: 0.25, easeIn: 'sine.in', easeOut: 'sine.out', ...(options ?? {})}
     const delay = 3
     const perspective = 1200;
     const targets = [...document.querySelectorAll(selector)].map(el => ({
@@ -81,6 +82,44 @@ const fliptastic = (selector) => {
         'horz': ({scale, ...rest}) => ({scaleX: scale, ...rest})
     }
 
+    const flip_final = (root, state) => {
+        state.angle += 90
+    }
+    const flip_next = (root, state) => {
+        state.angle += 90
+        state.scale = -state.scale
+        gsap.set(state.s1, {display: 'none'})
+        gsap.set(state.s2, scale_axis[state.axis]({scale: state.scale, display: 'flex'}))
+        state.s1 = state.s2
+        gsap.to(root, rot_axis[state.axis](root, {
+            deg: state.angle + 90,
+            duration: opt.duration,
+            onComplete: flip_final,
+            onCompleteParams: [root, state],
+            overwrite: true,
+            ease: opt.easeOut
+        }))
+    }
+    const flip_start = (root, state) => {
+        gsap.to(root, rot_axis[state.axis](root, {
+            deg: (state.angle + 90) - get_angle[state.axis](root),
+            duration: opt.duration,
+            onComplete: flip_next,
+            onCompleteParams: [root, state],
+            overwrite: true,
+            ease: opt.easeIn
+        }))
+    }
+    let clicked = false
+    let reminder = window.setInterval(() => {
+        if (!clicked) {
+            const n = Math.floor(Math.random() * targets.length)
+            gsap.to(targets[n].root, rot_axis[targets[n].root.dataset.atFlip](targets[n].root, {deg: 15, ease: 'elastic.in(1, 0.3)', onComplete: () => {
+                gsap.to(targets[n].root, rot_axis[targets[n].root.dataset.atFlip](targets[n].root, {deg: 0, ease: 'elastic.out(1, 0.3)'}))
+            }}))
+        }
+    }, 5000)
+
     targets.forEach(({root}) => (root.parentElement.style.perspective = `${perspective}px`))
     targets.forEach(({root, sides, w, h}, i) => {
         if (sides.length < 2) {
@@ -93,28 +132,22 @@ const fliptastic = (selector) => {
             vert: Math.atan((h * 0.5) / perspective) * (180.0/Math.PI),
             horz: Math.atan((w * 0.5) / perspective) * (180.0/Math.PI),
         }
-        let angle = 0
-        let has_click = false
-        sides.forEach((s1, i) => {
-            const s2 = sides[(i + 1) % sides.length]
-            angle += 90
-            tl.to(root, rot_axis[axis](root, {deg: angle - get_angle[axis](root), ease: 'power1.out', delay}))
-            tl.set(s1, {display: 'none'})
-            tl.set(s2, scale_axis[axis]({scale: ((i % 2) * 2) - 1, display: 'flex'}))
-            angle += 90
-            tl.to(root, rot_axis[axis](root, {deg: angle, ease: 'power1.in'}))
-        });
-
-        ([...root.querySelectorAll('[data-at-flip-play]')]).forEach(el => {
-            el.addEventListener('click', e => tl.play(delay))
-            has_click = true
-        })
-
-        if (!has_click)  {
-            root.addEventListener('click', e => tl.play(delay))
+        const state = {
+            side: 0,
+            axis,
+            s1: sides[0],
+            s2: undefined,
+            angle: 0,
+            scale: 1
         }
-
-        tl.play()
+        root.addEventListener('click', e => {
+            clicked = true
+            window.clearInterval(reminder)
+            reminder = undefined
+            state.side = (state.side + 1) % sides.length
+            state.s2 = sides[state.side]
+            flip_start(root, state)
+        })
     })
 }
 
