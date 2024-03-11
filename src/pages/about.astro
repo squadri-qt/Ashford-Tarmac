@@ -7,8 +7,9 @@ import BlogArchive from '../components/BlogArchive.astro';
 const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
 <script>
-import {fliptastic} from '../scripts/animation'
+import {fliptastic, how_we_work_roller} from '../scripts/animation'
 fliptastic("[data-at-flip]");
+how_we_work_roller();
 </script>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
@@ -228,16 +229,17 @@ fliptastic("[data-at-flip]");
 				</div>
 			</div>
 		</div>
-		<img src="/bomag-asphalt-roller-yell.webp" alt="Bomag Tarmac Roller" class="md:h-40 md:w-40 h-20 w-20" />	  
-		<div class="grid grid-rows-2">
-			<div class="grid grid-cols-2">
-			<div class="bg-black h-4 min-h-0"></div>
-			<div class="bg-red h-4 min-h-0"></div>
-			</div>
-			<div class="grid grid-cols-3">
-			<div class="bg-gray-light h-4 min-h-0"></div>
-			<div class="bg-white h-4 min-h-0"></div>
-			<div class="bg-gray-dark h-4 min-h-0"></div>
+		<div class="mx-[-3rem] px-12 overflow-hidden">
+			<img id="at-hww-roller" src="/bomag-asphalt-roller-yell.webp" alt="Bomag Tarmac Roller" class="md:h-40 md:w-40 h-20 w-20 ml-[1.5rem] relative left-[-20rem]" />
+			<div class="grid grid-rows-2">
+				<div>
+					<div class="bg-red h-4 min-h-0 relative left-[-100vw]"><span class="block h-full w-0 relative bg-black" /></div>
+				</div>
+				<div class="grid grid-cols-3">
+					<div class="bg-gray-light h-4 min-h-0 relative left-[100vw]"></div>
+					<div class="bg-white h-4 min-h-0 relative left-[100vw]"></div>
+					<div class="bg-gray-dark h-4 min-h-0 relative left-[100vw]"></div>
+				</div>
 			</div>
 		</div>
 		<!--end of how we work -->

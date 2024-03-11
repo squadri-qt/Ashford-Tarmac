@@ -212,4 +212,30 @@ const roller_anim = (trigger_selector, dist, selector) => {
     })
 }
 
-export {scrolltrigger_text, service_tabs, fliptastic, process_section, roller_anim}
+const how_we_work_roller = (options) => {
+    const opt = {
+        lines: 4,
+        tarmac: 10,
+        ...(options || {})
+    }
+    const roller = document.getElementById('at-hww-roller')
+    const tarmac = roller?.nextElementSibling.querySelector('span')
+    const lines = [...roller?.nextElementSibling.querySelectorAll(':scope > div > div')]
+    if (!roller || !tarmac || !lines) return
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: roller,
+            start: 'top 80%',
+            scrub: 1,
+            end: 'top 20%'
+        }
+    })
+    const rw = `${roller.offsetWidth}px`
+    tl.to(lines.slice(1), {left: 0, stagger: 0.25, duration: opt.lines})
+    tl.to(lines[0], {left: 0, duration: opt.lines})
+    tl.to(roller, {left: `-${rw}`, duration: opt.lines})
+    tl.to(roller, {left: `calc(100% - ${rw})`, duration: opt.tarmac})
+    tl.to(tarmac, {width: '100%', duration: opt.tarmac}, '<')
+}
+
+export {scrolltrigger_text, service_tabs, fliptastic, process_section, roller_anim, how_we_work_roller}
