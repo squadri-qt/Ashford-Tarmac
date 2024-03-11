@@ -194,9 +194,9 @@ const roller_anim = (trigger_selector, dist, selector) => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger,
-                start: `top top`,
+                start: 'bottom bottom',
                 scrub: 1,
-                end: () => `+=400`
+                end: 'bottom 50%'
             }
         })
         tl.to(roller, {x:53, y:976, duration: 3})
