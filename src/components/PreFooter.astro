@@ -1,6 +1,3 @@
----
-import type Chart from "flowbite-svelte/Chart.svelte";
----
 <style>
   #at-roller-container > svg {
     position:absolute;
@@ -83,8 +80,43 @@ roller_anim('#pre-footer', '20%', '#at-roller-container')
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>                        
                   <span class="pt-8 pb-0 text-3xl font-bold text-white">Callback</span>
-                  <span class="text-sm uppercase font-bold pb-8 text-white">Schedule</span>
-                  <p class="pt-8 pb-4">[FORM]</p>               
+                  <span class="uppercase font-bold text-white">Schedule</span>
+                  <!-- Form -->
+                  <form name="contact" method="POST">
+                    <div class="grid grid-cols-2 w-full pt-4 gap-2">
+                        <div class="col-span-2 flex items-end h-6">
+                            <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">Choose a time...</span>
+                        </div>
+                        <div class="col-span-1">
+                            <label>
+                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none" type="text" placeholder="Time" name="time" required />
+                            </label>
+                        </div>
+                        <div class="col-span-1">
+                          <label>
+                            <input class="w-14 h-10 border border-black rounded-lg p-2 uppercase text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none" type="text" placeholder="AM" name="ampm" required />
+                          </label>
+                        </div>
+                        <div class="col-span-2 flex items-end h-6">
+                          <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">and date:</span>
+                        </div>
+                        <div class="col-span-2">
+                            <label>
+                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none" type="text" placeholder="Date" name="date" required />
+                            </label>
+                        </div>
+                    </div>
+                    <a href="/tarmac-case-study-archive">
+                      <button type="button" class="bg-black hover:bg-gray text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full flex items-center">
+                        <span class="text-[0.8rem] md:text-base font-bold">Next Step</span>
+                        <span class="bg-red rounded-full p-2 ml-4">
+                            <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                            </svg>
+                        </span>
+                      </button>
+                    </a>
+                </form>                               
                 </div>
                 <div class="bg-gray-dark rounded-lg px-4 pt-4 mb-4 text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-6">
