@@ -25,6 +25,7 @@ const service_tabs = (root, alt) => {
 
     buttons.forEach((b, i) => {
         b.h3 = b.target.querySelector('h3')
+        b.line = b.h3.nextElementSibling
         b.p = b.target.querySelector('p')
         b.img = b.target.querySelector('img')
         b.button.addEventListener('click', () => {
@@ -36,10 +37,12 @@ const service_tabs = (root, alt) => {
                 // fails on mobile
                 gsap.to(buttons[j].h3, {position: 'relative', left: `${iw}%`, opacity: 0})
                 gsap.to(buttons[i].h3, {position: 'relative', left: `${iw}%`, opacity: 1})
-                gsap.to(buttons[j].p, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.1})
-                gsap.to(buttons[i].p, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.1})
-                gsap.to(buttons[j].img, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.2})
-                gsap.to(buttons[i].img, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.2})
+                gsap.to(buttons[j].line, {position: 'relative', left: `${iw}%`, delay: 0.1, opacity: 0})
+                gsap.to(buttons[i].line, {position: 'relative', left: `${iw}%`,  delay: 0.1, opacity: 1})
+                gsap.to(buttons[j].p, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.2})
+                gsap.to(buttons[i].p, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.2})
+                gsap.to(buttons[j].img, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.3})
+                gsap.to(buttons[i].img, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.3})
                 return
             }
 
