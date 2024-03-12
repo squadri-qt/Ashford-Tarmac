@@ -113,16 +113,16 @@ how_we_work_sections()
 			<p class="text-center text-black">The perfect guide to get you from rocky roads through too ultra smooth tarmac.</p>
 		</div>
 		<!-- tile section -->
-		<div class="grid md:grid-cols-4 gap-0.5 cursor-pointer">
-			<div class="col-span-2 row-span-2 h-96 md:h-full bg-black rounded-lg flex items-center justify-end p-4" data-at-flip="vert">
-				<div class="flex flex-col w-full h-full justify-end bg-[url('/company-mission.webp')] bg-center bg-no-repeat">
-					<div class="h-full flex justify-end">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-						</svg>
-					</div>
-					<div class="h-36 bg-yellow flex flex-row justify-end">
-						<div class="border-l w-2/6 border-red flex flex-col justify-end pl-2 text-xl font-bolder uppercase text-white"><h3>our mission</h3></div>
+		<div class="grid grid-cols-[50%_minmax(50%,1fr)] md:grid-cols-[repeat(4,minmax(1rem,1fr))] gap-0.5 cursor-pointer">
+			<div class="col-span-2 row-span-2 h-96 md:h-full rounded-lg p-4 bg-black text-white" data-at-flip="vert">
+				<div class="flex flex-col w-full h-full justify-start items-end bg-[url('/company-mission.webp')] bg-center bg-no-repeat">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+					</svg>
+					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
+						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
+							<h3 class="font-bolder uppercase">Our Mission</h3>
+						</div>
 					</div>
 				</div>
 				<div class="flex flex-col w-full h-full justify-start items-end" style="display:none">
@@ -130,7 +130,7 @@ how_we_work_sections()
 						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 					</svg>
 					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
-						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl text-white">
+						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
 							<h3 class="font-bolder uppercase">Your Satisfaction, Our Commitment</h3>
 							<p class="text-sm lg:text-base">At Ashford Tarmac, we have a simple yet unwavering mission: to prioritise your satisfaction above all else. Our commitment is grounded in transparency regarding your budget and expectations. We strive relentlessly to achieve the best results in every aspect of our service. Your peace of mind is our ultimate goal.</p>
 						</div>
@@ -138,15 +138,11 @@ how_we_work_sections()
 				</div>
 			</div>
 			<!-- box 2 -->
-			<div class="col-span-2 row-span-1 bg-gray rounded-lg p-4 flex flex-col items-start min-h-72" data-at-flip="horz">
-				<div class="flex flex-col w-full h-full">
-					<div class="w-full flex justify-end">
-						<!-- Your div with an icon or other content -->
-						<!-- Example: -->
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-						</svg>
-					</div>
+			<div class="col-span-2 row-span-1 rounded-lg p-4 flex flex-col items-start min-h-72 bg-gray text-black" data-at-flip="horz">
+				<div class="flex flex-col w-full h-full justify-start items-end">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+					</svg>
 					<div class="flex items-start gap-4">
 						<img src="/favicon.svg" alt="at symbol" class="w-12" />
 						<div>
@@ -160,19 +156,19 @@ how_we_work_sections()
 					</svg>
 					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
 						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
-							<h3 class="text-black font-bolder uppercase">The at story</h3>
+							<h3 class="font-bolder uppercase">The at story</h3>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- box 3 -->
-			<div class="col-span-1 row-span-1 bg-gray-dark rounded-lg flex justify-end p-4 h-64 w-full" data-at-flip="horz">
+			<div class="col-span-1 row-span-1rounded-lg p-4 bg-gray-dark text-white" data-at-flip="horz">
 				<div class="flex flex-col w-full h-full justify-start items-end">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
 						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 					</svg>
 					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
-						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl text-white">
+						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
 							<h3 class="font-bolder uppercase">Beliefs</h3>
 						</div>
 					</div>
@@ -182,7 +178,7 @@ how_we_work_sections()
 						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 					</svg>
 					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
-						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl text-white">
+						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
 							<h3 class="font-bolder uppercase">Delivering the Best</h3>
 							<p class="text-sm lg:text-base">Exceptional results and exceeding expectations with expert advice and proven value.</p>
 						</div>
@@ -190,13 +186,13 @@ how_we_work_sections()
 				</div>
 			</div>
 			<!-- box 4 -->
-			<div class="col-span-1 row-span-1 rounded-lg flex items-center justify-end p-4 border border-red h-64 w-full" data-at-flip="horz">
+			<div class="col-span-1 row-span-1 rounded-lg flex items-center justify-end p-4 text-red border border-red h-64 w-full box-border" data-at-flip="horz">
 				<div class="flex flex-col w-full h-full justify-start items-end">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
 						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 					</svg>
 					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
-						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl text-red">
+						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
 							<h3 class="font-bolder uppercase">Values</h3>
 						</div>
 					</div>
@@ -206,7 +202,7 @@ how_we_work_sections()
 						<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 					</svg>
 					<div class="flex flex-row flex-[0_1_100%] gap-4 justify-end items-end min-w-[40%]">
-						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl text-red">
+						<div class="flex flex-col flex-[83.33%_0_0] relative border-l border-red pl-2 min-h-28 justify-end text-xl">
 							<h3 class="font-bolder uppercase">Values That Guide Us</h3>
 							<p class="text-smh lg:text-base">The cornerstone of our commitment to you: Client satisfaction, Honesty and Value for money.</p>
 						</div>

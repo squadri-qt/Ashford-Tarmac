@@ -282,7 +282,7 @@ const how_we_work_roller = (options) => {
             trigger: roller,
             start: `top 80%${opt.offset}`,
             scrub: 1,
-            end: `top 20%${opt.offset}`
+            end: `top ${opt.offset}`
         }
     })
     const rw = `${roller.offsetWidth}px`
