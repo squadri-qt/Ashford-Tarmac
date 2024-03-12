@@ -177,7 +177,7 @@ const process_section = (selector) => {
                     end: () => `+=4000`
                 }
             })
-            let last_img = undefined
+            let last_img = content[0].children[1]
             const txt_off = isDesktop ? {y: '-100vh', delay: 1} : {x: '-100vw', delay: 1}
             const txt_on = isDesktop ? {y: 0} : {x: 0}
             const img_off = isDesktop ? {y: '-100vh', opacity: 0} : {x: '-100vw'}
@@ -187,17 +187,13 @@ const process_section = (selector) => {
                 const index = i
                 const last = i == (content.length - 1)
                 const text = c.children[0]
-                const img = c.children[1]
                 if (last) return
                 tl.to(text, txt_off)
                 tl.to(content[i+1].children[0], txt_on, '<')
-                if (!last_img) {
-                   last_img = img
-                }
                 if ((i % 2) == 1) {
                     tl.to(last_img, img_off, '<')
-                    tl.to(img, img_on, '<')
-                    last_img = img
+                    last_img = content[i+1].children[1]
+                    tl.to(last_img, img_on, '<')
                 }
              })
              
