@@ -22,6 +22,9 @@ const scrolltrigger_text = (container, ...targets) => {
 }
 
 const service_tabs = (root, alt) => {
+    const opt = {
+        anim: alt ?? 'stagger'
+    }
     const buttons = [...root.querySelectorAll('[data-at-show]')].map(b => ({
         button: b,
         target: root.querySelector(`[data-at-show-target="${b.dataset.atShow}"]`)
@@ -39,7 +42,7 @@ const service_tabs = (root, alt) => {
             const j = 1 - i
             const jw = i * -100
             gsap.to(bg, {left: b.button.offsetLeft})
-            if (alt === 'stagger') {
+            if (opt.anim === 'stagger') {
                 // fails on mobile
                 gsap.to(buttons[j].h3, {position: 'relative', left: `${iw}%`, opacity: 0})
                 gsap.to(buttons[i].h3, {position: 'relative', left: `${iw}%`, opacity: 1})
