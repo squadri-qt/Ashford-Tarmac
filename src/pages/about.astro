@@ -134,7 +134,7 @@ how_we_work_sections()
 					<div class="flex flex-row justify-end">
 						<div class="border-l w-5/6 border-red flex flex-col justify-end pl-2 text-base font-bolder text-white">
 						<h3 class="">Your Satisfaction, Our Commitment</h3>
-						<p class="">At Ashford Tarmac, we have a simple yet unwavering mission: to prioritise your satisfaction above all else. Our commitment is grounded in transparency regarding your budget and expectations. We strive relentlessly to achieve the best results in every aspect of our service. Your peace of mind is our ultimate goal.</p>
+						<p class="text-sm lg:text-base">At Ashford Tarmac, we have a simple yet unwavering mission: to prioritise your satisfaction above all else. Our commitment is grounded in transparency regarding your budget and expectations. We strive relentlessly to achieve the best results in every aspect of our service. Your peace of mind is our ultimate goal.</p>
 						</div>
 					</div>
 				</div>
@@ -152,7 +152,7 @@ how_we_work_sections()
 					<div class="flex items-start gap-4">
 						<img src="/favicon.svg" alt="at symbol" class="w-12" />
 						<div>
-							<p class="">Our journey began in 1979 when Ashford Tarmac Contractors was founded, since then we've remained a family-run business, proudly serving a diverse range of clients in the Domestic, Commercial, and Public Sectors.</p>
+							<p class="text-sm lg:text-base">Our journey began in 1979 when Ashford Tarmac Contractors was founded, since then we've remained a family-run business, proudly serving a diverse range of clients in the Domestic, Commercial, and Public Sectors.</p>
 						</div>
 					</div>
 				</div>
@@ -164,9 +164,9 @@ how_we_work_sections()
 							<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 						</svg>
 					</div>
-					<div class="flex items-start gap-4">
+					<div class="flex items-end gap-4">
 						<div>
-							<div class="text-xl font-bold uppercase text-black text-right pt-[5.5rem] pl-96">
+							<div class="text-xl font-bold uppercase text-black text-right pt-[5.5rem]">
 								<div class="flex flex-row justify-end h-3/5">
 									<div class="flex flex-col justify-end h-full border-l border-red pl-2 text-xl font-bolder uppercase text-black">
 										<h3 class="pt-24">The at story</h3>
@@ -199,8 +199,8 @@ how_we_work_sections()
 							</svg>
 						</div>
 							<div class="flex flex-col w-full justify-end h-full border-l border-red pl-2 font-bolder text-white">
-								<h3 class="">Delivering the Best</h3>
-								<p class="text-sm">Delivering the Best for You with exceptional results, exceeding expectations with expert advice and proven value.</p>		
+								<h3 class="text-sm lg:text-base">Delivering the Best</h3>
+								<p class="text-sm lg:text-base">Exceptional results and exceeding expectations with expert advice and proven value.</p>		
 							</div>
 					</div>
 				</div>
@@ -215,7 +215,9 @@ how_we_work_sections()
 							</svg>
 						</div>
 						<div class="flex flex-row justify-end h-3/5">
-							<div class="flex flex-col w-2/5 justify-end h-full border-l border-red pl-2 text-xl font-bolder uppercase text-red"><h3>values</h3></div>
+							<div class="flex flex-col w-2/5 justify-end h-full border-l border-red pl-2 text-xl font-bolder uppercase text-red">
+								<h3 class="">values</h3>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -227,8 +229,8 @@ how_we_work_sections()
 							</svg>
 						</div>
 						<div class="flex flex-col w-full justify-end h-full border-l border-red pl-2 font-bolder text-gray-dark">
-							<h3 class="">Values That Guide Us</h3>
-							<p class="text-sm">Our brand values are the cornerstone of our commitment to you: Client satisfaction, Honesty and Value for money.</p>		
+							<h3 class="text-sm lg:text-base">Values That Guide Us</h3>
+							<p class="text-smh lg:text-base">The cornerstone of our commitment to you: Client satisfaction, Honesty and Value for money.</p>		
 						</div>
 				</div>
 				</div>
@@ -311,28 +313,47 @@ how_we_work_sections()
 				<div class="bg-red rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-52 lg:pb-2">
 					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>
 				</div>
-				<div class="bg-red rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-52 lg:pb-2" style="display:none">
-					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>
+				<div class="bg-red p-4 rounded-lg min-h-96 h-full" style="display:none">
+					<h3 class="uppercase text-3xl text-white">pricing</h3>
+					<div class="border-b border-white border-solid pt-2 mb-4"></div>
+					<p class="text-white text-sm md:text-base">Tell us a bit about your project (size, existing materials, drainage) and we'll be in touch straight away.</p>
+					<ul class="text-white list-disc pl-6 font-bold pb-6">
+						<li>Ballpark quote: Based on your info, we might provide an initial cost estimate.</li>
+						<li>Free site visit: For a more accurate assessment, we'll schedule a convenient visit.</li>
+						<li>Exact costs: Once we have all the details, we will provide you with a guaranteed estimate.</li>
+					</ul>
+					<a href="/">
+						<button type="button" class="bg-black hover:bg-gray text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full flex items-center">
+						  <span class="text-[0.8rem] md:text-base font-bold">Get an estimate</span>
+						  <span class="bg-red rounded-full p-2 ml-4">
+							  <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+							  </svg>
+						  </span>
+						</button>
+					  </a>
 				</div>
 			</div>
 			<div data-at-flip="horz" class="w-full h-full relative">
 				<div class="bg-gray p-4 rounded-lg min-h-96 h-full">
 					<h3 class="uppercase text-3xl text-white">spec</h3>
 					<RedLine />
-					<p class="text-white text-sm md:text-base">Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas.</p>
+					<p class="text-white text-sm md:text-base">It doesn't matter which type of client you are, you may or may not have a technical specification.</p>
+					<p class="text-white text-sm md:text-base">In any case, we can advise you on the technical aspects of the project such as choosing the right type of sub base or tarmac grade.</p>
+					<p class="text-white text-sm md:text-base">Sometimes we may need to schedule a site visit to better understand your requirements, our clients have commented that our advice is super helpful time and time again. .</p>
 				</div>
-				<div class="bg-gray p-4 rounded-lg min-h-96 h-full" style="display:none">
-					<h3 class="uppercase text-3xl text-white">spec2</h3>
-					<RedLine />
-					<p class="text-white text-sm md:text-base">Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas. Checkout our handy work from driveways and roads to car parks and communal areas.</p>
+				<div class="bg-gray p-4 rounded-lg min-h-96 h-full overflow-hidden flex place-items-center justify-end w-full h-full" style="display:none">
+					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">Spec</h3>
 				</div>
 			</div>
 			<div data-at-flip="vert" class="w-full h-full relative">
 				<div class="bg-gray-dark rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-72 lg:pb-16">
 					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">Process</h3>
 				</div>
-				<div class="bg-gray-dark rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-72 lg:pb-16" style="display:none">
-					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">Process</h3>
+				<div class="bg-gray-dark p-4 rounded-lg min-h-96 h-full" style="display:none">
+					<h3 class="uppercase text-3xl text-white">process</h3>
+					<div class="border-b border-white border-solid pt-2 mb-4"></div>
+					<p class="text-white text-sm md:text-base">Our process can differ depending on what type of sector you are in, once we have got to a stage where we have provided you with a guaranteed cost, we liaise with you regarding the scheduled days that we will complete the work and any additional items that you need to consider. Once the project is complete, we will go through the finished area with you to ensure that you are 100% happy.</p>
 				</div>
 			</div>
 			<div data-at-flip="horz" class="w-full h-full relative">
@@ -341,10 +362,8 @@ how_we_work_sections()
 					<p class="text-white font-bold lg:text-2xl text-xl pb-6">“I am writing to thank you and your team formally and personally for helping to ensure that the major project undertaken by the school this summer was a success.”</p>
 					<img src="ukc.svg" class="md:w-[6rem] h-12 ml-auto"alt="university of kent tarmac review">
 				</div>
-				<div class="bg-black p-4 rounded-lg min-h-96" style="display:none">
-					<p class="v-copy-ans text-lg text-white">Mrs S Reed – Kent</p>
-					<p class="text-white font-bold lg:text-2xl text-xl pb-6">“I am writing to thank you and your team formally and personally for helping to ensure that the major project undertaken by the school this summer was a success.”</p>
-					<img src="ukc.svg" class="md:w-[6rem] h-12 ml-auto"alt="university of kent tarmac review">
+				<div class="bg-black p-4 rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-72 lg:pb-16" style="display:none">
+					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>			
 				</div>
 			</div>
 		</div>
