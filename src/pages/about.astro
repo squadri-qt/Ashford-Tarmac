@@ -113,7 +113,7 @@ how_we_work_sections()
 			<p class="text-center text-black">The perfect guide to get you from rocky roads through too ultra smooth tarmac.</p>
 		</div>
 		<!-- tile section -->
-		<div class="grid md:grid-cols-4 gap-0.5">
+		<div class="grid md:grid-cols-4 gap-0.5 cursor-pointer">
 			<div class="col-span-2 row-span-2 h-96 md:h-full bg-black rounded-lg flex items-center justify-end p-4" data-at-flip="vert">
 				<div class="flex flex-col w-full h-full justify-end bg-[url('/company-mission.webp')] bg-center bg-no-repeat">
 					<div class="h-full flex justify-end">
@@ -140,9 +140,9 @@ how_we_work_sections()
 				</div>
 			</div>
 			<!-- box 2 -->
-			<div class="col-span-2 row-span-1 bg-gray rounded-lg p-4 flex flex-col items-start" data-at-flip="horz">
+			<div class="col-span-2 row-span-1 bg-gray rounded-lg p-4 flex flex-col items-start min-h-72" data-at-flip="horz">
 				<div class="flex flex-col w-full h-full">
-					<div class="w-full flex justify-end mb-4">
+					<div class="w-full flex justify-end">
 						<!-- Your div with an icon or other content -->
 						<!-- Example: -->
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-red">
@@ -152,10 +152,7 @@ how_we_work_sections()
 					<div class="flex items-start gap-4">
 						<img src="/favicon.svg" alt="at symbol" class="w-12" />
 						<div>
-							<p class="pr-12">Our journey began in 1979 when Ashford Tarmac Contractors was founded. For over 45 years, we've remained a family-run business, proudly serving a diverse range of clients in the Private, Commercial, and Public Sectors. We started in road construction, but our true expertise lies in macadam surfacing. Trust, knowledge, and competitive pricing define our approach.</p>
-							<div class="text-xl font-bold uppercase text-black text-right pt-12">
-								<h3>the at story</h3>
-							</div>
+							<p class="">Our journey began in 1979 when Ashford Tarmac Contractors was founded, since then we've remained a family-run business, proudly serving a diverse range of clients in the Domestic, Commercial, and Public Sectors.</p>
 						</div>
 					</div>
 				</div>
@@ -168,11 +165,13 @@ how_we_work_sections()
 						</svg>
 					</div>
 					<div class="flex items-start gap-4">
-						<img src="/favicon.svg" alt="at symbol" class="w-12" />
 						<div>
-							<p class="pr-12">Our journey began in 1979 when Ashford Tarmac Contractors was founded. For over 45 years, we've remained a family-run business, proudly serving a diverse range of clients in the Private, Commercial, and Public Sectors. We started in road construction, but our true expertise lies in macadam surfacing. Trust, knowledge, and competitive pricing define our approach.</p>
-							<div class="text-xl font-bold uppercase text-black text-right pt-12">
-								<h3>The other at story</h3>
+							<div class="text-xl font-bold uppercase text-black text-right pt-[5.5rem] pl-96">
+								<div class="flex flex-row justify-end h-3/5">
+									<div class="flex flex-col justify-end h-full border-l border-red pl-2 text-xl font-bolder uppercase text-black">
+										<h3 class="pt-24">The at story</h3>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -199,14 +198,15 @@ how_we_work_sections()
 								<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 							</svg>
 						</div>
-						<div class="flex flex-row justify-end h-3/5">
-							<div class="flex flex-col w-2/5 justify-end h-full border-l border-red pl-2 text-xl font-bolder uppercase text-white"><h3>More beliefs</h3></div>
-						</div>
+							<div class="flex flex-col w-full justify-end h-full border-l border-red pl-2 font-bolder text-white">
+								<h3 class="">Delivering the Best</h3>
+								<p class="text-sm">Delivering the Best for You with exceptional results, exceeding expectations with expert advice and proven value.</p>		
+							</div>
 					</div>
 				</div>
 			</div>
 			<!-- box 4 -->
-			<div class="col-span-1 row-span-1 rounded-lg flex items-center justify-end p-4 border border-red h-64" data-at-flip="vert">
+			<div class="col-span-1 row-span-1 rounded-lg flex items-center justify-end p-4 border border-red h-64" data-at-flip="horz">
 				<div class="w-full h-full">
 					<div class="flex flex-col w-full h-full justify-end">
 						<div class="h-3/5 flex justify-end">
@@ -226,10 +226,11 @@ how_we_work_sections()
 								<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
 							</svg>
 						</div>
-						<div class="flex flex-row justify-end h-3/5">
-							<div class="flex flex-col w-2/5 justify-end h-full border-l border-red pl-2 text-xl font-bolder uppercase text-red"><h3>More values</h3></div>
+						<div class="flex flex-col w-full justify-end h-full border-l border-red pl-2 font-bolder text-gray-dark">
+							<h3 class="">Values That Guide Us</h3>
+							<p class="text-sm">Our brand values are the cornerstone of our commitment to you: Client satisfaction, Honesty and Value for money.</p>		
 						</div>
-					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -284,7 +285,7 @@ how_we_work_sections()
 			</div>
 		</div>
 		<div class="mx-[-3rem] px-12 overflow-hidden">
-			<img id="at-hww-roller" src="/bomag-asphalt-roller-yell.webp" alt="Bomag Tarmac Roller" class="md:h-40 md:w-40 h-20 w-20 ml-[0.75rem] md:ml-[1.5rem] relative left-[-20rem]" />
+			<img id="at-hww-roller" src="/bomag-asphalt-roller-yell.webp" alt="Bomag Tarmac Roller" class="md:h-40 md:w-40 h-20 w-20 ml-[0.75rem] md:ml-[1.5rem] relative left-[-20rem] z-[-1]" />
 			<div class="grid grid-rows-2">
 				<div>
 					<div class="bg-red h-4 min-h-0 relative left-[-100vw]"><span class="block h-full w-0 relative bg-black" /></div>
@@ -305,7 +306,7 @@ how_we_work_sections()
 		</div>
 		<!--questions -->
 		<h2 class="text-right text-gray pb-4 font-bold">questions that our clients often ask</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0.5">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0.5 cursor-pointer">
 			<div data-at-flip="vert" class="w-full h-full relative">
 				<div class="bg-red rounded-lg overflow-hidden flex place-items-center justify-end w-full h-full min-h-96 pb-52 lg:pb-2">
 					<h3 class="text-white text-6xl font-bold -rotate-90 origin-bottom-right uppercase">pricing</h3>

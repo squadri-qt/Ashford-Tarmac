@@ -16,7 +16,7 @@ const {title} = Astro.props
 [data-at-sp-item]:first-child > div:nth-child(2) { transform: translate(0, 0); }
 </style>
 <div class="flex col-[1] row-[1] flex-col lg:flex-row w-full h-full text-white relative justify-center items-center" data-at-sp-item>
-    <div class="flex flex-col pr-14 pl-14 lg:pr-0 flex-[0_0_33.33%]">
+    <div class="flex flex-col lg:pr-0 flex-[0_0_33.33%] text-center md:text-left">
         <h3 class="md:text-3xl text-xl font-bold">{title}</h3>
         <RedLine />
         <div class="md:text-base text-sm"><slot name="content"/></div>
