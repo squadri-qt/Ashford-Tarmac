@@ -2,6 +2,12 @@ import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
+const transform = function(x1, y1, x2, y2, sx, sy) {
+    this.targets().forEach((t, i) => {
+        t.style.setProperty('transform', `translate(${x1 + (x2 - x1) * (this.progress() * sx)}vw, ${y1 + (y2 - y1) * (this.progress() * sy)}vh)`)
+    })
+}
+
 const scrolltrigger_text = (container, ...targets) => {
     targets.forEach(target => {
         gsap.to(target.firstElementChild, {
@@ -157,51 +163,76 @@ const fliptastic = (selector, options) => {
 }
 
 const process_section = (selector) => {
-    const targets = [...document.querySelectorAll(selector)]
+    const targets = [...document.querySelectorAll(selector)].map(root => ({
+        root,
+        content: [...root.querySelector('[data-at-pin-content]')?.children]
+    }))
+    
     const wmm = window.matchMedia('screen and (min-width: 1024px)');
     let clean_up = []
+ 
+    const update = ({root, content}, isDesktop) => {
+        const trigger = root;
+
+        let tl = gsap.timeline({
+            ease: 'none',
+            scrollTrigger: {
+                trigger,
+                pin: true,
+                start: 'top top',
+                scrub: 1,
+                end: () => `+=4000`
+            }
+        })
+
+        let last_img = content[0].children[1]
+        const txt_on = isDesktop ? [0, 100, 0, 0, 0, 1] : [100, 0, 0, 0, 1, 0]
+        const txt_off = isDesktop ? [0, 0, 0, -100, 0, 1] : [0, 0, -100, 0, 1, 0]
+        const img_on = isDesktop ?  [100, 0, 0, 0, 1, 0] : [0, 100, 0, 0, 0, 1]
+        const img_off = isDesktop ? [0, 0, 0, -100, 0, 1] : [0, 0, -100, 0, 1, 0]
+
+        content.forEach((c, i) => {
+            const last = i == (content.length - 1)
+            const text = c.children[0]
+            if (last) return
+            tl.to(text.children, {
+                delay: 1,
+                stagger: 0.1,
+                onUpdate: transform,
+                onUpdateParams: txt_off
+            })
+            tl.to(content[i+1].children[0], {
+                onUpdate: transform,
+                onUpdateParams: txt_on
+            }, '<+=0.2')
+            if ((i % 2) == 1) {
+                tl.to(last_img.children[0], {
+                    onUpdate: transform,
+                    onUpdateParams: img_off
+                }, '<+=0.25')
+                last_img = content[i+1].children[1]
+                tl.to(last_img, {
+                    onUpdate: transform,
+                    onUpdateParams: img_on
+                }, '<+=0.25')
+            }
+         })
+
+         tl.addPause('>+=1')
+         
+         return () => {
+            tl.scrollTrigger.kill()
+            tl.kill()
+            trigger.removeAttribute('style');
+            ([...trigger.querySelectorAll('[data-at-pin-content],[data-at-pin-content] [style]')]).forEach(x => x.removeAttribute('style'))
+         }
+    }
+
     const on_media = (isDesktop) => {
         clean_up.forEach(f => f())
-        clean_up = targets.map(root => {
-            const content = [...root.querySelector('[data-at-pin-content]')?.children]
-            const trigger = root;
-
-            let tl = gsap.timeline({
-                ease: 'none',
-                overwrite: true,
-                scrollTrigger: {
-                    trigger,
-                    pin: true,
-                    start: 'top top',
-                    scrub: 1,
-                    end: () => `+=4000`
-                }
-            })
-            let last_img = content[0].children[1]
-            const txt_off = isDesktop ? {y: '-100vh'} : {x: '-100vw'}
-            const txt_on = isDesktop ? {y: 0} : {x: 0}
-            const img_off = isDesktop ? {y: '-100vh'} : {x: '-100vw'}
-            const img_on = isDesktop ? {x: 0} : {y: 0}
-            console.log(isDesktop, content)
-            content.forEach((c, i) => {
-                const index = i
-                const last = i == (content.length - 1)
-                const text = c.children[0]
-                if (last) return
-                tl.to(text.children, {...txt_off, delay: 1, stagger: 0.1, overwrite: true})
-                tl.to(content[i+1].children[0], {...txt_on, overwrite: true}, '<+=0.2')
-                if ((i % 2) == 1) {
-                    tl.to(last_img, {...img_off, opacity: 0, overwrite: true}, '<+=0.25')
-                    last_img = content[i+1].children[1]
-                    tl.to(last_img, {...img_on, overwrite: true}, '<')
-                }
-             })
-             
-             return () => {
-                tl.kill()
-             }
-        })
+        clean_up = targets.map(x => update(x, isDesktop))
     }
+
     wmm.addEventListener('change', e => on_media(e.matches))
     on_media(wmm.matches)
 }
