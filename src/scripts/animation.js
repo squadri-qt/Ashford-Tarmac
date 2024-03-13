@@ -50,8 +50,8 @@ const service_tabs = (root, alt) => {
                 gsap.to(buttons[i].line, {position: 'relative', left: `${iw}%`,  delay: 0.1, opacity: 1})
                 gsap.to(buttons[j].p, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.2})
                 gsap.to(buttons[i].p, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.2})
-                gsap.to(buttons[j].img, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.3})
-                gsap.to(buttons[i].img, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.3})
+                //gsap.to(buttons[j].img, {position: 'relative', left: `${iw}%`, opacity: 0, delay: 0.3})
+                //gsap.to(buttons[i].img, {position: 'relative', left: `${iw}%`, opacity: 1, delay: 0.3})
                 return
             }
 
