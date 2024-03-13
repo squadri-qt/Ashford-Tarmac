@@ -211,12 +211,12 @@ const process_section = (selector) => {
             if ((i % 2) == 1) {
                 tl.to(last_img.children[0], {
                     onUpdate: transform,
-                    onUpdateParams: img_off
+                    onUpdateParams: txt_off
                 }, '<+=0.25')
                 last_img = content[i+1].children[1]
                 tl.to(last_img, {
                     onUpdate: transform,
-                    onUpdateParams: img_on
+                    onUpdateParams: txt_on
                 }, '<+=0.25')
             }
          })
