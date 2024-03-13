@@ -1,33 +1,28 @@
-<!--
-<div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/domestic-tarmac-contractor/">Domestic</a>
-    <a href="/commercial-tarmac-contractor/">Commercial</a>
-    <a href="/public-sector-tarmac-contractor/">Public Sector</a>
-    <a href="/tags/">Blogs</a>
-    <a href="/tarmac-case-studies/">CS</a>
-    <a href="/tarmac-case-study-archive">CSA</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-</div>
-# got this from https://v1.tailwindcss.com/components/navigation
- -->
- <nav class="flex items-center justify-between flex-wrap pb-1 pl-12 flex-1">
-    <div class="block lg:hidden">
-      <a class="flex items-center px-2 py-2 border rounded text-white border-white hover:text-red hover:border-red" href="#main-nav">
-        <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-      </a>
-    </div>
-    <div id="main-nav" class="w-full h-0 focus:h-full transition-all duration-300 box-border px-8 overflow-hidden block flex-grow bg-black lg:bg-transparent absolute lg:relative z-50 left-0 top-0  lg:left-auto lg:top-auto lg:h-auto lg:flex lg:items-center lg:w-full text-[0.9rem] tracking-wider text-justify" tabindex="0">
-      <div class="lg:flex-grow uppercase lg:flex lg:w-full lg:whitespace-nowrap">
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/">Home</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/domestic-tarmac-contractor/">Domestic</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/commercial-tarmac-contractor/">Commercial</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/public-sector-tarmac-contractor/">Public Sector</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/tags/">Blogs</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/tarmac-case-study-archive">Case studies</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/about/">about</a>
-        <a class="block mt-4 lg:inline-block flex-auto lg:mt-0 text-white hover:text-red" href="/contact/">contact</a>
+---
+import Logo from "./Logo.astro"
+---
+<nav class="flex items-center justify-between flex-wrap pb-1 px-12 flex-1 w-full z-[999] bg-[rgba(0,0,0,0.9)] lg:bg-transparent">
+  <div class="absolute mx-auto w-44 left-0 right-0 z-[100]"><a href="/"><img id="nav-home" class="inline-block w-[10rem] h-[2.167rem] py-2 px-2 align-middle box-content" src="/ashford-tarmac-logo-dark.svg" alt="The best Tarmac Contractor in Kent" /></a></div>
+  <div class="block lg:hidden">
+    <a class="flex items-center px-2 py-2 border rounded text-white border-white hover:text-red hover:border-red" href="#main-nav">
+      <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </a>
+  </div>
+  <div id="main-nav" class="w-full h-0 focus:h-full has-[a:focus]:h-full transition-all duration-500 box-border px-8 lg:pt-0 block overflow-hidden lg:overflow-visible flex-grow bg-[rgba(0,0,0,0.95)] lg:bg-transparent absolute lg:relative z-50 left-0 top-0  lg:left-auto lg:top-auto lg:h-auto lg:flex lg:items-center lg:w-full text-[0.9rem] tracking-wider text-justify" tabindex="0">
+    <button class="block relative w-8 h-8 border-none bg-none p-2 text-white lg:hidden ml-auto mr-0">X</button>
+    <div class="pt-8 lg:pt-0 lg:flex lg:flex-grow uppercase lg:w-full lg:whitespace-nowrap lg:items-center lg:justify-between leading-8 lg:leading-normal">
+      <div class="lg:flex lg:flex-1 lg:justify-end lg:gap-2 max-w-[calc(50%_-_4rem)] lg:relative lg:left-[-3rem]">
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/">Home</a>
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/domestic-tarmac-contractor/">Domestic</a>
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/commercial-tarmac-contractor/">Commercial</a>
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/public-sector-tarmac-contractor/">Public Sector</a>
+      </div>
+      <div class="lg:flex lg:flex-none lg:justify-start lg:gap-2 w-[calc(50%_-_4rem)] mr-[-3rem]">
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/tags/">Blogs</a>
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/tarmac-case-study-archive">Case studies</a>
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/about/">about</a>
+        <a class="block lg:inline-block lg:mt-0 text-white hover:text-red" href="/contact/">contact</a>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
