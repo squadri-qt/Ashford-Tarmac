@@ -123,6 +123,14 @@ letter-spacing: 0.1em;
   letter-spacing: 0.2em;
   color: var(--w);
 }
+.v-copy5 {
+  display: inline;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  writing-mode: vertical-lr; /* Update the writing-mode property */
+  letter-spacing: 0.2em;
+  color: var(--lg);
+}
 .v-copy-q {
   display:inline;
   font-size:8rem;
