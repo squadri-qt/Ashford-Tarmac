@@ -245,6 +245,7 @@ const roller_anim = (trigger_selector, dist, selector) => {
     const svg_container = document.querySelector(selector)
     const animate = (svg) => {
         const roller = svg.getElementById('at-roller')
+        svg.classList.add('at-roller')
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger,
@@ -253,7 +254,7 @@ const roller_anim = (trigger_selector, dist, selector) => {
                 end: 'bottom 50%'
             }
         })
-        tl.to(roller, {x:53, y:976, duration: 3})
+        tl.to(roller, {x:69, y:40, duration: 3})
     }
 
     if (!svg_container || !trigger) {
