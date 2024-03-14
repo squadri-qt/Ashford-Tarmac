@@ -2,9 +2,9 @@ import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
-const transform = function(x1, y1, x2, y2, sx, sy) {
+const transform = function(x1, y1, x2, y2, sx, sy, unit) {
     this.targets().forEach((t, i) => {
-        t.style.setProperty('transform', `translate(${x1 + (x2 - x1) * (this.progress() * sx)}vw, ${y1 + (y2 - y1) * (this.progress() * sy)}vh)`)
+        t.style.setProperty('transform', `translate(${x1 + (x2 - x1) * (this.progress() * sx)}${unit}, ${y1 + (y2 - y1) * (this.progress() * sy)}${unit})`)
     })
 }
 
@@ -188,37 +188,52 @@ const process_section = (selector) => {
             }
         })
 
-        let last_img = content[0].children[1]
+        let last_img = content[0].children[0].children[1]
         const txt_on = isDesktop ? [0, 100, 0, 0, 0, 1] : [100, 0, 0, 0, 1, 0]
         const txt_off = isDesktop ? [0, 0, 0, -100, 0, 1] : [0, 0, -100, 0, 1, 0]
         const img_on = isDesktop ?  [100, 0, 0, 0, 1, 0] : [0, 100, 0, 0, 0, 1]
         const img_off = isDesktop ? [0, 0, 0, -100, 0, 1] : [0, 0, -100, 0, 1, 0]
+        const all_txt = [...root.querySelectorAll('[data-at-sp-txt]')]
+        const all_img = root.querySelectorAll('[data-at-sp-img]')
 
-        content.forEach((c, i) => {
-            const last = i == (content.length - 1)
-            const text = c.children[0]
-            if (last) return
-            tl.to(text.children, {
+        all_txt.forEach((txt, i) => {
+            tl.to(all_txt, {
                 delay: 1,
-                stagger: 0.1,
+                onUpdate: transform,
+                onUpdateParams: [0, i * -100, 0, (i+1) * -100, 0, 1, '%']
+            })
+        // content.forEach((c, i) => {
+        //     const last = i == (content.length - 1)
+        //     const text = c.children[0].children[0]
+        //     tl.to(all_txt, {
+        //         delay: 1,
+        //         onUpdate: transform,
+        //         onUpdateParams: [0, i * -100, 0, (i+1) * -100, 0, 1, '%']
+        //     })
+
+/*                    
+            if (last) return
+            tl.to(text, {
+                delay: 1,
                 onUpdate: transform,
                 onUpdateParams: txt_off
             })
-            tl.to(content[i+1].children[0], {
+            tl.to(content[i+1].children[0].children[0], {
                 onUpdate: transform,
                 onUpdateParams: txt_on
-            }, '<+=0.2')
+            }, '<')
             if ((i % 2) == 1) {
                 tl.to(last_img.children[0], {
                     onUpdate: transform,
                     onUpdateParams: txt_off
                 }, '<+=0.25')
-                last_img = content[i+1].children[1]
+                last_img = content[i+1].children[0].children[1]
                 tl.to(last_img, {
                     onUpdate: transform,
                     onUpdateParams: txt_on
                 }, '<+=0.25')
             }
+*/            
          })
 
          tl.addPause('>+=1')
