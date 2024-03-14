@@ -4,7 +4,9 @@ import Logo from "./Logo.astro"
 <style>
   #main-nav a {
     position: relative;
+    transition: color 0.25s;
   }
+
   #main-nav a::before {
     color:white;
     transition: all 0.5s;
@@ -25,13 +27,19 @@ import Logo from "./Logo.astro"
     opacity: 1;
   }
 
+  a.at-active {
+    color: var(--r);
+  }
+
 @media screen and (max-width:1023px) {
   #main-nav a::before { 
     bottom:0;
   }
 }
-
 </style>
+<script>
+  document.querySelector(`#main-nav > div > div > a[href="${location.pathname}"]`)?.classList.add('at-active');
+</script>
 <nav class="block py-4 w-full z-[999] bg-[rgba(0,0,0,0.9)] lg:bg-transparent relative">
   <div class="block absolute top-0 px-2 pt-6 lg:hidden">
     <a class="flex items-center px-2 py-2 border rounded text-white border-white hover:text-red hover:border-red" href="#main-nav">
@@ -44,16 +52,16 @@ import Logo from "./Logo.astro"
     <button class="block relative w-8 h-8 border-none bg-none p-2 text-white lg:hidden ml-auto mr-0">X</button>
     <div class="pt-16 px-16 lg:pt-0 lg:px-0 lg:flex lg:flex-grow lg:w-full lg:whitespace-nowrap lg:items-center lg:justify-between leading-8 lg:leading-normal">
       <div class="lg:flex lg:flex-1 lg:justify-start lg:gap-2 lg:max-w-[calc(50%_-_6rem)] lg:relative">
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-red" href="/">Home</a>
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-red" href="/domestic-tarmac-contractor/">Domestic</a>
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-red" href="/commercial-tarmac-contractor/">Commercial</a>
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-red" href="/public-sector-tarmac-contractor/">Public Sector</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/">Home</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/domestic-tarmac-contractor/">Domestic</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/commercial-tarmac-contractor/">Commercial</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/public-sector-tarmac-contractor/">Public Sector</a>
       </div>
       <div class="lg:flex lg:flex-none lg:justify-end lg:gap-2 lg:w-[calc(50%_-_6rem)]">
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white active:text-red hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/tags/">Blogs</a>
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white active:text-red hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/tarmac-case-study-archive">Case Studies</a>
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white active:text-red hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/about/">About</a>
-        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white active:text-red hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/contact/">Contact</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/tags/">Blogs</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/tarmac-case-study-archive">Case Studies</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/about/">About</a>
+        <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-base" href="/contact/">Contact</a>
       </div>
     </div>
   </div>
