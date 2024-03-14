@@ -168,7 +168,7 @@ const fliptastic = (selector, options) => {
 const process_section = (selector) => {
     const targets = [...document.querySelectorAll(selector)].map(root => ({
         root,
-        content: [...root.querySelector('[data-at-pin-content]')?.children]
+        content: [...root.querySelector('[data-at-pin-content]')?.children],
     }))
     
     const wmm = window.matchMedia('screen and (min-width: 1024px)');
@@ -176,9 +176,17 @@ const process_section = (selector) => {
  
     const update = ({root, content}, isDesktop) => {
         const trigger = root;
+        const prg = root.lastElementChild?.firstElementChild
+        const prg_txt = prg.children[0]
+        const prg_bar = prg.children[1].children[0]
 
         let tl = gsap.timeline({
             ease: 'none',
+            onUpdate: function() {
+                const h = `${Math.ceil(this.progress() * 100)}%`
+                prg_txt.textContent = h
+                prg_bar.style.height = h
+            },
             scrollTrigger: {
                 trigger,
                 pin: true,

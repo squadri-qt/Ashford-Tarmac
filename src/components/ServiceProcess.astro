@@ -16,5 +16,10 @@ process_section('[data-at-pin]')
         </div>
         <div class="flex-1 grid grid-cols-[100%/100%] items-center justify-center text-white" data-at-pin-content><slot /></div>
     </div>
-    <div class="border-l border-gray-dark border-solid w-12 flex-none"></div>
+    <div class="border-l border-gray-dark border-solid w-12 flex-none flex flex-col justify-center items-center">
+        <div class="block text-center">
+            <div class="block text-gray font-light text-lg text-center h-12">0%</div>
+            <div class="block w-0.5 bg-gray mx-auto relative h-[10rem]"><div class="bg-red w-full" /></div>
+        </div>
+    </div>
 </div>
