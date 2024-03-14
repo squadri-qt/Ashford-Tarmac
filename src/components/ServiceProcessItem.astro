@@ -1,32 +1,26 @@
 ---
-import { mergeSlots } from "astro/compiler-runtime"
 import RedLine from "./RedLine.astro"
 const {title} = Astro.props
 ---
 <style>
-@media picnmix and (min-width: 1024px) {
-    [data-at-sp-root]:nth-child(1n + 2) { transform: translatey(100vh); }
+@media screen and (min-width: 1024px) {
+    [data-at-sp-item] > div:nth-child(1) { transform: translatey(100vh); }
+    [data-at-sp-item] > div:nth-child(2) { transform: translatex(100vw); }
 }
-/*
-[data-at-sp-root] {
-    position:relative;
-    top:-50%;
+
+@media screen and (max-width: 1023px) {
+    [data-at-sp-item] > div:nth-child(1) { transform: translatex(100vw); }
+    [data-at-sp-item] > div:nth-child(2) { transform: translatey(100vh); }
 }
-[data-at-sp-txt]:nth-child(1)::after {
-    content: ' ';
-    position:absolute;
-    width:calc(min(100vw, 1200px) - 6rem);
-    height:100vh;
-    background:red;
-    left:0;
-    bottom:-100vh;
-    z-index: 2;
-    background: linear-gradient(transparent, black 25%);
-}
-*/
+
+[data-at-sp-item]:first-child > div:nth-child(1) { transform: translate(0, 0); }
+[data-at-sp-item]:first-child > div:nth-child(2) { transform: translate(0, 0); }
 </style>
-<div class="col-[1]" data-at-sp-txt>
-    <h3 class="md:text-3xl text-xl font-bold">{title}</h3>
-    <RedLine />
-    <div class="md:text-base text-sm"><slot name="content"/></div>
+<div class="flex col-[1] row-[1] flex-col lg:flex-row w-full h-full text-white relative justify-center items-center" data-at-sp-item>
+    <div class="flex flex-col lg:pr-0 flex-[0_0_33.33%] text-center md:text-left">
+        <h3 class="md:text-3xl text-xl font-bold">{title}</h3>
+        <RedLine />
+        <div class="md:text-base text-sm"><slot name="content"/></div>
+    </div>
+    <div class="pl-14 box-border relative w-full flex-[0_0_66.67%]"><slot name="image" /></div>
 </div>

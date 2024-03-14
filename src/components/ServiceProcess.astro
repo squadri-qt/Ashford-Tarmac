@@ -1,32 +1,20 @@
 ---
 const {title, items} = Astro.props
 ---
-<style>
-    [data-at-pin-content] {
-        display: grid;
-        grid-auto-columns: 0.333fr 0.667fr;
-        grid-auto-rows: 1fr;
-    }
-</style>
-
 <script>
 import {process_section} from '../scripts/animation'
-//process_section('[data-at-pin]')
+process_section('[data-at-pin]')
 </script>
-<div class="bg-black flex flex-row relative h-[100vh] overflow-hidden" data-at-pin>
+<div class="h-[100vh] bg-black flex flex-row relative min-h-0 overflow-hidden" data-at-pin>
     <div class="border-r border-gray-dark border-solid w-12 flex-none"></div>
-    <div class="flex flex-col flex-[0_1_1fr] relative min-w-0">
-        <div class="at-gg1 w-full"><div class="at-gg2 h-[4px] bg-red w-full"/></div>
-        <div class="flex flex-col flex-none justify-center items-center pb-8 absolute">
+    <div class="flex flex-col flex-[1_1_0] relative min-w-0 min-h-0 h-[100vh] overflow-hidden">
+        <div class="flex flex-col flex-none justify-center items-center lg:mb-[-8rem] pb-8">
             <p class="v-copy2 mt-16">the process</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red mt-12">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
             </svg>
         </div>
-        <div class="flex-1 items-center justify-center text-white" data-at-pin-content>
-            <div class="col-[2] row-[1] ml-[3rem]"><slot name="image" /></div>
-            <slot />
-        </div>
+        <div class="flex-1 grid grid-cols-[100%/100%] items-center justify-center text-white" data-at-pin-content><slot /></div>
     </div>
     <div class="border-l border-gray-dark border-solid w-12 flex-none"></div>
 </div>
