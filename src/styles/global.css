@@ -206,79 +206,10 @@ line-height: 1.2; /* Adjust as needed */
 
 /* ... style your elements with the appropriate font variants ... */
 
-/* nav styles */
-nav {
-  display: flex;
-  flex-wrap: nowrap; /* Prevent elements from wrapping to multiple lines */
-  justify-content: space-between; /* Evenly distribute elements with spacing */
-  /* Optional: align-items: center; /* Vertically center elements within the row */
-  align-items: flex-end; /* Align items to the bottom */
-}
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 30px;
-  height: 2px;
-  margin-bottom: 3px;
-  background-color:var(--r);
-}
-.nav-links {
-  width: 100%;
-  background-color: var(--lg);
-  display: none;
-  line-height: 0.1; /* Increase line-height to create space */
-}
-.nav-links a {
-  display: block;
-  text-decoration: none;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: text-decoration 0.2s ease-in-out;
-  border-bottom: 1px solid  var(--b); /* Add red underline */
-  color:var(--w);
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  text-decoration: none; /* Remove default underline */
-  line-height: 0; /* Increase line-height to create space */
-  border-bottom: 1px solid  var(--r); /* Add red underline */
-}
-
-.nav-links a:active {
-  color: var(--r); /* Set text color to red */
-  font-weight: bold; /* Make text bold */
-  text-decoration: none; /* Remove default underline */
-  border-bottom: 1px solid var(--r); /* Add red underline */
-}
-
 .expanded {
   display: unset;
 }
-/* Responsiveness */
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
 
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
-}
 @media screen and (max-width: 768px) {
   /* Styles for smaller screens if needed */
 .v-copy {
