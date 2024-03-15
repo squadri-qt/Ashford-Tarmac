@@ -216,17 +216,17 @@ const process_section = (selector) => {
                 onUpdate: transform,
                 onUpdateParams: txt_on
             }, '<+=0.2')
-            if ((i % 2) == 1) {
-                tl.to(last_img.children[0], {
-                    onUpdate: transform,
-                    onUpdateParams: txt_off
-                }, '<+=0.25')
-                last_img = content[i+1].children[1]
-                tl.to(last_img, {
-                    onUpdate: transform,
-                    onUpdateParams: txt_on
-                }, '<+=0.25')
-            }
+            // if ((i % 2) == 1) {
+            //     tl.to(last_img.children[0], {
+            //         onUpdate: transform,
+            //         onUpdateParams: txt_off
+            //     }, '<+=0.25')
+            //     last_img = content[i+1].children[1]
+            //     tl.to(last_img, {
+            //         onUpdate: transform,
+            //         onUpdateParams: txt_on
+            //     }, '<+=0.25')
+            // }
          })
 
          tl.addPause('>+=1')
