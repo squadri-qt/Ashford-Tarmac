@@ -262,7 +262,7 @@ const roller_anim = (trigger_selector, dist, selector) => {
                 end: 'bottom 50%'
             }
         })
-        tl.to(roller, {x:69, y:40, duration: 3})
+        tl.to(roller, {x:69, y:39.75, duration: 3})
     }
 
     if (!svg_container || !trigger) {
