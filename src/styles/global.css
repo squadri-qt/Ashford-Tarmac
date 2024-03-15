@@ -147,7 +147,7 @@ letter-spacing: 0.1em;
   vertical-align: baseline;
   writing-mode: vertical-lr;
   letter-spacing: 0.1em;
-  transform-origin:430%; /* or 50% 50% */
+  transform-origin:530%; /* or 50% 50% */
   }
 .v-copy-sup{
 display:inline;
