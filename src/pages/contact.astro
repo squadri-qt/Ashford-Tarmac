@@ -30,7 +30,7 @@ if (Astro.request.method === "POST") {
     btn?.addEventListener('click', () => {
         const form = btn.closest('form')
         const message = form?.querySelector('.at-form-response')
-        atFormSend(form, 'https://eos.ct1.xyz/quad-at-form.php').then(res => {
+        atFormSend(form).then(res => {
             if (res.success) {
                 form?.reset()
             }

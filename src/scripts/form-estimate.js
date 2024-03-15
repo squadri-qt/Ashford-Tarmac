@@ -41,7 +41,7 @@ function initGetEstimate(selector, on_result) {
                 })
                 if (action.submit) {
                     nextBtn.disabled = true
-                    atFormSend(form, 'https://eos.ct1.xyz/quad-at-form.php').then(res => {
+                    atFormSend(form).then(res => {
                         active = next(steps, active, nextBtn).active
                         nextBtn.disabled = false
                         if (typeof on_result === 'function') {
