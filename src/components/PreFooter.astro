@@ -8,7 +8,43 @@
 </style>
 <script>
 import {roller_anim} from '../scripts/animation'
+import {atFormSend} from '../scripts/form'
 roller_anim('#pre-footer', '20%', '#at-roller-container')
+const call_back_form = (selector) => {
+  const form = document.querySelector(selector)
+  const btn = form?.querySelector('[data-btn]')
+  const btn_text = form?.querySelector('[data-btn-text=""]')
+  const msg = form?.querySelector('[data-message]')
+  const pages = [...form.querySelectorAll(':scope > div:first-child > div')]
+  let page = 0
+  if (!form || !btn || !btn_text) return
+  console.log('got form')
+  btn.addEventListener('click', () => {
+    const invalid = [...pages[page].querySelectorAll(':invalid')]
+    const this_page = pages[page]
+    const next_page = pages[page = ((page + 1) % pages.length)]
+    const next_btn_text = next_page.dataset.btnText ?? 'Next Step'
+    if (invalid.length !== 0) {
+      console.log('invalid')
+      return
+    }
+    this_page.style.display = 'none'
+    next_page.style.display = ''
+    btn_text.textContent = next_btn_text
+
+    if (page == pages.length - 1) {
+      btn.setAttribute('disabled', 'disabled')
+      atFormSend(form).then(x => {
+        btn.removeAttribute('disabled')
+        msg.textContent = x.message
+      })
+      return
+    }
+  })
+}
+
+call_back_form('form[name="call-back"]')
+
 </script>
 <div id="pre-footer" class="flex relative bg-white">
   <!-- Image by Macrovector https://macrovector.com/vector-image/builders-surveyors-machinery-warning-signs-during-vector-illustration-42194 -->
@@ -80,23 +116,27 @@ roller_anim('#pre-footer', '20%', '#at-roller-container')
                 <div class="bg-red rounded-lg p-4 mb-4 text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>                        
+                  </svg>
                   <span class="pt-8 pb-0 text-3xl font-bold text-white">Callback</span>
                   <span class="uppercase font-bold text-white">Schedule</span>
                   <!-- Form -->
-                  <form name="contact" method="POST">
-                    <div class="grid grid-cols-2 w-full pt-4 gap-2">
+                  <form name="call-back" method="POST">
+                    <div class="min-h-[11rem]">
+                    <div class="grid grid-cols-2 row-[1] w-full pt-4 gap-2 items-start"  data-btn-text="Next Step">
                         <div class="col-span-2 flex items-end h-6">
                             <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">Choose a time...</span>
                         </div>
                         <div class="col-span-1">
                             <label>
-                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none" type="text" placeholder="Time" name="time" required />
+                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="time" placeholder="Time" name="time" required />
                             </label>
                         </div>
                         <div class="col-span-1">
                           <label>
-                            <input class="w-14 h-10 border border-black rounded-lg p-2 uppercase text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none" type="text" placeholder="AM" name="ampm" required />
+                            <select class="w-14 h-10 border border-black rounded-lg p-2 uppercase text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none bg-white " name="ampm" required>
+                              <option>AM</option>
+                              <option>PM</option>
+                            </select>
                           </label>
                         </div>
                         <div class="col-span-2 flex items-end h-6">
@@ -104,20 +144,38 @@ roller_anim('#pre-footer', '20%', '#at-roller-container')
                         </div>
                         <div class="col-span-2">
                             <label>
-                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none" type="text" placeholder="Date" name="date" required />
+                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="date" placeholder="Date" name="date" required />
                             </label>
                         </div>
                     </div>
-                    <a href="/tarmac-case-study-archive">
-                      <button type="button" class="bg-black hover:bg-gray text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full flex items-center">
-                        <span class="text-[0.8rem] md:text-base font-bold">Next Step</span>
+                    <div class="grid grid-cols-2 row-[1] w-full pt-4 gap-2 justify-start items-start" data-btn-text="Submit" style="display:none">
+                      <div class="col-span-2 flex items-end h-6">
+                          <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">Telephone no.</span>
+                      </div>
+                      <div class="col-span-2">
+                          <label>
+                            <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="tel" placeholder="Telephone" name="tel" required />
+                          </label>
+                      </div>
+                   </div>
+                   <div class="grid grid-cols-2 w-full pt-4 gap-2 h-full" data-btn-text="Reset" style="display:none">
+                     <div class="col-span-2 flex items-end">
+                        <div class="md:text-[0.9rem] font-bolder tracking-wide font-bold" data-message>Please wait...</div>
+                     </div>
+                  </div>
+                </div>
+                  <div class="text-center w-full">
+                    <button type="button" type="button" class="inline-block bg-black hover:bg-gray text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full" data-btn>
+                      <span class="flex items-center">
+                        <span class="text-[0.8rem] md:text-base font-bold" data-btn-text>Next Step</span>
                         <span class="bg-red rounded-full p-2 ml-4">
                             <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                             </svg>
                         </span>
-                      </button>
-                    </a>
+                      </span>
+                    </button>
+                  </div>
                 </form>                               
                 </div>
                 <div class="bg-gray-dark rounded-lg px-4 pt-4 mb-4 text-white">

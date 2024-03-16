@@ -40,6 +40,12 @@ function handle_post() {
             $data['Phone'] = preg_replace('/[^\d+]+/', '', $_POST['phone'] ?? '');
             $data['Email'] = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL, ['flags' => FILTER_NULL_ON_FAILURE]);
             break;
+        case 'call-back':
+            $meridem = (preg_match('/^(AM|PM)$/', $_POST['meridiem'], $m, PREG_UNMATCHED_AS_NULL) == 1) ? $m[1] : null;
+            $date['Time'] = (preg_match('/^(\d{1,2}:\d\d)$/', $_POST['time'] ?? '', $m, PREG_UNMATCHED_AS_NULL) == 1) ? $m[1] : null;
+            $date['Date'] = (preg_match('/^(\d{4}-\d{2}-\d{2})$/', $_POST['date'] ?? '', $m, PREG_UNMATCHED_AS_NULL) == 1) ? $m[1] : null;
+            $date['Phone'] = preg_replace('/[^\d+]+/', '', $_POST['phone'] ?? '');
+            break;
         default:
             http_response_code(403);
             exit(0);

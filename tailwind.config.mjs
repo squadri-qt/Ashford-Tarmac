@@ -107,7 +107,7 @@ export default {
     },
     plugins: [
       plugin(({addUtilities}) =>
-        addUtilities({'.vertical-lr': { 'writing-mode': 'vertical-lr' }, '.vertical-rl': { 'writing-mode': 'vertical-rl' }})
+        addUtilities({'.vertical-lr': { 'writing-mode': 'vertical-lr' }, '.vertical-rl': { 'writing-mode': 'vertical-rl' }, '.all-unset' : {all: 'unset'}})
       ),
     ],
   };
