@@ -7,6 +7,14 @@ import RedLine from '../components/RedLine.astro';
 const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 import BlogArchive from '../components/BlogArchive.astro';
 ---
+<style>
+    #at-tabs-1 > div { transition: width 1s; }
+    #at-tabs-1 + div > div { transition: background-color 1s linear; }
+    #at-tabs-1[data-active-tab="0"] + div > div:nth-child(2) { background-color: red; }
+    #at-tabs-1[data-active-tab="1"] + div > div:nth-child(3) { background-color: red; }
+    #at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red; }
+    [data-at-service-txt]::after { white-space: nowrap; }
+</style>
 <script>
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -203,24 +211,6 @@ const at_sliding_tabs = () => {
 
 at_sliding_tabs()
 </script>
-<style>
-    #at-tabs-1 > div { transition: width 1s }
-    #at-tabs-1 + div > div { transition: background-color 1s linear; }
-    #at-tabs-1[data-active-tab="0"] + div > div:nth-child(2) { background-color: red }
-    #at-tabs-1[data-active-tab="1"] + div > div:nth-child(3) { background-color: red }
-    #at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red }
-
-    /*
-    #at-tabs-1 > div:last-child { width: calc(100% - 7rem) }
-    #at-tabs-1[data-active-tab="0"] > div:nth-child(1) { width: calc(100% - 7rem) }
-    #at-tabs-1[data-active-tab="0"] > div:nth-child(2) { width: 3.5rem }
-    #at-tabs-1[data-active-tab="1"] > div:nth-child(1) { width: 3.5rem }
-    #at-tabs-1[data-active-tab="1"] > div:nth-child(2) { width: calc(100% - 7rem) }
-    #at-tabs-1[data-active-tab="2"] > div:nth-child(1) { width: 3.5rem }
-    #at-tabs-1[data-active-tab="2"] > div:nth-child(2) { width: 3.5rem }
-    */
-    [data-at-service-txt]::after {white-space: nowrap}
-</style>
 <BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
 <div class="flex">
@@ -414,4 +404,6 @@ at_sliding_tabs()
         </div>
     </div>
 </div>
+
+
 </BaseLayout>

@@ -270,7 +270,12 @@ const roller_anim = (trigger_selector, dist, selector) => {
     }
 
     fetch("/roller-anim.svg").then(response => response.text()).then(svg => {
+        const data = svg_container.firstElementChild.dataset
         svg_container.innerHTML = svg;
+        const dst = svg_container.firstElementChild.dataset
+        for (var d in data) {
+            dst[d] = data[d]
+        }
         animate(svg_container.firstElementChild)
     })
 }
