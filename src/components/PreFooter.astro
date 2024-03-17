@@ -18,14 +18,12 @@ const call_back_form = (selector) => {
   const pages = [...form.querySelectorAll(':scope > div:first-child > div')]
   let page = 0
   if (!form || !btn || !btn_text) return
-  console.log('got form')
   btn.addEventListener('click', () => {
     const invalid = [...pages[page].querySelectorAll(':invalid')]
     const this_page = pages[page]
     const next_page = pages[page = ((page + 1) % pages.length)]
     const next_btn_text = next_page.dataset.btnText ?? 'Next Step'
     if (invalid.length !== 0) {
-      console.log('invalid')
       return
     }
     this_page.style.display = 'none'

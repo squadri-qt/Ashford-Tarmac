@@ -9,7 +9,6 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "Tag Index";
 ---
 <script>
-  console.log(ScrollTrigger);
   import { gsap } from 'gsap';
   import ScrollTrigger from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
