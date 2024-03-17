@@ -1,11 +1,4 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-/*
-CW: Causes css property duplication
-
-*/
-
 @layer base {
   p {
     @apply text-base antialiased font-normal leading-6 tracking-wider my-6;
@@ -28,7 +21,10 @@ CW: Causes css property duplication
   h6 {
     @apply text-base font-bold;
   }
-} 
+}
+
+@tailwind components;
+
 a {
   color: #ED1C24;
   font-weight: 500;
@@ -321,3 +317,5 @@ line-height: 1.2; /* Adjust as needed */
     transform: translate(-100%, -100%) translate3d(0, 0, 0);
   }
 }
+
+@tailwind utilities;
