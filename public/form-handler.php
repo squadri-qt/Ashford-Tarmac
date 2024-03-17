@@ -13,12 +13,14 @@ function handle_post() {
     $form_name = $_SERVER['HTTP_X_AT_TYPE'] ?? 'none';
     $data = [];
     $files = [];
+    $success_msg = 'OK';
     if (!empty($_SERVER['CONTENT_LENGTH']) && empty($_FILES) && empty($_POST)) {
         return ['success' => false, 'message' => 'Submission could not be processed'];
     }
 
     switch ($form_name) {
         case 'estimate':
+            $success_msg = 'We will be in touch shortly.';
             $data['Client Type'] = preg_replace('/[^\w\s@]+/', '', $_POST['client'] ?? '');
             $data['Name'] = preg_replace('/[^\w\s@]+/', '', $_POST['name'] ?? '');
             $data['Tel'] = preg_replace('/[^\d+]+/', '', $_POST['tel'] ?? '');
@@ -56,7 +58,7 @@ function handle_post() {
             return ['success' => false, 'message' => "$k is invalid. Please correct the issue and try again.", 'post' => $_POST, 'data' => $data];
         }
     }
-    return ['success' => true, 'data' => (object)$data, 'files' => (object)$files, 'message' => 'OK'];
+    return ['success' => true, 'data' => (object)$data, 'files' => (object)$files, 'message' => $success_msg];
 }
 
 header('Content-Type: application/json;charset=utf8');
