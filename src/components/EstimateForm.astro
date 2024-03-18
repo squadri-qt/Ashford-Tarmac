@@ -1,4 +1,5 @@
 ---
+const {class: classList} = Astro.props
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 ---
 <script>
@@ -9,7 +10,9 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
         (document.querySelector('.at-form-message') ?? {textContent: ''}).textContent = message
     })
 </script>
+<div class={classList}>
 <!-- rotated red text -->
+<a id="tarmac-estimate" tabindex="-1"/>
 <div class="flex flex-col items-start justify-center items-center pb-8">
     <p class="v-copy2 pr-12">get estimate</p>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
@@ -87,4 +90,5 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
         </form>
     </div>
     <div class="blob"></div>
+</div>
 </div>
