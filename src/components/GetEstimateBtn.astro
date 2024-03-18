@@ -10,10 +10,10 @@ const arrowClassList = [
     `bg-${arrow}`
 ]
 ---
-<a id={id} href={href} class:list={["inline-block text-white hover:text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full at-estimate-btn text-white", ...btnClassList]}>
+<a id={id} href={href} class:list={["w-[15.5rem] inline-block text-white hover:text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full at-estimate-btn text-white", ...btnClassList]}>
     <span class="flex items-center">
-        <span>{text}</span>
-        <span class:list={["rounded-full p-2 ml-4", ...arrowClassList]}>
+        <span class="flex-1 text-center">{text}</span>
+        <span class:list={["rounded-full p-2 ml-4 flex-none", ...arrowClassList]}>
             <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
             </svg>
