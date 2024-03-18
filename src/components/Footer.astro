@@ -1,8 +1,10 @@
 ---
 import PreFooter from "./PreFooter.astro";
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const currentYear = new Date().getFullYear();
-
 ---
 <PreFooter></PreFooter>
 <footer>
@@ -14,30 +16,31 @@ const currentYear = new Date().getFullYear();
     </div>
     <div class="md:grid md:grid-cols-4 text-white">
       <div class="grid-col-1">
-        <ul class="text-sm">
-          <h6 class="py-4">More Links</h6>
-          <li><a href="about" class="text-white">About Us</a></li>
-          <li><a href="tarmac-case-studies-archive" class="text-white">Case Studies</a></li>
-          <li><a href="/tags" class="text-white">Blog</a></li>
-          <li><a href="/contact" class="text-white">Contact</a></li>
+        <h6 class="py-4">Article Tags</h6>
+        <div class="text-white flex flex-wrap pr-8">
+            {tags.map((tag) => (
+            <div class="bg-red rounded grow-0 px-2 m-1 hover:bg-black">
+            <a class="text-white hover:text-white uppercase text-xs tracking-[0.07rem] font-bold align-text-top" href={`/tags/${tag}`}>{tag}</a>
+            </div>
+            ))}
         </div>
-      </ul>
+      </div>
       <div class="grid-col-1">
         <ul class="text-sm">
           <h6 class="md:pb-4 py-4">Tarmac Articles</h6>
-          <li><a href="/how-much-does-a-driveway-cost" class="text-white">Driveway Costs</a></li>
-          <li><a href="/driveway-gates" class="text-white">Gates for driveways</a></li>
-          <li><a href="driveway-maintenance" class="text-white">Maintaining your driveway</a></li>
-        </div>
-      </ul>
+          <li><a href="/posts/how-much-does-a-driveway-cost" class="text-white">Driveway Costs</a></li>
+          <li><a href="/posts/driveway-gates" class="text-white">Gates for driveways</a></li>
+          <li><a href="/posts/driveway-maintenance" class="text-white">Maintaining your driveway</a></li>
+        </ul>
+      </div>
       <div class="grid-col-1">
         <ul class="text-sm">
           <h6 class="md:pb-4 py-4">Contact Details</h6>
           <li class="pb-2">Mon-Fri 8am to 5pm</li>
           <li class="pb-2">Phone: 01233 733735<br />Fax: 01233 732319</li>
           <li class="pb-2">Ashford Tarmacadam <br />Contractors Ltd<br />Goodwin Capel Road<br />Ruckinge Near Ashford<br />Kent TN26 2EJ</li>
-        </div>
-      </ul>
+        </ul>
+    </div>
       <div class="grid-col-1">
         <div class="py-4">
           <GetEstimateBtn />

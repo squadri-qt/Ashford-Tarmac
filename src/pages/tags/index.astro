@@ -22,19 +22,6 @@ const pageTitle = "Tag Index";
   markers:false,
   },
 });
-// animation for the red background
-const targetDiv = document.getElementById("target-div");
-const observer = new IntersectionObserver((entries) => {
-entries.forEach((entry) => {
-  if (entry.isIntersecting) {
-    gsap.to(targetDiv, {
-      duration: 1, // Adjust duration as needed
-      css: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
-      ease: "power3.inOut" // Adjust easing if needed
-    });
-  }
-});
-});
 observer.observe(targetDiv);
 </script>
 <BaseLayout pageTitle = {pageTitle}>
@@ -60,7 +47,7 @@ observer.observe(targetDiv);
               </button>
             </div>
             ))}
-        </div>
+          </div>
         </div>
     <div class="border-l border-gray-light border-solid w-12"></div>
   </div>
