@@ -9,8 +9,10 @@ const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals &
 ---
 <script>
 import {scrolltrigger_text, service_tabs} from '../scripts/animation'
+window.addEventListener('load', () => {
 scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
 service_tabs(document.getElementById('at-tabs'))
+})
 </script>
 <BaseLayout pageTitle={pageTitle}>
     <!-- hero section --> 

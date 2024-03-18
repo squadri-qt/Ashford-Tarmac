@@ -8,8 +8,10 @@ const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
 <script>
 import {fliptastic, how_we_work_roller, gsap} from '../scripts/animation'
+window.addEventListener('load', () => {
 fliptastic("[data-at-flip]", {duration: 0.125});
 how_we_work_roller({offset: '-=5000'});
+})
 
 const how_we_work_sections = () => {
 	const root = document.querySelector('[data-at-hww1=root]')

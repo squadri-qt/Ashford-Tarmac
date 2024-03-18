@@ -38,13 +38,15 @@ import Logo from "./Logo.astro"
 }
 </style>
 <script>
-  const get_active_nav_anchor = () => {
-    const path = location.pathname
-    return [...document.querySelectorAll('#main-nav > div > div > a')].find(el => {
-      return el.getAttribute('href') == path || el.dataset.prefix && path.startsWith(el.dataset.prefix)
-    })
-  }
-  get_active_nav_anchor()?.classList.add('at-active')
+  window.addEventListener('load', () => {
+    const get_active_nav_anchor = () => {
+      const path = location.pathname
+      return [...document.querySelectorAll('#main-nav > div > div > a')].find(el => {
+        return el.getAttribute('href') == path || el.dataset.prefix && path.startsWith(el.dataset.prefix)
+      })
+    }
+    get_active_nav_anchor()?.classList.add('at-active')
+  })
 </script>
 <nav class="block py-4 w-full z-[999] bg-[rgba(12,9,9,0.9)] lg:bg-transparent relative">
   <div class="block absolute top-0 px-2 pt-6 lg:hidden">

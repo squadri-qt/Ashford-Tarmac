@@ -4,10 +4,12 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 ---
 <script>
     import {initGetEstimate} from '../scripts/form-estimate'
-    initGetEstimate('.at-steps', (root) => {
-        const {success, message} = root.result
-        root.btn.firstElementChild.textContent = success ? 'Thank You' : 'Try Again';
-        (document.querySelector('.at-form-message') ?? {textContent: ''}).textContent = message
+    window.addEventListener('load', () => {
+        initGetEstimate('.at-steps', (root) => {
+            const {success, message} = root.result
+            root.btn.firstElementChild.textContent = success ? 'Thank You' : 'Try Again';
+            (document.querySelector('.at-form-message') ?? {textContent: ''}).textContent = message
+        })
     })
 </script>
 <div class={classList}>

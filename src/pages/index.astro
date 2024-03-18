@@ -18,8 +18,6 @@ import BlogArchive from '../components/BlogArchive.astro';
 <script>
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
-import { createCollectionToGlobResultMap } from 'astro/content/runtime';
 window.addEventListener('load', () => {
 gsap.registerPlugin(ScrollTrigger);
 gsap.to(".btext", {
@@ -42,16 +40,6 @@ gsap.to(".btext2", {
         markers:false,
     },
 });
-
-const snapToSections = (selector:string) => {
-    document.querySelectorAll(selector).forEach(e => {
-        ScrollTrigger.create({
-            trigger: e,
-            pin: true
-        })
-    })
-}
-//snapToSections('[data-at-snap]')
 
 // animation for the red background
 const targetDiv = document.getElementById("target-div");

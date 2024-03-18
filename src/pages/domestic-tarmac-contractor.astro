@@ -9,8 +9,10 @@ const pageTitle = "Domestic tarmac contractor in kent for tarmac driveways.";
 ---
 <script>
 import {scrolltrigger_text, service_tabs} from '../scripts/animation'
+window.addEventListener('load', () => {
 scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
 service_tabs(document.getElementById('at-tabs'), 'stagger')
+})
 </script>
 <BaseLayout pageTitle={pageTitle}>
     <!-- hero section --> 

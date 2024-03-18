@@ -3,7 +3,9 @@ const {title, items} = Astro.props
 ---
 <script>
 import {process_section} from '../scripts/animation'
+window.addEventListener('load', () => {
 process_section('[data-at-pin]')
+})
 </script>
 <div class="h-[100vh] bg-black flex flex-row relative min-h-0 overflow-hidden" data-at-pin>
     <div class="border-r border-gray-dark border-solid w-12 flex-none"></div>

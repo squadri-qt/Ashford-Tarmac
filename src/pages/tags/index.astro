@@ -11,18 +11,20 @@ const pageTitle = "Tag Index";
 <script>
   import { gsap } from 'gsap';
   import ScrollTrigger from 'gsap/ScrollTrigger';
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.to(".btext", {
-  x: 100,
-  scrollTrigger: {
-  trigger: '.container',
-  start: "clamp(top bottom)",
-  scrub: 2,
-  pinSpacing: false,
-  markers:false,
-  },
-});
-observer.observe(targetDiv);
+  window.addEventListener('load', () => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(".btext", {
+      x: 100,
+      scrollTrigger: {
+        trigger: '.container',
+        start: "clamp(top bottom)",
+        scrub: 2,
+        pinSpacing: false,
+        markers:false,
+      },
+    });
+    observer.observe(targetDiv);
+  })
 </script>
 <BaseLayout pageTitle = {pageTitle}>
   <div class="flex bg-white" id="target-div">

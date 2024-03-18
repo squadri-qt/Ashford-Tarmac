@@ -10,8 +10,10 @@ const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathw
 ---
 <script>
 import {scrolltrigger_text, service_tabs} from '../scripts/animation'
+window.addEventListener('load', () => {
 scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('at-stc1-a'))
 service_tabs(document.getElementById('at-tabs'))
+})
 </script>
 <BaseLayout pageTitle={pageTitle}>
     <!-- hero section --> 

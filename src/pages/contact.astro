@@ -23,21 +23,22 @@ if (Astro.request.method === "POST") {
 <script>
     import {scrolltrigger_text} from '../scripts/animation'
     import {atFormSend} from '../scripts/form'
+    window.addEventListener('load', () => {
+        scrolltrigger_text(document.querySelector('[data-at-scroll]'), ...document.querySelectorAll('[data-at-scroll-pos]'))
 
-    scrolltrigger_text(document.querySelector('[data-at-scroll]'), ...document.querySelectorAll('[data-at-scroll-pos]'))
-
-    const btn = document.querySelector('#contact-btn')
-    btn?.addEventListener('click', () => {
-        const form = btn.closest('form')
-        const message = form?.querySelector('.at-form-response')
-        atFormSend(form).then(res => {
-            if (res.success) {
-                form?.reset()
-            }
-            if (message && res.message) {
-                message.textContent = res.message;
-            }
-        }).catch();
+        const btn = document.querySelector('#contact-btn')
+        btn?.addEventListener('click', () => {
+            const form = btn.closest('form')
+            const message = form?.querySelector('.at-form-response')
+            atFormSend(form).then(res => {
+                if (res.success) {
+                    form?.reset()
+                }
+                if (message && res.message) {
+                    message.textContent = res.message;
+                }
+            }).catch();
+        })
     })
 </script>
 <BaseLayout pageTitle={pageTitle}>
