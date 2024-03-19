@@ -6,7 +6,9 @@ import BlogArchive from '../../components/BlogArchive.astro';
 
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Tag Index";
+const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
+const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
+const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
 ---
 <script>
   import { gsap } from 'gsap';
@@ -26,7 +28,11 @@ const pageTitle = "Tag Index";
     observer.observe(targetDiv);
   })
 </script>
-<BaseLayout pageTitle = {pageTitle}>
+<BaseLayout 
+pageTitle = {pageTitle}
+pageDescription = {pageDescription}
+pageKeywords = {pageKeywords}
+>
   <div class="flex bg-white" id="target-div">
     <div class="border-r border-gray-light border-solid w-12"></div>
         <div class="flex-1 flex-col items-center justify-center">

@@ -3,6 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const { pageTitle } = Astro.props;
+const { pageDescription } = Astro.props;
+const { pageKeywords } = Astro.props;
 ---
 <style>
   html:has(#main-nav:focus) {
@@ -16,6 +18,8 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <description>{pageDescription}</description>
+    <keywords>{pageKeywords}</keywords>
   </head>
   <body>
     <a id="home" />
@@ -24,12 +28,3 @@ const { pageTitle } = Astro.props;
     <Footer />
   </body>
 </html>
-<!--
-<div class="flex bg-white">
-  <div class="border-r border-gray-light border-solid w-12"></div>
-      <div class="flex-1 flex-col items-center justify-center">
-
-      </div>
-  <div class="border-l border-gray-light border-solid w-12"></div>
-</div>
- -->
