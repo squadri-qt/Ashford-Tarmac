@@ -4,7 +4,7 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
 import BlogArchive from '../components/BlogArchive.astro';
-import { SEO } from "astro-seo";
+const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
 ---
 <script>
 import {fliptastic, how_we_work_roller, gsap} from '../scripts/animation'
@@ -65,11 +65,7 @@ const how_we_work_sections = () => {
 how_we_work_sections()
 
 </script>
-<BaseLayout 
-	title="Ashford Tarmac - Your Trusted Tarmac Contractor | Expert Tarmac Services."
-	description="Discover why AT is the leading tarmac contractor trusted by clients like Leeds Castle in Kent. Our expert team ensures project success through personalised advice and site visits."
-	keywords="tarmac contractor, trusted, expert, tarmac services, site visit, project success, personalised advice"
->
+<BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
 <div class="flex bg-black bg-[url('/blk_symb.svg')] bg-bottom bg-right bg-no-repeat">
     <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>

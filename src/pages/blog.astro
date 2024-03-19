@@ -7,7 +7,7 @@ const pageTitle ="Blog Archive";
 const allPosts = await getCollection("posts");
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
 	<div class="flex bg-white pt-24">
 		<div class="border-r border-gray-light border-solid w-12"></div>
 			<div class="flex-1 flex-col items-center justify-center">

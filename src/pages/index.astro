@@ -4,9 +4,9 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
+const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 import BlogArchive from '../components/BlogArchive.astro';
 ---
-
 <script>
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -193,11 +193,7 @@ const at_sliding_tabs = () => {
 at_sliding_tabs()
 })
 </script>
-<BaseLayout 
-	title="Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent"
-	description="Transform your vision into reality with our top-quality tarmac services. Specializing in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!"
-	keywords="Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, resin bond services, kent"
->
+<BaseLayout pageTitle={pageTitle}>
 <!-- hero section -->
 <div class="flex">
     <div class="flex flex-none items-center justify-center border-r border-gray-dark border-solid w-12"></div>
