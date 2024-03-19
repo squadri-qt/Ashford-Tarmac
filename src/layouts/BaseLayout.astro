@@ -2,7 +2,6 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { SEO } from 'astro-seo';
 import { propsToFilename } from 'astro/assets/utils';
 ---
 <style>
@@ -16,11 +15,6 @@ import { propsToFilename } from 'astro/assets/utils';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <SEO
-      title={props.title}
-      description={props.description}
-      keywords={props.keywords}
-    />
   </head>
   <body>
     <a id="home" />
