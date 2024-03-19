@@ -4,7 +4,6 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
-const pageTitle = "Find a tarmac company in kent - Ashford Tarmac contact details";
 
 if (Astro.request.method === "POST") {
   try {
@@ -41,7 +40,7 @@ if (Astro.request.method === "POST") {
         })
     })
 </script>
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout>
 <!-- hero section -->
 <div class="flex bg-black">
     <div class="border-r border-gray-dark border-solid w-12"></div>

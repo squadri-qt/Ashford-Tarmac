@@ -5,7 +5,6 @@ import RedLine from '../components/RedLine.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import ServiceProcess from '../components/ServiceProcess.astro';
 import ServiceProcessItem from '../components/ServiceProcessItem.astro';
-const pageTitle = "Public Sector Tarmac Contractor for Universities, Hospitals & Schools.";
 ---
 <script>
 import {scrolltrigger_text, service_tabs} from '../scripts/animation'
@@ -14,7 +13,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
 service_tabs(document.getElementById('at-tabs'))
 })
 </script>
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout>
     <!-- hero section --> 
     <div class="flex bg-white bg-[url('/case-studies/public-sector/tarmacadam-carpark-ashford-min.webp')] bg-no-repeat bg-[10%_10%] bg-cover h-[50rem] relative">
         <div class="border-r border-gray-light border-solid w-12 bg-white md:bg-transparent z-[2]"></div>

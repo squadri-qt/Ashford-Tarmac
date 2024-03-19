@@ -6,7 +6,6 @@ import BlogArchive from '../../components/BlogArchive.astro';
 
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Tag Index";
 ---
 <script>
   import { gsap } from 'gsap';
@@ -26,7 +25,7 @@ const pageTitle = "Tag Index";
     observer.observe(targetDiv);
   })
 </script>
-<BaseLayout pageTitle = {pageTitle}>
+<BaseLayout>
   <div class="flex bg-white" id="target-div">
     <div class="border-r border-gray-light border-solid w-12"></div>
         <div class="flex-1 flex-col items-center justify-center">
