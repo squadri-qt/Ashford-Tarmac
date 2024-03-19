@@ -4,7 +4,9 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import RedLine from '../components/RedLine.astro';
 import BlogArchive from '../components/BlogArchive.astro';
-const pageTitle = "Trusted Tarmac Contractor - About Ashford Tarmac";
+const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
+const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
+const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
 ---
 <script>
 import {fliptastic, how_we_work_roller, gsap} from '../scripts/animation'
@@ -65,7 +67,7 @@ const how_we_work_sections = () => {
 how_we_work_sections()
 
 </script>
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
 <!-- hero section -->
 <div class="flex bg-black bg-[url('/blk_symb.svg')] bg-bottom bg-right bg-no-repeat">
     <div class="flex items-center justify-center w-12 border-r border-gray-dark border-solid"></div>

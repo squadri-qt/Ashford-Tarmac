@@ -6,7 +6,9 @@ import EstimateForm from '../components/EstimateForm.astro';
 import ServiceProcess from '../components/ServiceProcess.astro';
 import ServiceProcessItem from '../components/ServiceProcessItem.astro';
 
-const pageTitle = "Commercial Tarmac Contractor in Kent, car parks, roads, pathways";
+const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
+const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
+const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
 ---
 <script>
 import {scrolltrigger_text, service_tabs} from '../scripts/animation'
@@ -15,7 +17,7 @@ scrolltrigger_text(document.getElementById('at-stc1'), document.getElementById('
 service_tabs(document.getElementById('at-tabs'))
 })
 </script>
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
     <!-- hero section --> 
     <div class="flex flex-row bg-white bg-[url('/case-study.webp')] bg-no-repeat bg-[10%_10%] bg-cover h-[50rem] relative">
         <div class="border-r border-gray-light border-solid w-12 z-[2]"></div>
