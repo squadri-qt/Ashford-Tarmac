@@ -6,11 +6,13 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   build: {
     assets: 'assets',
-    inlineStylesheets: 'never' /* CSP. May hurt page speed becuase fetch resource */,
+    // inlineStylesheets: 'never' /* CSP. May hurt page speed becuase fetch resource */,
   },
   vite: {
-    assets: 'assets',
-    assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
+    build: {
+      assets: 'assets',
+      // assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
+    }
   },
   site: 'https://at-gamma.vercel.app/',
   integrations: [preact(),],

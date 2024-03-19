@@ -250,10 +250,10 @@ const process_section = (selector) => {
 
 const roller_anim = (trigger_selector, dist, selector) => {
     const trigger = document.querySelector(trigger_selector)
-    const svg_container = document.querySelector(selector)
-    const animate = (svg) => {
+    const svg_container = document.querySelector(`${selector} > object`)
+    const svg = svg_container.getSVGDocument()
+    if (svg) {
         const roller = svg.getElementById('at-roller')
-        svg.classList.add('at-roller')
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger,
@@ -264,20 +264,6 @@ const roller_anim = (trigger_selector, dist, selector) => {
         })
         tl.to(roller, {x:69, y:39.75, duration: 3})
     }
-
-    if (!svg_container || !trigger) {
-        return
-    }
-
-    fetch("/roller-anim.svg").then(response => response.text()).then(svg => {
-        const data = svg_container.firstElementChild.dataset
-        svg_container.innerHTML = svg;
-        const dst = svg_container.firstElementChild.dataset
-        for (var d in data) {
-            dst[d] = data[d]
-        }
-        animate(svg_container.firstElementChild)
-    })
 }
 
 const how_we_work_roller = (options) => {
