@@ -4,9 +4,10 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
-const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 import BlogArchive from '../components/BlogArchive.astro';
+const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 ---
+
 <script>
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -62,7 +63,7 @@ const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
             pin: true,
             start: 'top top',
             scrub: 1,
-            end: () => `+=5000`
+            end: () => `+=3000`
         }
     })
     const st = tl.scrollTrigger

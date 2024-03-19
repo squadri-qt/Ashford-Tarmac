@@ -2,7 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+import { SEO } from 'astro-seo';
+import { propsToFilename } from 'astro/assets/utils';
 ---
 <style>
   html:has(#main-nav:focus) {
@@ -16,6 +17,11 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <SEO
+      title={props.pageTitle}
+      description={props.description}
+      keywords={props.keywords}
+    />
   </head>
   <body>
     <a id="home" />
