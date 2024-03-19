@@ -2,11 +2,51 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageSection from '../components/PageSection.astro'
 ---
+<script src="../scripts/test.ts"></script>
+<style>
+    body {
+        perspective: 1px;
+    }
+    .at-st-htest {
+        position:relative;
+        display:inline-block;
+        transform: translateX(calc(var(--at-progress) * -10vh));
+        transition: transform 4s;
+        transition-timing-function: ease-out;
+    }
+
+    .at-parallax {
+        height: 100vh;
+    }
+
+    .at-para-layer {
+        position: absolute;
+        top:0;
+        right:0;
+        left:0;
+        bottom:0;
+    }
+
+    .at-para1 {
+        transform: translateZ(0);
+    }
+
+    .at-para2 {
+        transform: translateZ(-100px) translateY(50%);
+    }
+
+</style>
 <BaseLayout>
 <PageSection title="New Section" color="white">
     <p>Lorum Ipsum</p>
+    <div class="at-parallax">
+        <div class="at-para-layer at-para1"><h1>Jingle Jangle</h1></div>
+        <div class="at-para-layer at-para2"><h1>Jingle Jangle2</h1></div>
+    </div>
+    <h1 class="at-st-htest">Quad Tech</h1>
     <span slot="l" class="inline-block">L</span>
     <span slot="r" class="inline-block">R</span>
+    </div>
 </PageSection>
 <PageSection title="New Section">
     <p>Lorum Ipsum</p>
