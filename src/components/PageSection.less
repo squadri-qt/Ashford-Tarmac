@@ -1,0 +1,76 @@
+section.at-page-section {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    &.transparent {
+        border-color: rgb(43, 43, 43);
+        color: white;
+        & > div > header {
+            color: var(--r);
+        }
+    }
+    &.red {
+        background:rgb(237, 28, 36);
+        border-color: rgb(210, 19, 27);
+        color: white;
+        & > div > header {
+            color: white;
+        }
+    }
+    &.white {
+        background:white;
+        border-color: rgb(242, 242, 242);
+        color: black;
+        & > div > header {
+            color: var(--r);
+        }
+    }
+    > div {
+        width: calc(100% - 6rem + 2px);
+        height: 100%;
+        display: block;
+        margin: 0 calc(3em - 1px);
+        border-left: 1px solid;
+        border-right: 1px solid;
+        border-color: inherit;
+        box-sizing: border-box;
+        > header {
+            color: var(--r);
+            display:inline-block;
+            text-transform: uppercase;
+            margin:-1.25em calc(50% - 0.6em);
+            > h1 {
+                font-weight:normal;
+                font-size: 0.8rem;
+                letter-spacing: 0.1em;
+                line-height:1.2em;
+                text-transform: uppercase;
+                writing-mode: vertical-lr;
+                &::after {
+                    left:0.05em;
+                    content: '🡒';
+                    display:inline-block;
+                    font-size:2em;
+                    margin:1rem 0;
+                    position:relative;
+                }
+            }
+        }
+    }
+    &> aside {
+        width: 3rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position:absolute;
+        top:0;
+        text-align: center;
+        &.at-l {
+            left: 0;
+        }
+        &.at-r {
+            right: 0;
+        }
+    }
+}

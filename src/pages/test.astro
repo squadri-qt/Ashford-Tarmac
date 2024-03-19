@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro'
+---
+<BaseLayout>
+<PageSection title="New Section" color="white">
+    <p>Lorum Ipsum</p>
+    <span slot="l" class="inline-block">L</span>
+    <span slot="r" class="inline-block">R</span>
+</PageSection>
+<PageSection title="New Section">
+    <p>Lorum Ipsum</p>
+    <span slot="l" class="inline-block">L</span>
+    <span slot="r" class="inline-block">R</span>
+</PageSection>
+<PageSection title="New Section" color="red">
+    <p>Lorum Ipsum</p>
+    <span slot="l" class="inline-block">L</span>
+    <span slot="r" class="inline-block">R</span>
+</PageSection>
+</BaseLayout>

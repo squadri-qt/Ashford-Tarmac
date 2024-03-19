@@ -1,0 +1,12 @@
+---
+const {title,color="transparent"} = Astro.props
+import "./PageSection.less"
+---
+<section class:list={["at-page-section", color]}>
+    <div>
+        {title && <header><h1>{title}</h1></header>}
+        <slot />
+    </div>
+    {Astro.slots.has('l') && <aside class="at-l"><slot name="l" /></aside>}
+    {Astro.slots.has('r') && <aside class="at-r"><slot name="r" /></aside>}
+</section>

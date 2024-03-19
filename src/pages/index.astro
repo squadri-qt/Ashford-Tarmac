@@ -5,6 +5,7 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
 import BlogArchive from '../components/BlogArchive.astro';
+import PageSection from '../components/PageSection.astro';
 const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
 const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
 const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
@@ -133,7 +134,7 @@ const at_sliding_tabs = () => {
     }
     const selectors = [...document.querySelectorAll('[data-at-sliding-tabs]')].map(root => ({
         root,
-        progressElement: root.nextElementSibling?.children,
+        progressElement: document.getElementById('at-tabs-p')?.children,
         tabs: [...root.children].map(el => ({
             tab: el,
             header: el.querySelector('h1')
@@ -229,11 +230,11 @@ at_sliding_tabs()
         </div>
     </div>
     <div class="flex flex-col flex-none items-center justify-start w-12 border-l border-gray-dark border-solid">
-        <p class="text-gray font-light text-lg h-5">100%</p>
-        <div class="min-w-0.5 min-h-16 bg-black"></div>
-        <div class="min-w-0.5 min-h-16 bg-gray"></div>
-        <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
-    </div>
+      <p class="text-gray font-light text-lg h-5">100%</p>
+      <div class="min-w-0.5 min-h-16 bg-black"></div>
+      <div class="min-w-0.5 min-h-16 bg-gray"></div>
+      <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
+  </div>
 </div>
 <Clients />
 <!-- Red section (about) -->
