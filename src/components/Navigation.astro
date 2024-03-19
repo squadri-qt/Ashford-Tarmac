@@ -9,7 +9,7 @@ import Logo from "./Logo.astro"
 
   #main-nav > div > div > a::before {
     color:white;
-    transition: all 0.5s;
+    transition: width left opacity 0.5s;
     transition-timing-function: cubic-bezier(0.02, -2, 0.08, 2);
     opacity: 0;
     content: ' ';
@@ -55,7 +55,7 @@ import Logo from "./Logo.astro"
     </a>
   </div>
   {/*}<div class="absolute w-full h-[1px] bg-[rgba(255,255,0,0.5)] top-[3.45rem]"></div>*/}
-  <div class="w-full h-[4.125rem] text-center z-[-1]"><a href="/" class="h-full lg:relative lg:z-[100]"><img class="inline-block h-full p-2 align-middle box-border relative" src="/ashford-tarmac-logo-dark.svg" alt="The best Tarmac Contractor in Kent" /></a></div>
+  <div class="w-full h-[4.125rem] text-center z-[-1]"><a href="/" class="lg:relative lg:z-[100]"><img class="inline-block w-auto h-[4.125rem] p-2 align-middle box-border relative" src="/ashford-tarmac-logo-dark.svg" alt="The best Tarmac Contractor in Kent" /></a></div>
   <div id="main-nav" class="absolute w-full h-0 focus:h-[100vh] has-[a:focus]:h-full lg:h-[1rem] lg:focus:h-[1rem] lg:has-[a:focus]:h-[1rem] left-0 top-0 lg:top-[3.125rem] px-4 lg:px-0 transition-all duration-500 box-border block overflow-hidden lg:overflow-visible flex-grow bg-[rgba(0,0,0,0.95)] lg:bg-transparent z-50 lg:flex text-[0.9rem] tracking-wider text-justify" tabindex="0">
     <button class="absolute w-8 h-8 right-7 top-6 border-none bg-none p-2 text-white lg:hidden ml-auto mr-0">X</button>
     <a href="/" class="absolute inline-block w-16 h-16 left-10 top-4 lg:hidden">

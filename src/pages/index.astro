@@ -7,14 +7,6 @@ import RedLine from '../components/RedLine.astro';
 const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 import BlogArchive from '../components/BlogArchive.astro';
 ---
-<style>
-    #at-tabs-1 > div { transition: width 1s; }
-    #at-tabs-1 + div > div { transition: background-color 1s linear; }
-    #at-tabs-1[data-active-tab="0"] + div > div:nth-child(2) { background-color: red; }
-    #at-tabs-1[data-active-tab="1"] + div > div:nth-child(3) { background-color: red; }
-    #at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red; }
-    [data-at-service-txt]::after { white-space: nowrap; }
-</style>
 <script>
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -235,7 +227,7 @@ at_sliding_tabs()
         </div>
     </div>
     <div class="flex flex-col flex-none items-center justify-start w-12 border-l border-gray-dark border-solid">
-        <p class="text-gray font-light text-lg">100%</p>
+        <p class="text-gray font-light text-lg h-5">100%</p>
         <div class="min-w-0.5 min-h-16 bg-black"></div>
         <div class="min-w-0.5 min-h-16 bg-gray"></div>
         <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>

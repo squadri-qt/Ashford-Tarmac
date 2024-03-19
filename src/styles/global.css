@@ -296,6 +296,12 @@ line-height: 1.2; /* Adjust as needed */
   animation: blob-bounce 3s infinite ease;
 }
 
+#at-tabs-1 > div { transition: width 1s; }
+#at-tabs-1 + div > div { transition: background-color 1s linear; }
+#at-tabs-1[data-active-tab="0"] + div > div:nth-child(2) { background-color: red; }
+#at-tabs-1[data-active-tab="1"] + div > div:nth-child(3) { background-color: red; }
+#at-tabs-1[data-active-tab="2"] + div > div:nth-child(4) { background-color: red; }
+
 @keyframes blob-bounce {
   0% {
     transform: translate(-100%, -100%) translate3d(0, 0, 0);

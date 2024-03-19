@@ -5,7 +5,12 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   build: {
-    inlineStylesheets: 'never'
+    assets: 'assets',
+    inlineStylesheets: 'never' /* CSP. May hurt page speed becuase fetch resource */,
+  },
+  vite: {
+    assets: 'assets',
+    assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
   },
   site: 'https://at-gamma.vercel.app/',
   integrations: [preact(),],
