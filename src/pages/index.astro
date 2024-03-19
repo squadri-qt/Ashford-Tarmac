@@ -4,8 +4,10 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
-const pageTitle = "Tarmac Company in Kent - Ashford Tarmac";
 import BlogArchive from '../components/BlogArchive.astro';
+const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
+const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
+const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
 ---
 <script>
 import { gsap } from 'gsap';
@@ -193,7 +195,7 @@ const at_sliding_tabs = () => {
 at_sliding_tabs()
 })
 </script>
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
 <!-- hero section -->
 <div class="flex">
     <div class="flex flex-none items-center justify-center border-r border-gray-dark border-solid w-12"></div>
