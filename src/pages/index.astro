@@ -278,30 +278,25 @@ window.addEventListener('load', init_page)
     <!-- Image and text -->
     <div class="md:flex pb-24 pt-24">
         <div class="overflow-hidden w-[100%] relative md:w-3/5 whitespace-nowrap">
-            <span class="inline-block relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway1.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway2.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway3.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway4.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway5.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway6.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway7.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="1"><img loading="lazy" src="/driveway8.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%] left-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev1.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev2.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev3.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev4.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev5.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev6.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev7.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="2"><img loading="lazy" src="/dev8.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%] left-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni1.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni2.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni3.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni4.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni5.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni6.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni7.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
-            <span class="hidden relative w-[100%]" data-at-service-img="3"><img loading="lazy" src="/uni8.svg" class="w-[100%]" alt="Domestic Driveway Tarmac Services in Kent"/></span>
+          {[
+            {
+              images: ['/driveway1.svg','/driveway2.svg','/driveway3.svg','/driveway4.svg','/driveway5.svg','/driveway6.svg','/driveway7.svg','/driveway8.svg'],
+              description: 'Domestic Driveway Tarmac Services in Kent'
+            },{
+              images: ['/dev1.svg','/dev2.svg','/dev3.svg','/dev4.svg','/dev5.svg','/dev6.svg','/dev7.svg','/dev8.svg'],
+              description: 'Domestic Driveway Tarmac Services in Kent'
+            },{
+              images: ['/uni1.svg','/uni2.svg','/uni3.svg','/uni4.svg','/uni5.svg','/uni6.svg','/uni7.svg','/uni8.svg'],
+              description: 'Domestic Driveway Tarmac Services in Kent'
+            }
+          ].reduce((result, section, i) => {
+            section.images.forEach((url, j) => {
+              const hidden = j > 0 ? 'hidden' : 'inline-block';
+              const left = i > 0 ? ' left-100' : '';
+              result.push(<span class={`${hidden} relative w-[100%]${left}`} data-at-service-img={i + 1}><img loading="lazy" src={url} class="w-[100%]" alt={section.description}/></span>)
+            })
+            return result
+          }, [])}
         </div>
         <div class="md:w-2/5 text-right">
             <h2 class="lg:text-lg text-gray pb-4">Service Sectors</h2>
