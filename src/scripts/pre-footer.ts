@@ -1,7 +1,7 @@
 import {ScrollTrigger} from './scroll-trigger'
 
 function animate_roller() {
-  const roller = this.data.roller ??= this.element.getSVGDocument()?.getElementById('at-roller')
+  const roller = this.data.roller ??= this.element.getSVGDocument()?.querySelector('g')
   if (roller) {
     const pp = Math.min(this.progress2 + 0.5, 1)
     const sp = Math.sin((pp * Math.PI) / 2)
