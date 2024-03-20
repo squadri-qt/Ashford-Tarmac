@@ -1,3 +1,13 @@
+class ScrollBar {
+  static scrollY:number = 0
+  static scrollMaxY:number = 0
+  static has_handler = false
+
+  static scroll_handler() {
+    ScrollBar.scrollY = window.scrollY
+  }
+}
+
 class Target {
   onFrame: FrameRequestCallback
   callback: Function
@@ -5,6 +15,7 @@ class Target {
   progress: number
   progress2: number
   rect: DOMRect
+  scrollY: number = 0
   timestamp: number
   timestamp_layout: number = -9999
   visible: boolean
@@ -15,16 +26,19 @@ class Target {
    * @param timestamp 
    */
   static handle_frame(this: Target, timestamp: DOMHighResTimeStamp) {
-    this.timestamp = timestamp
-    //if (timestamp - this.timestamp_layout > 50) {
-    this.rect = this.element.getBoundingClientRect()
-    this.timestamp_layout = timestamp
-    //}
-    const new_progress = this.rect.top / -this.rect.height
-    if (new_progress !== this.progress) {
-      this.progress = new_progress
-      this.progress2 = (this.rect.bottom - document.scrollingElement.clientHeight) / -this.rect.height
-      this.callback(timestamp)
+    if (ScrollBar.scrollY !== this.scrollY) {
+      this.scrollY = ScrollBar.scrollY
+      this.timestamp = timestamp
+      //if (timestamp - this.timestamp_layout > 50) {
+      this.rect = this.element.getBoundingClientRect()
+      this.timestamp_layout = timestamp
+      //}
+      const new_progress = this.rect.top / -this.rect.height
+      if (new_progress !== this.progress) {
+        this.progress = new_progress
+        this.progress2 = (this.rect.bottom - document.scrollingElement.clientHeight) / -this.rect.height
+        this.callback(timestamp)
+      }
     }
     if (!this.visible) return
     window.requestAnimationFrame(this.onFrame)
@@ -36,6 +50,7 @@ class ScrollTrigger {
   static roots = new Map()
   static observer = new window.IntersectionObserver(ScrollTrigger.handle_callback, { root: null, rootMargin: '0px', threshold: 0 })
   static targets = new WeakMap()
+  static scroll_id = null
 
   static handle_entry(entry: IntersectionObserverEntry) {
     const target = ScrollTrigger.targets.get(entry.target)
@@ -72,6 +87,10 @@ class ScrollTrigger {
     target.onFrame = Target.handle_frame.bind(target)
     this.targets.set(selector, target)
     this.observer.observe(target.element)
+    if (!ScrollBar.has_handler) {
+      ScrollBar.has_handler = true
+      window.addEventListener('scroll', ScrollBar.scroll_handler)
+    }
     return target
   }
 }
