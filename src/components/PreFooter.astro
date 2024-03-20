@@ -1,40 +1,40 @@
 <script>
-import {roller_anim} from '../scripts/animation'
+// import {roller_anim} from '../scripts/animation'
+import {roller_anim} from '../scripts/pre-footer'
 import {atFormSend} from '../scripts/form'
 window.addEventListener('load', () => {
-roller_anim('#pre-footer', '20%', '#at-roller-container')
-const call_back_form = (selector) => {
-  const form = document.querySelector(selector)
-  const btn = form?.querySelector('[data-btn]')
-  const btn_text = form?.querySelector('[data-btn-text=""]')
-  const msg = form?.querySelector('[data-message]')
-  const pages = [...form.querySelectorAll(':scope > div:first-child > div')]
-  let page = 0
-  if (!form || !btn || !btn_text) return
-  btn.addEventListener('click', () => {
-    const invalid = [...pages[page].querySelectorAll(':invalid')]
-    const this_page = pages[page]
-    const next_page = pages[page = ((page + 1) % pages.length)]
-    const next_btn_text = next_page.dataset.btnText ?? 'Next Step'
-    if (invalid.length !== 0) {
-      return
-    }
-    this_page.style.display = 'none'
-    next_page.style.display = ''
-    btn_text.textContent = next_btn_text
+  //roller_anim('#pre-footer', '20%', '#at-roller-container');
+  roller_anim('#at-roller-container > object');
+  ((selector) => {
+    const form = document.querySelector(selector)
+    const btn = form?.querySelector('[data-btn]')
+    const btn_text = form?.querySelector('[data-btn-text=""]')
+    const msg = form?.querySelector('[data-message]')
+    const pages = [...form.querySelectorAll(':scope > div:first-child > div')]
+    let page = 0
+    if (!form || !btn || !btn_text) return
+    btn.addEventListener('click', () => {
+      const invalid = [...pages[page].querySelectorAll(':invalid')]
+      const this_page = pages[page]
+      const next_page = pages[page = ((page + 1) % pages.length)]
+      const next_btn_text = next_page.dataset.btnText ?? 'Next Step'
+      if (invalid.length !== 0) {
+        return
+      }
+      this_page.style.display = 'none'
+      next_page.style.display = ''
+      btn_text.textContent = next_btn_text
 
-    if (page == pages.length - 1) {
-      btn.setAttribute('disabled', 'disabled')
-      atFormSend(form).then(x => {
-        btn.removeAttribute('disabled')
-        msg.textContent = x.message
-      })
-      return
-    }
-  })
-}
-
-call_back_form('form[name="call-back"]')
+      if (page == pages.length - 1) {
+        btn.setAttribute('disabled', 'disabled')
+        atFormSend(form).then(x => {
+          btn.removeAttribute('disabled')
+          msg.textContent = x.message
+        })
+        return
+      }
+    })
+  })('form[name="call-back"]')
 })
 </script>
 <div id="pre-footer" class="flex relative bg-white">

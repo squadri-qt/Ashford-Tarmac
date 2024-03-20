@@ -13,8 +13,9 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
 <script>
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-window.addEventListener('load', () => {
 gsap.registerPlugin(ScrollTrigger);
+
+window.addEventListener('load', () => {
 gsap.to(".btext", {
     x: 600,
     scrollTrigger: {
@@ -51,7 +52,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 observer.observe(targetDiv);
 
-const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
+const serviceSection2 = (selector, scroll_distance_factor) => {
     const trigger = document.querySelector('[data-at-snap=services]')
     const progress = trigger?.querySelector('[data-progress]')
 
@@ -81,7 +82,7 @@ const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
         tt_dur: []
     }
 
-    headers.forEach((h:HTMLDataElement, i) => {
+    headers.forEach((h, i) => {
         const service_id = h.dataset.atServiceId
         const images = [...trigger.querySelectorAll(`[data-at-service-img="${service_id}"]`)]
         const txt = trigger.querySelector(`[data-at-service-txt="${service_id}"]`)

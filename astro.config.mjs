@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
-import tailwind from "@astrojs/tailwind";
 import compress from "astro-compress";
 
 // https://astro.build/config
@@ -12,7 +11,8 @@ export default defineConfig({
   vite: {
     build: {
       assets: 'assets'
-      // assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
+      //assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
+      assetsInlineLimit: 16384
     }
   },
   site: 'https://at-gamma.vercel.app/',
