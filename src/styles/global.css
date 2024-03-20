@@ -24,7 +24,10 @@
 }
 
 @tailwind components;
-
+#home {
+  width: 10rem;
+  height: 3.167125rem;
+}
 a {
   color: #ED1C24;
   font-weight: 500;
