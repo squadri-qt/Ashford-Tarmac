@@ -10,6 +10,14 @@ section.at-page-section {
             color: var(--r);
         }
     }
+    &.black {
+        background:black;
+        border-color: rgb(43, 43, 43);
+        color: white;
+        & > div > header {
+            color: white;
+        }
+    }
     &.red {
         background:rgb(237, 28, 36);
         border-color: rgb(210, 19, 27);
@@ -27,10 +35,10 @@ section.at-page-section {
         }
     }
     > div {
-        width: calc(100% - 6rem + 2px);
+        width: calc((100% - 6rem));
         height: 100%;
         display: block;
-        margin: 0 calc(3em - 1px);
+        margin: 0 auto;
         border-left: 1px solid;
         border-right: 1px solid;
         border-color: inherit;
