@@ -5,7 +5,6 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
 import BlogArchive from '../components/BlogArchive.astro';
-import PageSection from '../components/PageSection.astro';
 const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
 const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
 const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
@@ -50,50 +49,11 @@ window.addEventListener('load', async () => {
     });
   });
   observer.observe(targetDiv);
-  // animation for the red background
-  const targetDiv = document.getElementById("target-div");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        gsap.to(targetDiv, {
-          duration: 1, // Adjust duration as needed
-          css: { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
-          ease: "power3.inOut" // Adjust easing if needed
-        });
-      }
-    });
-  });
-  observer.observe(targetDiv);
 
   const serviceSection2 = (selector:string, scroll_distance_factor:number) => {
       const trigger = document.querySelector('[data-at-snap=services]')
       const progress = trigger?.querySelector('[data-progress]')
 
-      if (!trigger || !progress) {
-          return
-      }
-      const headers = [...trigger?.querySelectorAll('[data-at-service-id]')]
-      const tl = gsap.timeline({
-          scrollTrigger: {
-              trigger,
-              pin: true,
-              start: 'top top',
-              scrub: 1,
-              end: () => `+=3000`
-          }
-      })
-      const st = tl.scrollTrigger
-      const update_progress = function() {
-          const percentage = `${Math.ceil(this.progress() * 100)}%`
-          progress.dataset.progress = percentage
-          progress.nextElementSibling.style.marginRight = `${Math.ceil((1 - this.progress()) * 100)}%`
-      }
-      const state = {
-          last_img: null,
-          last_txt: null,
-          pos: 0,
-          tt_dur: []
-      }
       if (!trigger || !progress) {
           return
       }
@@ -130,10 +90,6 @@ window.addEventListener('load', async () => {
               const st = tl.scrollTrigger
               window.scrollTo({top: st.labelToScroll(`hdr${h.dataset.atServiceId}`), behavior: 'smooth'});
           })
-          h.addEventListener('click', () => {
-              const st = tl.scrollTrigger
-              window.scrollTo({top: st.labelToScroll(`hdr${h.dataset.atServiceId}`), behavior: 'smooth'});
-          })
 
           tt.to(h, {color: 'red', duration: 0.01}, '<')
           if (i > 0) {
@@ -162,40 +118,7 @@ window.addEventListener('load', async () => {
           const tv = x.labels[tk] + x.startTime()
           tl.addLabel(tk, tv)
       })
-          tt.to(h, {color: 'red', duration: 0.01}, '<')
-          if (i > 0) {
-              tt.add(gsap.to(headers[i-1], {color: null, duration: 0}), '<')
-              tt.to(images[0], {display: 'inline-block', left: '0'}, '<')
-              tt.to(txt, {display: 'inline-block', left: '0', delay: 0.1}, '<')
-              tt.to(state.last_img, {display: 'none', duration: 0}, '<')
-              tt.to(state.last_txt, {display: 'none', duration: 0}, '<')
-          }
-          tt.addLabel(`hdr${service_id}`)
-          for (let k = 1; k < images.length; ++k) {
-              tt.to(images[k-1], {display: 'none', duration: 0}),
-              tt.to(images[k], {display: 'inline-block'}, '<')
-              state.last_img = images[k]
-          }
-          if (i < (headers.length - 1)) {
-              state.last_txt = txt
-              tt.to(state.last_img, {position: 'relative', left: '100%'}, '<')
-              tt.to(state.last_txt, {position: 'relative', left: '130%', delay: 0.15})
-          }
-          tl.add(tt)
-      })
-      
-      tl.getChildren(false, false, true).forEach(x => {
-          const tk = Object.keys(x.labels)[0]
-          const tv = x.labels[tk] + x.startTime()
-          tl.addLabel(tk, tv)
-      })
 
-      trigger.querySelector('[data-at-services-next]')?.addEventListener('click', () => {
-          state.pos = (state.pos + 1) % headers.length
-          window.scrollTo({top: st.labelToScroll(`hdr${state.pos + 1}`), behavior: 'smooth'});
-      })
-  }
-  serviceSection2('[data-at-snap=services]', 0.1)
       trigger.querySelector('[data-at-services-next]')?.addEventListener('click', () => {
           state.pos = (state.pos + 1) % headers.length
           window.scrollTo({top: st.labelToScroll(`hdr${state.pos + 1}`), behavior: 'smooth'});
@@ -256,45 +179,6 @@ window.addEventListener('load', async () => {
                   goto_tab(tabs, progressElement,  t, true)
               })
           })
-      const progress = function(progressElement, bar) {
-          progressElement.innerText = `${Math.round(this.progress() * 100)}%`
-      }
-      const goto_tab = (tabs, prg, index, bk) => {
-          tabs.forEach((tab, i) => {
-              const active = i === index
-              const flexGrow = active ? 1 : 0
-              const backgroundColor = active ? opt.hilite : ''
-              gsap.to(tab.tab, {flexGrow})
-              if (bk) {
-                  gsap.to(prg[i+1], {backgroundColor})
-              }
-          })
-      }
-      selectors.forEach(({root, progressElement, tabs}) => {
-          let active = 0
-          let tl = gsap.timeline()
-          const kill_tl = () => {
-              if (typeof tl !== 'undefined') {
-                  tl.kill()
-                  tl = undefined
-                  return true
-              }
-              return false
-          }
-          tabs.forEach(({tab}, i) => {
-              tl.to(progressElement[i + 1], {borderTop: '4rem solid red', duration: opt.delay / 1000, onUpdate: progress, onUpdateParams: [progressElement[0]]})
-              tl.set(progressElement[i + 1], {borderTop: '', onComplete: () => {
-                  active = (i + 1) % tabs.length
-                  goto_tab(tabs, progressElement, active, false)
-              }})
-          })
-          tabs.forEach(({tab, header}, t) => {
-              if (!header) return
-              header.addEventListener('click', () => {
-                  kill_tl()
-                  goto_tab(tabs, progressElement,  t, true)
-              })
-          })
 
           root.addEventListener('click', () => {
               gsap.set(progressElement[active + 1], {borderTop: '', duration:0})
@@ -303,17 +187,7 @@ window.addEventListener('load', async () => {
                   goto_tab(tabs, progressElement, active, true)
               }
           }, {once: true})
-          root.addEventListener('click', () => {
-              gsap.set(progressElement[active + 1], {borderTop: '', duration:0})
-              gsap.to(progressElement[0], {opacity: 0})
-              if (kill_tl()) {
-                  goto_tab(tabs, progressElement, active, true)
-              }
-          }, {once: true})
 
-          tl.repeat(-1)
-      })
-  }
           tl.repeat(-1)
       })
   }
@@ -355,19 +229,26 @@ window.addEventListener('load', async () => {
         </div>
     </div>
     <div class="flex flex-col flex-none items-center justify-start w-12 border-l border-gray-dark border-solid">
-      <p class="text-gray font-light text-lg h-5">100%</p>
-      <div class="min-w-0.5 min-h-16 bg-black"></div>
-      <div class="min-w-0.5 min-h-16 bg-gray"></div>
-      <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
-  </div>
+        <p class="text-gray font-light text-lg h-5">100%</p>
+        <div class="min-w-0.5 min-h-16 bg-black"></div>
+        <div class="min-w-0.5 min-h-16 bg-gray"></div>
+        <div class="min-w-0.5 min-h-16 bg-gray-dark"></div>
+    </div>
 </div>
 <Clients />
 <!-- Red section (about) -->
-<PageSection color="red" id="target-div" title="About Us"> 
+<div class="flex bg-red" id="target-div" data-at-snap>
+    <div class="border-r border-red-dark border-solid w-12 flex-none"></div>
     <div class="flex-1 flex-col items-center justify-center overflow-hidden">
+        <div class="flex flex-col items-start justify-center items-center py-6 bg-red">
+            <p class="v-copy3 pr-2">about us</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+            </svg>
+        </div>
         <div class="flex-col md:w-2/3">
             <h2 class="md:text-lg text-smh text-white pb-4 pt-12">Discover Our Kent Tarmac Legacy</h2>
-            <h4 class="md:text-6xl text-3xl font-light text-black">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
+            <h4 class="md:text-6xl text-3xl font-light">Ashford Tarmacadam Contractors is a Kent-based tarmac company with over 45 years of experience.</h4>
             <button class="bg-black hover:bg-white hover:text-black font-medium tracking-wide py-2 pl-4 pr-2 my-6 rounded-full flex items-center">
                 <a class=" text-white" href="/about">About Ashford Tarmac</a>
                 <span class="bg-red rounded-full p-2 ml-4">
@@ -383,10 +264,11 @@ window.addEventListener('load', async () => {
         </div>
         <div class="bg-white md:w-3/5 flex"><p>&nbsp;</p></div>
     </div>
-</PageSection>
+    <div class="border-l border-red-dark border-solid w-12 flex-none"></div>
+</div>
 <!-- Service section -->
-<PageSection color="white" data-at-snap="services">
-    <div slot="l" class="flex items-start justify-center border-r border-gray-light border-solid w-12">
+<div class="flex bg-white" data-at-snap="services">
+    <div class="flex items-start justify-center border-r border-gray-light border-solid w-12">
         <p class="v-copy text-gray py-2">New Driveways | Resurfacing Tarmac | Tarmac Repairs | Resin Bound & Bond</p>
     </div>
     <!-- Main -->
@@ -475,7 +357,7 @@ window.addEventListener('load', async () => {
     </div>
     <!-- Get estimate -->
     <EstimateForm />
-    <div slot="r">
+    <div class="flex flex-col items-start justify-center items-center pb-4 pt-12">
         <p class="v-copy2 pr-16">tarmac articles</p>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
@@ -495,7 +377,7 @@ window.addEventListener('load', async () => {
             </svg>
         </div>
     </div>
-</PageSection>
+</div>
 
 
 </BaseLayout>
