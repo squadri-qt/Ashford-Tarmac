@@ -3,7 +3,7 @@ const {title, items} = Astro.props
 ---
  <script>
 import {process_section} from '../scripts/animation'
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
 process_section('[data-at-pin]')
 })
 </script>

@@ -38,7 +38,7 @@ import Logo from "./Logo.astro"
 }
 </style>
 <script>
-  window.addEventListener('load', () => {
+  window.addEventListener('load', async () => {
     const get_active_nav_anchor = () => {
       const path = location.pathname
       return [...document.querySelectorAll('#main-nav > div > div > a')].find(el => {

@@ -13,7 +13,7 @@ const pageKeywords = "Explore Diverse Topics, Blog Articles, Driveways, Commerci
 <script>
   import { gsap } from 'gsap';
   import ScrollTrigger from 'gsap/ScrollTrigger';
-  window.addEventListener('load', () => {
+  window.addEventListener('load', async () => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(".btext", {
       x: 100,
