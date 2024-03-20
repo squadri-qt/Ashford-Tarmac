@@ -1,5 +1,6 @@
 ---
-title: Car 
+title: "University of Kent Car Park Resurfacing | Tarmac Project Case Study"
+title1: Car 
 title2: Park
 client: University of Kent
 location: Canterbury

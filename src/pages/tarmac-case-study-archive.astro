@@ -4,9 +4,9 @@ import Clients from '../components/Clients.astro';
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import RedLine from '../components/RedLine.astro';
-const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
-const pageDescription = "Transform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
-const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
+const pageTitle = "Tarmac Case Studies | Domestic, Commercial & Public Sector Projects";
+const pageDescription = "Explore our collection of tarmac case studies showcasing projects across domestic, commercial, and public sector clients. Get insights into our client satisfaction and experienced team.";
+const pageKeywords = "Tarmac Case Studies, Domestic Projects, Commercial Projects, Public Sector Projects, Client Satisfaction, Experienced Team";
 ---
 <BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
 <div class="flex bg-white">
@@ -19,7 +19,7 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
 			<p class="text-center text-black">This is a small selection of tarmac projects that we have completed across domestic, commercial and public sector clients.</p>
 		</div>
         <div class="w-full md:h-[47.75rem] bg-white grid md:grid-cols-4 md:grid-rows-4 grid-cols-2 grid-rows-6 gap-0.5 px-0.5">
-            <div class="row-span-1 col-span-1 rounded-lg bg-[url('/case-studies/gallery/carehome-resin-bound-project-1.webp')] bg-no-repeat"></div>
+            <div class="row-span-1 col-span-1 rounded-lg bg-[url('/case-studies/gallery/carehome-resin-bound-project-1.webp')] bg-no-repeat bg-cover"></div>
             <div class="row-span-1 col-span-1 rounded-lg bg-gray-dark p-4 text-white">
                 <a href="/casestudies/resin-bound-project-hawkhurst">
                 <h2 class="uppercase text-lg overflow-hidden whitespace-nowrap overflow-ellipsis text-white">commercial resin bound</h2>
@@ -32,7 +32,7 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
                 </button> 
                 </a>
             </div>
-            <div class="row-span-1 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-driveway-8-min.webp')] bg-no-repeat"></div>
+            <div class="row-span-1 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-driveway-8-min.webp')] bg-no-repeat bg-cover"></div>
             <div class="row-span-2 col-span-1 rounded-lg bg-gray-dark text-white p-4 lg:pt-52 md:pt-36">
                 <a href="/casestudies/domestic-tarmac-driveway-2">
                 <h2 class="uppercase text-lg text-white">Residential Driveway</h2>
@@ -45,8 +45,8 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
                 </button>
                 </a>
             </div>
-            <div class="row-span-2 col-span-1 rounded-lg bg-[url('/case-studies/gallery/big-tarmac-driveway.webp')] bg-no-repeat"></div>
-            <div class="row-span-2 col-span-2 rounded-lg bg-[url('/case-studies/gallery/national-trust-tarmac-project-1.webp')] bg-no-repeat text-white p-4 pt-52">
+            <div class="row-span-2 col-span-1 rounded-lg bg-[url('/case-studies/gallery/big-tarmac-driveway.webp')] bg-no-repeat bg-cover"></div>
+            <div class="row-span-2 col-span-2 rounded-lg bg-[url('/case-studies/gallery/national-trust-tarmac-project-1.webp')] bg-no-repeat bg-cover text-white p-4 pt-52">
                 <a href="/casestudies/national-trust-road-dover">
                 <h2 class="uppercase text-lg text-white">The National Trust</h2>
                 <RedLine />
@@ -88,7 +88,7 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
             </div>
         </div>
                   <!-- 2nd set of arhives -->
-                  <div class="w-full md:h-[47.75rem] bg-white grid md:grid-cols-4 md:grid-rows-4 grid-cols-2 grid-rows-6 gap-0.5 px-0.5 pt-0.5">
+                  <div class="w-full md:h-[60rem] bg-white grid md:grid-cols-4 md:grid-rows-5 grid-cols-2 grid-rows-9 gap-0.5 px-0.5 pt-0.5">
                     <!-- 2x1 -->
                     <div class="row-span-2 col-span-1 rounded-lg bg-gray-dark text-white p-4 lg:pt-52 md:pt-36">
                         <a href="/casestudies/bupa-tarmac-project-kent">
@@ -103,9 +103,9 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
                         </a>
                     </div>
                     <!-- 2x1 -->
-                    <div class="row-span-2 col-span-1 rounded-lg bg-[url('/case-studies/gallery/bupa-tarmac-project-3.webp')] bg-no-repeat bg-right"></div>
+                    <div class="row-span-2 col-span-1 rounded-lg bg-[url('/case-studies/gallery/bupa-tarmac-project-3.webp')] bg-no-repeat bg-cover bg-right"></div>
                     <!-- 1x2 -->
-                    <div class="row-span-1 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-driveway-3.webp')] bg-no-repeat"></div>
+                    <div class="row-span-1 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-driveway-3.webp')] bg-no-repeat bg-cover"></div>
                     <!-- 2x1 -->
                     <div class="row-span-2 col-span-1 rounded-lg bg-gray-dark p-4 text-white">
                         <a href="/casestudies/commercial-tarmac-contractor-kent">
@@ -133,7 +133,7 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
                         </a>
                     </div>
                     <!-- 1x1 -->
-                    <div class="row-span-1 col-span-1 rounded-lg bg-[url('/case-studies/gallery/tarmac-drive-3.webp')] bg-no-repeat"></div>
+                    <div class="row-span-1 col-span-1 rounded-lg bg-[url('/case-studies/gallery/tarmac-drive-3.webp')] bg-no-repeat bg-cover"></div>
                     <!-- 1x1 -->
                     <div class="row-span-1 col-span-1 rounded-lg bg-gray-dark p-4 text-white">
                         <a href="/casestudies/domestic-tarmac-driveway-2">
@@ -148,7 +148,22 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
                         </a>
                     </div>
                     <!-- 1x3 -->
-                    <div class="bg-gray-dark row-span-1 md:col-span-3 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-road-4.webp')] bg-no-repeat"></div>
+                    <div class="bg-gray-dark row-span-1 md:col-span-3 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-road-4.webp')] bg-no-repeat "></div>
+                    <!-- 2x1 -->
+                    <div class="row-span-1 col-span-2 rounded-lg bg-gray-dark p-4">
+                        <a href="/casestudies/national-trust-road-dover">
+                            <h2 class="uppercase text-lg text-white">Residential Driveway</h2>
+                            <RedLine />
+                            <span class="text-sm lg:text-[0.9rem] overflow-hidden max-h-[5em] line-clamp-3 text-white">This project involved the excavation and removal of an existing concrete driveway and replaced with new tarmac surface.</span>
+                            <button type="button" class="float-right text-white bg-red hover:bg-black focus:ring-4 focus:outline-none focus:ring-red font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-red dark:hover:bg-black dark:focus:ring-b ">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </button>
+                            </a>
+                    </div>
+                    <!-- 2x1 -->
+                    <div class="row-span-1 col-span-2 rounded-lg bg-[url('/case-studies/gallery/tarmac-driveway-3.webp')] bg-no-repeat bg-cover"></div>
                 </div>        
     </div>
     <div class="border-l border-gray-light border-solid w-12"></div>

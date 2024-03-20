@@ -1,5 +1,6 @@
 ---
-title: tarmac 
+title: "My Blog Post Title"
+title1: tarmac 
 title2: resurfacing
 client: Home Owner
 location: kent

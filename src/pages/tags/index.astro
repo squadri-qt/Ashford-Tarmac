@@ -6,9 +6,9 @@ import BlogArchive from '../../components/BlogArchive.astro';
 
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
-const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
-const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
+const pageTitle = "Explore Diverse Topics | Blog Articles on Driveways, Commercial Planning, Public Sector Spaces";
+const pageDescription = "Discover a range of insightful blog articles covering driveways, commercial planning, and public sector spaces. Get in touch with our experienced team for more information.";
+const pageKeywords = "Explore Diverse Topics, Blog Articles, Driveways, Commercial Planning, Public Sector Spaces, Experienced Team";
 ---
 <script>
   import { gsap } from 'gsap';

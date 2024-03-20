@@ -1,5 +1,6 @@
 ---
-title: tarmac 
+title: "Domestic Tarmac Driveway Project | Excavation, Replacement, and Decorative Edging"
+title1: tarmac 
 title2: driveway
 client: Home Owner
 location: kent
@@ -9,7 +10,7 @@ heroImage:
     url: "/case-studies/domestic-driveway-1/tarmac-driveway-8-min.webp"
     alt: "Driveway Property Price Increase Kent"
 quoteImage:
-    url: "/case-studies/domestic-driveway-1/tarmac-driveway-5-min.webp"
+    url: "/case-studies/domestic-driveway-1/tarmac-driveway-7-min.webp"
     alt: "Driveway Property Price Increase Kent"
 tags: ["driveway,", "tarmac, ", "border, ","Binder & Surface Course ",]
 sortOrder: 4

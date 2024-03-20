@@ -2,10 +2,11 @@
 import { getCollection } from "astro:content";
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/BlogPost.astro';
+import RedLine from '../components/RedLine.astro';
 
-const pageTitle = "Top-Quality Tarmac Services | New Driveways, Resurfacing, Repairs in Kent";
-const pageDescription = "ransform your vision into reality with our top-quality tarmac services. Specialising in new driveways, resurfacing, repairs, and resin bound & bond services. Contact us for a tarmac estimate today!";
-const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repairs, resin bound services, bond services, kent";
+const pageTitle = "Tarmac Services in Kent | Blog Articles on Driveways, Resurfacing, Repairs";
+const pageDescription = "Explore insightful blog articles on top-quality tarmac services in Kent. Learn about driveways, resurfacing, repairs, and how they can add value to your property. Contact us for expert advice!";
+const pageKeywords = "Tarmac Services, Kent, Blog Articles, Driveways, Resurfacing, Repairs, Property Value, Expert Advice";
 
 const allPosts = await getCollection("posts");
 ---
@@ -14,8 +15,12 @@ const allPosts = await getCollection("posts");
 	<div class="flex bg-white pt-24">
 		<div class="border-r border-gray-light border-solid w-12"></div>
 			<div class="flex-1 flex-col items-center justify-center">
-				<h1 class="pb-6">{pageTitle}</h1>
-				<ul>
+				<div class="md:w-2/5 mx-auto pb-12">
+					<h1 class="text-center uppercase">Blog Archive</h1>
+					<RedLine />
+					<p class="text-center text-black">Take a look at the blog articles that are relavent to you from commercial, domestic and public sectors.</p>
+				</div>
+				<ul class="">
 					{allPosts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)}
 				</ul>
 			</div>

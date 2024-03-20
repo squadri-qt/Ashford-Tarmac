@@ -1,5 +1,6 @@
 ---
-title: Resin 
+title: Resin Bound Driveway Project in Hawkhurst, Kent | Natural Gravel Surface Replacement
+title1: Resin 
 title2: Bound
 client: Care Home
 location: hawkhurst, kent

@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 import { getCollection } from "astro:content";
 import RedLine from "../../components/RedLine.astro";
-
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
 

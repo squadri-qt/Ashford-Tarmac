@@ -21,6 +21,7 @@ const caseStudiesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    title1: z.string(),
     title2: z.string(),
     location: z.string(),
     client: z.string(),
@@ -34,7 +35,7 @@ const caseStudiesCollection = defineCollection({
       url: z.string(),
       alt: z.string()
     }),
-    tags: z.array(z.string())
+    tags: z.array(z.string()),
   })
 });
 // Export a single `collections` object to register your collection(s)

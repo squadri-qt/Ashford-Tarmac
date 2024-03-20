@@ -1,5 +1,7 @@
 ---
-title: Tarmac 
+title: "My Blog Post Title"
+description: "This is a short description of my blog post."
+title1: Tarmac 
 title2: Path
 client: Private Hospital
 location: kent
@@ -13,7 +15,6 @@ quoteImage:
     alt: "Driveway Property Price Increase Kent"
 tags: ["Block Edging Kerbs,", "Driveway, ", "Block Paviors, ","care home ",]
 sortOrder: 4
-
 ---
 The works for this project involved the replacement of existing concrete slab footpaths. The paving slabs had become very slippery and uneven, an extreme hazard especially for elderly people. We removed all the existing paving slabs and disposed of them to tip. New Tanalised Timber Edging was installed to all sides of the footpath areas. All existing manhole covers which required adjusting were raised to suit the new levels. 
 
