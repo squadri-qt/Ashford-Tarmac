@@ -20,8 +20,8 @@ const { pageKeywords } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <description>{pageDescription}</description>
-    <keywords>{pageKeywords}</keywords>
+    {pageDescription && <meta name="description" content={pageDescription} />}
+    {pageKeywords && <meta name="keywords" content={pageKeywords} />}
     { /* Google Tag Manager */
     Config.googleTagManager &&
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
