@@ -248,23 +248,7 @@ const process_section = (selector) => {
     on_media(wmm.matches)
 }
 
-const roller_anim = (trigger_selector, dist, selector) => {
-    const trigger = document.querySelector(trigger_selector)
-    const svg_container = document.querySelector(`${selector} > object`)
-    const svg = svg_container.getSVGDocument()
-    if (svg) {
-        const roller = svg.getElementById('at-roller')
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger,
-                start: 'bottom bottom',
-                scrub: 1,
-                end: 'bottom 50%'
-            }
-        })
-        tl.to(roller, {x:69, y:39.75, duration: 3})
-    }
-}
+
 
 const how_we_work_roller = (options) => {
     const opt = {
@@ -293,4 +277,4 @@ const how_we_work_roller = (options) => {
     tl.to(tarmac, {width: '100%', duration: opt.tarmac}, '<')
 }
 
-export {gsap, scrolltrigger_text, service_tabs, fliptastic, process_section, roller_anim, how_we_work_roller}
+export {gsap, scrolltrigger_text, service_tabs, fliptastic, process_section, how_we_work_roller}
