@@ -10,13 +10,13 @@ export default defineConfig({
   },
   vite: {
     build: {
-      assets: 'assets'
+      assets: 'assets',
       //assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
       assetsInlineLimit: 16384
     }
   },
   site: 'https://at-gamma.vercel.app/',
-  integrations: [preact(), compress()],
+  integrations: [preact(), compress({Exclude: ['roller-anim.svg', 'clients.svg']})],
   prefetch: {
     prefetchAll: true
   }
