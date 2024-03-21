@@ -1,11 +1,17 @@
-class ScrollBar {
-  static scrollY:number = 0
-  static scrollMaxY:number = 0
-  static has_handler = false
+let scrollbar
 
-  static scroll_handler() {
-    ScrollBar.scrollY = window.scrollY
+class ScrollBar {
+  scrollY:number = 0
+  scrollMaxY:number = 0
+  has_handler = false
+
+  scroll_handler() {
+    this.scrollY = window.scrollY
   }
+}
+
+function get_scrollbar() {
+  return (scrollbar ??= new ScrollBar)
 }
 
 class Target {
@@ -26,8 +32,9 @@ class Target {
    * @param timestamp 
    */
   static handle_frame(this: Target, timestamp: DOMHighResTimeStamp) {
-    if (ScrollBar.scrollY !== this.scrollY) {
-      this.scrollY = ScrollBar.scrollY
+    const sb = get_scrollbar()
+    if (sb.scrollY !== this.scrollY) {
+      this.scrollY = sb.scrollY
       this.timestamp = timestamp
       //if (timestamp - this.timestamp_layout > 50) {
       this.rect = this.element.getBoundingClientRect()
@@ -45,16 +52,19 @@ class Target {
   }
 }
 
+let scrolltrigger
 class ScrollTrigger {
-  static instance_list = {}
-  static roots = new Map()
-  static observer = new window.IntersectionObserver(ScrollTrigger.handle_callback, { root: null, rootMargin: '0px', threshold: 0 })
-  static targets = new WeakMap()
-  static scroll_id = null
+  instance_list = {}
+  roots = new Map()
+  observer = new window.IntersectionObserver(ScrollTrigger.handle_callback, { root: null, rootMargin: '0px', threshold: 0 })
+  targets = new WeakMap()
+  scroll_id = null
 
-  static handle_entry(entry: IntersectionObserverEntry) {
-    const target = ScrollTrigger.targets.get(entry.target)
+  static get_instance() {
+    return (scrolltrigger ??= new ScrollTrigger)
+  }
 
+  static handle_entry(entry: IntersectionObserverEntry, target: Target) {
     if (!target) {
       console.error('Could not find target', entry.target)
       return
@@ -72,10 +82,15 @@ class ScrollTrigger {
   }
 
   static handle_callback(entries: IntersectionObserverEntry[]) {
-    entries.forEach(ScrollTrigger.handle_entry)
+    const st = ScrollTrigger.get_instance()
+    for (let i = 0; i < entries.length; ++i) {
+      ScrollTrigger.handle_entry(entries[i], st.targets.get(entries[i].target))
+    }
   }
 
   static create(selector: Element | string | null, callback: Function): Target | null {
+    const st = ScrollTrigger.get_instance()
+    const sb = get_scrollbar()
     if (typeof selector === "string") {
       selector = document.querySelector(selector)
     }
@@ -85,14 +100,14 @@ class ScrollTrigger {
     target.element = selector as HTMLDataElement
     target.callback = callback
     target.onFrame = Target.handle_frame.bind(target)
-    this.targets.set(selector, target)
-    this.observer.observe(target.element)
-    if (!ScrollBar.has_handler) {
-      ScrollBar.has_handler = true
-      window.addEventListener('scroll', ScrollBar.scroll_handler)
+    st.targets.set(selector, target)
+    st.observer.observe(target.element)
+    if (!sb.has_handler) {
+      sb.has_handler = true
+      window.addEventListener('scroll', sb.scroll_handler.bind(sb))
     }
     return target
   }
 }
 
-export { ScrollTrigger }
+export {ScrollBar, Target, ScrollTrigger}

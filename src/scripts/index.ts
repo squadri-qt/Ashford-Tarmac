@@ -1,5 +1,5 @@
 import { getGsap } from './gsap';
-await (async () => {
+export default async () => {
   const gsap = getGsap()
   gsap.to(".btext", {
       x: 600,
@@ -180,4 +180,4 @@ await (async () => {
   }
 
   at_sliding_tabs()
-})()
+}

@@ -2,7 +2,10 @@
 const {class: classList} = Astro.props
 import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 ---
-<script src="../scripts/form-estimate" />
+<script>
+import estimate_form from '../scripts/form-estimate'
+await estimate_form()
+</script>
 <div class={classList}>
 <!-- rotated red text -->
 <a id="tarmac-estimate" tabindex="-1"/>

@@ -3,10 +3,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Config from '../../site.config'
 import '../styles/global.css';
+
 const { pageTitle } = Astro.props;
 const { pageDescription } = Astro.props;
 const { pageKeywords } = Astro.props;
-
 ---
 <style>
   html:has(#main-nav:focus) {
@@ -44,11 +44,11 @@ const { pageKeywords } = Astro.props;
     <Header />
     <slot />
     <Footer />
-    <script type="module">
+    <script is:inline type="module">
     (() => {
-          const path = location.pathname
+          const path = location.pathname.trimEnd('/')
           return Array.prototype.slice.call(document.querySelectorAll('#main-nav > div > div > a')).find(el => {
-            return el.getAttribute('href') == path || el.dataset.prefix && path.startsWith(el.dataset.prefix)
+            return el.getAttribute('href').trimEnd('/') == path || el.dataset.prefix && path.startsWith(el.dataset.prefix)
           })
     })()?.classList.add('at-active')
     </script>

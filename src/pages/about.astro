@@ -8,7 +8,10 @@ const pageTitle = "Ashford Tarmac Contractors - Your Trusted Tarmac Contractor |
 const pageDescription = "Discover why AT is your trusted tarmac contractor. Our expert advice and client testimonials speak volumes about our commitment to quality and customer satisfaction.";
 const pageKeywords = "Tarmac Contractor, Expert Advice, Client Testimonials, Quality Service, Customer Satisfaction";
 ---
-<script src="../scripts/about.ts" />
+<script>
+import about from '../scripts/about'
+await about()
+</script>
 <BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
 <!-- hero section -->
 <div class="flex bg-black bg-[url('/blk_symb.svg')] bg-bottom bg-right bg-no-repeat">

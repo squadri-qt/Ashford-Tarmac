@@ -1,6 +1,6 @@
 import {getGsap} from '../scripts/gsap'
 
-await (async () => {
+export default async () => {
   const gsap = getGsap()
   const fliptastic = (selector, options) => {
     const opt = {duration: 0.25, easeIn: 'sine.in', easeOut: 'sine.out', ...(options ?? {})}
@@ -186,4 +186,4 @@ await (async () => {
   how_we_work_sections()
   fliptastic("[data-at-flip]", {duration: 0.125});
   how_we_work_roller({offset: '-=5000'});
-})()
+}

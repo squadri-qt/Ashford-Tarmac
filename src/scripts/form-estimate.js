@@ -15,7 +15,7 @@ function next(steps, active, btn) {
     return {active: next, submit: typeof steps[active].element.dataset.formSubmit !== 'undefined'}
 }
 
-async function initGetEstimate(selector, on_result) {
+function initGetEstimate(selector, on_result) {
     document.querySelectorAll(selector).forEach(root => {
         const form = root.closest('form')
         const nextBtn = root.querySelector('button')
@@ -54,8 +54,10 @@ async function initGetEstimate(selector, on_result) {
     })
 }
 
-await initGetEstimate('#at-estimate-steps', (root) => {
-  const {success, message} = root.result
-  root.btn.firstElementChild.textContent = success ? 'Thank You' : 'Try Again';
-  (document.querySelector('.at-form-message') ?? {textContent: ''}).textContent = message
-})
+export default async function() {
+  initGetEstimate('#at-estimate-steps', (root) => {
+    const {success, message} = root.result
+    root.btn.firstElementChild.textContent = success ? 'Thank You' : 'Try Again';
+    (document.querySelector('.at-form-message') ?? {textContent: ''}).textContent = message
+  })
+}
