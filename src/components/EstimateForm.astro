@@ -4,7 +4,7 @@ import GetEstimateBtn from '../components/GetEstimateBtn.astro';
 ---
 <script>
 import estimate_form from '../scripts/form-estimate'
-await estimate_form()
+(async () => await estimate_form())()
 </script>
 <div class={classList}>
 <!-- rotated red text -->

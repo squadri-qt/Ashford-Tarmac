@@ -10,9 +10,9 @@ const pageKeywords = "Tarmac services, new driveways, resurfacing, tarmac repair
 ---
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription} pageKeywords={pageKeywords}>
 <!-- hero section -->
-<script>
+<script is:inline type="module">
 import index from '../scripts/index'
-await index()
+(async () => await index())()
 </script>
 <div class="flex">
     <div class="flex flex-none items-center justify-center border-r border-gray-dark border-solid w-12"></div>

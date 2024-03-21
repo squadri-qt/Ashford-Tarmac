@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import compress from "astro-compress";
+import esbuild from 'rollup-plugin-esbuild'
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
     build: {
       assets: 'assets',
       //assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
-      //assetsInlineLimit: 32768
+      assetsInlineLimit: 16384
     }
   },
   site: 'https://at-gamma.vercel.app/',
