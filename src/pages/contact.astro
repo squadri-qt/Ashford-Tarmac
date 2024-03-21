@@ -19,39 +19,36 @@ const pageKeywords = "Tarmac Contractor, Kent, Contact Us, Expert Advice, Experi
   }
 </style>
 <script>
-    //import {scrolltrigger_text} from '../scripts/animation'
-    import {atFormSend} from '../scripts/form'
-    import {ScrollTrigger} from '../scripts/scroll-trigger'
+  import {atFormSend} from '../scripts/form'
+  import {ScrollTrigger} from '../scripts/scroll-trigger'
 
-    window.addEventListener('load', async () => {
-      (() => {
-        const hero = document.getElementById('hero')
-        const h1 = document.getElementById('hero1')
-        const h2 = document.getElementById('hero2')
-        if (!hero || !h1 || !h2) return
-        const st1 = ScrollTrigger.create(hero, function() {
-          h1.style.setProperty('--at-progress', this.progress)
-          h2.style.setProperty('--at-progress', this.progress)
-        })
-      })()
-      /*
-      scrolltrigger_text(document.querySelector('[data-at-scroll]'), ...document.querySelectorAll('[data-at-scroll-pos]'))
-      */
-
-      const btn = document.querySelector('#contact-btn')
-      btn?.addEventListener('click', () => {
-        const form = btn.closest('form')
-        const message = form?.querySelector('.at-form-response')
-        atFormSend(form).then(res => {
-          if (res.success) {
-            form?.reset()
-          }
-          if (message && res.message) {
-              message.textContent = res.message;
-          }
-        }).catch();
-      })
+  await (async () => {
+    const hero = document.getElementById('hero')
+    const h1 = document.getElementById('hero1')
+    const h2 = document.getElementById('hero2')
+    if (!hero || !h1 || !h2) return
+    const st1 = ScrollTrigger.create(hero, function() {
+      h1.style.setProperty('--at-progress', this.progress)
+      h2.style.setProperty('--at-progress', this.progress)
     })
+    /*
+    scrolltrigger_text(document.querySelector('[data-at-scroll]'), ...document.querySelectorAll('[data-at-scroll-pos]'))
+    */
+
+    const btn = document.querySelector('#contact-btn')
+    btn?.addEventListener('click', () => {
+      const form = btn.closest('form')
+      const message = form?.querySelector('.at-form-response')
+      atFormSend(form).then(res => {
+        if (res.success) {
+          form?.reset()
+        }
+        if (message && res.message) {
+            message.textContent = res.message;
+        }
+      }).catch();
+    })
+  })()
 </script>
 <BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
 <!-- hero section -->

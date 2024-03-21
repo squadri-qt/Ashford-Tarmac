@@ -16,7 +16,7 @@ export default defineConfig({
     }
   },
   site: 'https://at-gamma.vercel.app/',
-  integrations: [preact(), compress({Exclude: ['roller-anim.svg', 'clients.svg']})],
+  integrations: [preact(), compress({Exclude: ['ashford-tarmac-logo.svg', 'roller-anim.svg', 'clients.svg']})],
   prefetch: {
     prefetchAll: true
   }

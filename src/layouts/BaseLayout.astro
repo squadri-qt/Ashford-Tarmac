@@ -44,5 +44,13 @@ const { pageKeywords } = Astro.props;
     <Header />
     <slot />
     <Footer />
+    <script type="module">
+    (() => {
+          const path = location.pathname
+          return Array.prototype.slice.call(document.querySelectorAll('#main-nav > div > div > a')).find(el => {
+            return el.getAttribute('href') == path || el.dataset.prefix && path.startsWith(el.dataset.prefix)
+          })
+    })()?.classList.add('at-active')
+    </script>
   </body>
 </html>

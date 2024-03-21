@@ -11,10 +11,9 @@ const pageDescription = "Discover a range of insightful blog articles covering d
 const pageKeywords = "Explore Diverse Topics, Blog Articles, Driveways, Commercial Planning, Public Sector Spaces, Experienced Team";
 ---
 <script>
-  import { gsap } from 'gsap';
-  import ScrollTrigger from 'gsap/ScrollTrigger';
-  window.addEventListener('load', async () => {
-    gsap.registerPlugin(ScrollTrigger);
+  import { getGsap } from '../../scripts/gsap';
+  await (async () => {
+    const gsap = getGsap()
     gsap.to(".btext", {
       x: 100,
       scrollTrigger: {
@@ -25,8 +24,7 @@ const pageKeywords = "Explore Diverse Topics, Blog Articles, Driveways, Commerci
         markers:false,
       },
     });
-    observer.observe(targetDiv);
-  })
+  })()
 </script>
 <BaseLayout pageTitle = {pageTitle}, pageDescription = {pageDescription}, pageKeywords = {pageKeywords}>
   <div class="flex bg-white" id="target-div">

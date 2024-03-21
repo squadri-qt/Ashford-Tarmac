@@ -37,17 +37,7 @@ import Logo from "./Logo.astro"
   }
 }
 </style>
-<script>
-  window.addEventListener('load', async () => {
-    const get_active_nav_anchor = () => {
-      const path = location.pathname
-      return [...document.querySelectorAll('#main-nav > div > div > a')].find(el => {
-        return el.getAttribute('href') == path || el.dataset.prefix && path.startsWith(el.dataset.prefix)
-      })
-    }
-    get_active_nav_anchor()?.classList.add('at-active')
-  })
-</script>
+{/* script is at bottom of BaseLayout.astro */}
 <nav class="block py-4 w-full z-[999] bg-[rgba(12,9,9,0.9)] lg:bg-transparent relative">
   <div class="block absolute top-0 px-2 pt-6 lg:hidden">
     <a class="flex items-center px-2 py-2 border rounded text-white border-white hover:text-red hover:border-red" href="#main-nav">
@@ -55,12 +45,10 @@ import Logo from "./Logo.astro"
     </a>
   </div>
   {/*}<div class="absolute w-full h-[1px] bg-[rgba(255,255,0,0.5)] top-[3.45rem]"></div>*/}
-  <div class="w-full h-[4.125rem] text-center z-[-1]"><a href="/" class="lg:relative lg:z-[100]"><img class="inline-block w-[15.445rem] h-[4.125rem] p-2 align-middle box-border relative" src="/ashford-tarmac-logo-dark.svg" alt="The best Tarmac Contractor in Kent" width="293" height="63" /></a></div>
+  <div class="w-full h-[4.125rem] text-center z-[-1]"><a href="/" class="lg:relative lg:z-[100]"><svg width="293.324" height="63.459" class="inline-block w-[15.445rem] h-[4.125rem] p-2 align-middle box-border relative"><use xlink:href="/ashford-tarmac-logo.svg#ld" /></svg></a></div>
   <div id="main-nav" class="absolute w-full h-0 focus:h-[100vh] has-[a:focus]:h-full lg:h-[1rem] lg:focus:h-[1rem] lg:has-[a:focus]:h-[1rem] left-0 top-0 lg:top-[3.125rem] px-4 lg:px-0 transition-all duration-500 box-border block overflow-hidden lg:overflow-visible flex-grow bg-[rgba(0,0,0,0.95)] lg:bg-transparent z-50 lg:flex text-[0.9rem] tracking-wider text-justify" tabindex="0">
     <button class="absolute w-8 h-8 right-7 top-6 border-none bg-none p-2 text-white lg:hidden ml-auto mr-0">X</button>
-    <a href="/" class="absolute inline-block w-16 h-16 left-10 top-4 lg:hidden">
-      <img id="nav-home-2" class="inline-block w-16 h-16 p-2 align-middle box-border" src="/ashford-tarmac-symbol-dark.svg" alt="The best Tarmac Contractor in Kent" width="228" height="210" />
-    </a>
+    <a href="/" class="absolute inline-block w-16 h-16 left-10 top-4 lg:hidden"><svg id="nav-home-2" class="inline-block w-16 h-16 p-2 align-middle box-border" width="228" height="210"><use xlink:href="/ashford-tarmac-logo.svg#sd" /></svg></a>
     <div class="pt-24 px-8 lg:pt-0 lg:px-0 lg:flex lg:flex-grow lg:w-full lg:whitespace-nowrap lg:items-center lg:justify-between leading-8 lg:leading-normal">
       <div class="lg:flex lg:flex-1 lg:justify-start lg:gap-6 lg:max-w-[calc(50%_-_6rem)] lg:relative">
         <a class="block w-full lg:w-auto lg:inline-block lg:mt-0 text-white hover:text-gray uppercase text-3xl font-bolder lg:text-[0.9rem] tracking-[0.05rem]" href="/">Home</a>
