@@ -1,5 +1,5 @@
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap/src/index';
+import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
 let reg:(GSAP|undefined)
 

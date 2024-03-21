@@ -1,5 +1,7 @@
 ---
-const {id, bg1="red", bg2="black", fg1="white", fg2=fg1, arrow="black", text="Get a Tarmac Estimate", href="/tarmac-case-study-archive#tarmac-estimate"} = Astro.props
+import type { Code } from "astro:components"
+
+const {id, class:classList, bg1="red", bg2="black", fg1="white", fg2=fg1, arrow="black", text="Get a Tarmac Estimate", type="link", href="/tarmac-case-study-archive#tarmac-estimate"} = Astro.props
 const btnClassList = [
     `bg-${bg1}`,
     `hover:bg-${bg2}`,
@@ -9,8 +11,10 @@ const btnClassList = [
 const arrowClassList = [
     `bg-${arrow}`
 ]
+const Tag = {link: 'a', anchor: 'a'}[type] ?? 'button'
+const href_attr = Tag === 'button' ? {type} : {href}
 ---
-<a id={id} href={href} class:list={["w-[15.5rem] inline-block text-white hover:text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full at-estimate-btn text-white", ...btnClassList]}>
+<Tag id={id} {...href_attr} class:list={["w-[15.5rem] inline-block text-white hover:text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full at-estimate-btn text-white", ...btnClassList, classList]}>
     <span class="flex items-center">
         <span class="flex-1 text-center">{text}</span>
         <span class:list={["rounded-full p-2 ml-4 flex-none", ...arrowClassList]}>
@@ -19,4 +23,4 @@ const arrowClassList = [
             </svg>
         </span>
     </span>
-</a>
+  </Tag>
