@@ -12,12 +12,10 @@ export default defineConfig({
     build: {
       assets: 'assets',
       //assetsInlineLimit: 0 /* CSP. May hurt page speed becuase fetch resource */,
-      assetsInlineLimit: 16384
+      //assetsInlineLimit: 32768
     }
   },
   site: 'https://at-gamma.vercel.app/',
   integrations: [preact(), compress({Exclude: ['ashford-tarmac-logo.svg', 'roller-anim.svg', 'clients.svg']})],
-  prefetch: {
-    prefetchAll: true
-  }
+  prefetch: false
 });

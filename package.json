@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.5.9",
     "@astrojs/preact": "^3.1.0",
     "@astrojs/rss": "^4.0.1",
     "@astrojs/tailwind": "^5.1.0",
@@ -17,10 +18,11 @@
     "astro-compress": "^2.2.15",
     "gsap": "^3.12.5",
     "preact": "^10.19.3",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3"
   },
   "devDependencies": {
     "less": "^4.2.0",
-    "postcss-import": "^16.0.1"
+    "postcss-import": "^16.1.0"
   }
 }
