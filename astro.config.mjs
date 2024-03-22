@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import compress from "astro-compress";
-import esbuild from 'rollup-plugin-esbuild'
 
 // https://astro.build/config
 export default defineConfig({

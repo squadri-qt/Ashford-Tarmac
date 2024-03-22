@@ -39,14 +39,14 @@ const pageKeywords = "Explore Diverse Topics, Blog Articles, Driveways, Commerci
           <div class="tags flex flex-wrap pt-16">
             {tags.map((tag) => (
             <div class="mr-4 btext">
-              <button type="button" class="bg-red hover:bg-black text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full flex items-center at-estimate-btn">
+              <span class="bg-red hover:bg-black text-white font-medium tracking-wide py-1 pl-4 pr-1 my-6 rounded-full flex items-center at-estimate-btn">
                 <span><a class="text-white hover:text-white capitalize" href={`/tags/${tag}`}>{tag}</a></span>
                 <span class="bg-black rounded-full p-2 ml-4 hover:bg-red">
                     <svg class="text-white font-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                     </svg>
                 </span>
-              </button>
+              </span>
             </div>
             ))}
           </div>
