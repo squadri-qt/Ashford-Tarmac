@@ -17,8 +17,8 @@ const currentYear = new Date().getFullYear();
         <h3 class="py-4">Article Tags</h3>
         <div class="text-white flex flex-wrap pr-8">
             {tags.map((tag) => (
-            <div class="bg-black rounded grow-0 px-2 m-1 hover:bg-red">
-            <a class="text-white hover:text-white uppercase text-xs tracking-[0.07rem] font-bold align-text-top" href={`/tags/${tag}`}>{tag}</a>
+            <div class="bg-black rounded grow-0 px-3 m-1 py-0.5 hover:bg-red">
+            <a class="text-white hover:text-white uppercase text-xs tracking-[0.08rem] font-bold align-text-top" href={`/tags/${tag}`}>{tag}</a>
             </div>
             ))}
         </div>
