@@ -82,25 +82,22 @@ import pre_footer from '../scripts/pre-footer'
                             <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">Choose a time...</span>
                         </div>
                         <div class="col-span-1">
-                            <label>
-                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="time" placeholder="Time" name="time" required />
-                            </label>
+                              <label for="time" class="sr-only">Time</label>
+                              <input id="time" class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="time" placeholder="Time" name="time" required />
                         </div>
                         <div class="col-span-1">
-                          <label>
-                            <select class="w-14 h-10 border border-black rounded-lg p-2 uppercase text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none bg-white " name="meridiem" required>
+                          <label for="am" class="sr-only">AM/PM</label>
+                            <select id="am" class="w-14 h-10 border border-black rounded-lg p-2 uppercase text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none bg-white " name="meridiem" required>
                               <option>AM</option>
                               <option>PM</option>
                             </select>
-                          </label>
                         </div>
                         <div class="col-span-2 flex items-end h-6">
                           <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">and date:</span>
                         </div>
                         <div class="col-span-2">
-                            <label>
-                              <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="date" placeholder="Date" name="date" required />
-                            </label>
+                          <label for="date" class="sr-only">Date</label>
+                              <input id="date" class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="date" placeholder="Date" name="date" required />
                         </div>
                     </div>
                     <div class="grid grid-cols-2 row-[1] w-full pt-4 gap-2 justify-start items-start" data-btn-text="Submit" style="display:none">
@@ -108,9 +105,8 @@ import pre_footer from '../scripts/pre-footer'
                           <span class="md:text-[0.9rem] font-bolder tracking-wide font-bold">Telephone no.</span>
                       </div>
                       <div class="col-span-2">
-                          <label>
-                            <input class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="tel" placeholder="Telephone" name="tel" required />
-                          </label>
+                        <label for="tel" class="sr-only">Tel</label>
+                            <input id="tel" class="w-full h-10 border border-black rounded-lg p-2 text-center text-base text-black font-bold focus:border-gray focus:border-2 focus:outline-none appearance-none" type="tel" placeholder="Telephone" name="tel" required />
                       </div>
                    </div>
                    <div class="grid grid-cols-2 w-full pt-4 gap-2 h-full" data-btn-text="Reset" style="display:none">
