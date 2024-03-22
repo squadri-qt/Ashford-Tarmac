@@ -27,7 +27,8 @@ import estimate_form from '../scripts/form-estimate'
                 </nav>
                 <div class="at-step at-step-active pt-12" data-button-text="Next">
                     <div class="relative">
-                        <select class="w-72 h-14 border border-gray bg-gray-dark rounded-xl pl-4 text-base text-white font-bold appearance-none" name="client" required>
+                        <label for="client" class="sr-only">Client Type</label>
+                        <select id="client" class="w-72 h-14 border border-gray bg-gray-dark rounded-xl pl-4 text-base text-white font-bold appearance-none" name="client" required>
                           <option value="Domestic">Domestic</option>
                           <option value="Commercial">Commercial</option>
                           <option value="Public Sector">Public Sector</option>
@@ -63,9 +64,8 @@ import estimate_form from '../scripts/form-estimate'
                         </label>
                     </div>
                     <div class="pt-2">
-                        <label>
-                            <input class="w-72 h-14 border border-gray bg-gray-dark rounded-lg p-4 mb-3 text-base text-white font-bold focus:border-red focus:border-2 focus:outline-none" type="file" name="attachment" />
-                        </label>
+                        <label for="attachment" class="sr-only">Optional File Attachment</label>
+                        <input id="attachment" class="w-72 h-14 border border-gray bg-gray-dark rounded-lg p-4 mb-3 text-base text-white font-bold focus:border-red focus:border-2 focus:outline-none" type="file" name="attachment" />
                     </div>
                 </div>
                 <div class="at-step" data-button-text="Please wait">

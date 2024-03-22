@@ -8,11 +8,6 @@ const { pageTitle } = Astro.props;
 const { pageDescription } = Astro.props;
 const { pageKeywords } = Astro.props;
 ---
-<style>
-  html:has(#main-nav:focus) {
-    overflow:hidden;
-  }
-</style>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -22,6 +17,11 @@ const { pageKeywords } = Astro.props;
     <title>{pageTitle}</title>
     {pageDescription && <meta name="description" content={pageDescription} />}
     {pageKeywords && <meta name="keywords" content={pageKeywords} />}
+    <style>
+      html:has(#main-nav:focus) {
+        overflow:hidden;
+      }
+    </style>
     { /* Google Tag Manager */
     Config.googleTagManager &&
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
