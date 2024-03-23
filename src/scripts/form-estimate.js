@@ -10,7 +10,7 @@ function next(steps, active, btn) {
     steps[next].element.classList.add(classNames.active)
     const btnText = steps[next].element.dataset.buttonText
     if (typeof btnText !== 'undefined') {
-        btn.firstElementChild.textContent = btnText
+        btn.firstElementChild.firstElementChild.textContent = btnText
     }
     return {active: next, submit: typeof steps[active].element.dataset.formSubmit !== 'undefined'}
 }
@@ -57,7 +57,7 @@ function initGetEstimate(selector, on_result) {
 export default async function() {
   initGetEstimate('#at-estimate-steps', (root) => {
     const {success, message} = root.result
-    root.btn.firstElementChild.textContent = success ? 'Thank You' : 'Try Again';
+    root.btn.firstElementChild.firstElementChild.textContent = success ? 'Thank You' : 'Try Again';
     (document.querySelector('.at-form-message') ?? {textContent: ''}).textContent = message
   })
 }
