@@ -179,5 +179,7 @@ export default async () => {
       })
   }
 
-  at_sliding_tabs()
+  at_sliding_tabs();
+
+  [...document.querySelectorAll('img[loading="lazy"]')].forEach(x => x.removeAttribute('loading'))
 }
