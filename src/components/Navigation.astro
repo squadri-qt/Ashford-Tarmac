@@ -1,5 +1,5 @@
 ---
-import Logo from "./Logo.astro"
+
 ---
 <style>
   #main-nav > div > div > a {
@@ -9,13 +9,14 @@ import Logo from "./Logo.astro"
 
   #main-nav > div > div > a::before {
     color:white;
-    transition: width left opacity 0.5s;
+    transition-property: width,left,opacity;
+    transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0.02, -2, 0.08, 2);
     opacity: 0;
     content: ' ';
     position:absolute;
     left:50%;
-    bottom:-0.2rem;
+    bottom:0.35rem;
     width:0;
     height:1px;
     border-bottom:1px solid var(--r);
@@ -41,11 +42,11 @@ import Logo from "./Logo.astro"
 <nav class="block py-4 w-full z-[999] bg-[rgba(12,9,9,0.9)] lg:bg-transparent relative">
   <div class="block absolute top-0 px-2 pt-6 lg:hidden">
     <a title="mobile menu" class="flex items-center px-2 py-2 border rounded text-white border-white hover:text-red hover:border-red" href="#main-nav">
-      <svg alt="mobile menu" class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
     </a>
   </div>
-  {/*}<div class="absolute w-full h-[1px] bg-[rgba(255,255,0,0.5)] top-[3.45rem]"></div>*/}
-  <div class="w-full h-[4.125rem] text-center z-[-1]"><a href="/" title="Ashford Tarmac Log and Home Link" class="lg:relative lg:z-[100]"><svg width="293.324" height="63.459" class="inline-block w-[15.445rem] h-[4.125rem] p-2 align-middle box-border relative" alt="Ashford Tarmac Log and Home Link"><use xlink:href="/ashford-tarmac-logo.svg#ld" /></svg></a></div>
+  {/*<div class="absolute w-full h-[1px] bg-[rgba(255,255,0,0.5)] top-[4.45rem]"></div>*/}
+  <div class="w-full h-[4.125rem] text-center z-[-1]"><a href="/" title="Ashford Tarmac Log and Home Link" class="lg:relative lg:z-[100]"><svg width="293.324" height="63.459" class="inline-block w-[15.445rem] h-[4.125rem] p-2 align-middle box-border relative"><use xlink:href="/ashford-tarmac-logo.svg#ld" /></svg></a></div>
   <div id="main-nav" class="absolute w-full h-0 focus:h-[100vh] has-[a:focus]:h-full lg:h-[1rem] lg:focus:h-[1rem] lg:has-[a:focus]:h-[1rem] left-0 top-0 lg:top-[3.125rem] px-4 lg:px-0 transition-all duration-500 box-border block overflow-hidden lg:overflow-visible flex-grow bg-[rgba(0,0,0,0.95)] lg:bg-transparent z-50 lg:flex text-[0.9rem] tracking-wider text-justify" tabindex="0">
     <button class="absolute w-8 h-8 right-7 top-6 border-none bg-none p-2 text-white lg:hidden ml-auto mr-0" title="Close">X</button>
     <a href="/" title="home link" class="absolute inline-block w-16 h-16 left-10 top-4 lg:hidden"><svg id="nav-home-2" class="inline-block w-16 h-16 p-2 align-middle box-border" width="228" height="210"><use xlink:href="/ashford-tarmac-logo.svg#sd" /></svg></a>
