@@ -89,7 +89,7 @@ export default {
           'gray-border': '#3A3A3A',
           'gray': '#8E8E8E',
           'gray-light': '#F2F2F2',
-          'red': '#af1010',
+          'red': '#ED1C24',
           'red-dark': '#D2131B',
         },
         width: {
