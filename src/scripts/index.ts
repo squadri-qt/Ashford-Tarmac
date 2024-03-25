@@ -78,7 +78,7 @@ export default async () => {
               window.scrollTo({top: st.labelToScroll(`hdr${h.dataset.atServiceId}`), behavior: 'smooth'});
           })
 
-          tt.to(h, {color: 'red', duration: 0.01}, '<')
+          tt.to(h, {color: 'var(--r)', duration: 0.01}, '<')
           if (i > 0) {
               tt.add(gsap.to(headers[i-1], {color: null, duration: 0}), '<')
               tt.to(images[0], {display: 'inline-block', left: '0'}, '<')
@@ -116,7 +116,7 @@ export default async () => {
   const at_sliding_tabs = () => {
       const opt = {
           delay: 5000,
-          hilite: 'red'
+          hilite: 'var(--r)'
       }
       const selectors = [...document.querySelectorAll('[data-at-sliding-tabs]')].map(root => ({
           root,
@@ -153,7 +153,7 @@ export default async () => {
               return false
           }
           tabs.forEach(({tab}, i) => {
-              tl.to(progressElement[i + 1], {borderTop: '4rem solid red', duration: opt.delay / 1000, onUpdate: progress, onUpdateParams: [progressElement[0]]})
+              tl.to(progressElement[i + 1], {borderTop: '4rem solid var(--r)', duration: opt.delay / 1000, onUpdate: progress, onUpdateParams: [progressElement[0]]})
               tl.set(progressElement[i + 1], {borderTop: '', onComplete: () => {
                   active = (i + 1) % tabs.length
                   goto_tab(tabs, progressElement, active, false)
