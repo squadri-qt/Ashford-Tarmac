@@ -27,17 +27,14 @@ import estimate_form from '../scripts/form-estimate'
                 </nav>
                 <div class="at-step at-step-active pt-12" data-button-text="Next">
                     <div class="relative">
-                        <label for="client" class="sr-only">Client Type</label>
-                        <select id="client" class="w-72 h-14 border border-gray bg-gray-dark rounded-xl pl-4 text-base text-white font-bold appearance-none" name="client" required>
-                          <option value="Domestic">Domestic</option>
-                          <option value="Commercial">Commercial</option>
-                          <option value="Public Sector">Public Sector</option>
-                        </select>
-                        <div class="absolute inset-y-0 right-32 flex items-center justify-center px-4 pointer-events-none">
-                          <svg class="w-10 h-10 fill-current text-red" viewBox="0 0 20 20">
-                            <path d="M10 12l-6-6h12l-6 6z" />
-                          </svg>
-                        </div>
+                        <span class="at-sel-arrow">
+                          <label for="client" class="sr-only">Client Type</label>
+                          <select id="client" class="w-72 h-14 border border-gray bg-gray-dark rounded-xl pl-4 text-base text-white font-bold appearance-none at-sel-arrow" name="client" required>
+                            <option value="Domestic">Domestic</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Public Sector">Public Sector</option>
+                          </select>
+                        </span>
                     </div>
                 </div>
                 <div class="at-step" data-button-text="Next">
